@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Ghost : MonoBehaviour
 {
-    private AudioSource screamSoundPlayer;
+    public AudioSource screamSoundPlayer;
     public AudioClip screamSound;
+    public AudioClip CrySound;
     private Knife knife;
     public bool alreadyDest = false;
     private void Awake() {
@@ -33,11 +34,15 @@ public class Ghost : MonoBehaviour
             knife.getKnifeEvent -= Scream;
         }
     }
+    public void Cry()
+    {
+        screamSoundPlayer.PlayOneShot(CrySound);
+    }
 
     IEnumerator ScreamIEnum()
     {
         screamSoundPlayer.PlayOneShot(screamSound);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         transform.GetChild(0).gameObject.SetActive(false);
         gameObject.SetActive(false);
 

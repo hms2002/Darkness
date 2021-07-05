@@ -3128,7 +3128,7 @@ GameObject:
   - component: {fileID: 781275775}
   - component: {fileID: 781275774}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: StairDoorTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11022,7 +11022,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7e53d48cb1859245bc8bd484e721a6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  screamSoundPlayer: {fileID: 0}
   screamSound: {fileID: 8300000, guid: 07ec68ff5b6aa4844bddeccb57b11467, type: 3}
+  CrySound: {fileID: 8300000, guid: 3d780dea1b52f6649a39bda09b14d014, type: 3}
   alreadyDest: 0
 --- !u!65 &2103697778
 BoxCollider:

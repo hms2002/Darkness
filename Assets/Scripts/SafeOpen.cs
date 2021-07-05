@@ -40,7 +40,10 @@ public class SafeOpen : MonoBehaviour
     void Close()
     {
         this.GetComponent<Renderer>().material.color = Color.white;
-        if(isOpen)
-        door.Interact();
+        if(isOpen == true)
+        {
+            door.Interact();
+            isOpen = false;
+        }
     }
 }

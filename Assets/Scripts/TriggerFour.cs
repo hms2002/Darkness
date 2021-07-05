@@ -14,6 +14,7 @@ public class TriggerFour : MonoBehaviour
         {
             ghost.SetActive(true);
             ghost.transform.GetChild(0).gameObject.SetActive(true);
+            ghost.GetComponent<Ghost>().Cry();
             gameObject.SetActive(false);
         }
     }
