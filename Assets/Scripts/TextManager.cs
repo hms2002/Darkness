@@ -18,7 +18,7 @@ public class TextManager : MonoBehaviour
 
     private string[] stairScenario = 
     {
-        "이게 무슨 소리지? 일단 잠시 밖으로 나가자",
+        "발소리가 들린다, 잠시 밖으로 나가자",
         "일단 밖으로 나가자"
     };
 
