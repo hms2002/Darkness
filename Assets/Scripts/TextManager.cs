@@ -13,6 +13,7 @@ public class TextManager : MonoBehaviour
         "열리지 않아. 문을 열 수 있는 방법을 찾아보자",
         "열쇠가 필요해",
         "열쇠는 아마 마네킹이 있는 방의 금고 안에 있을 거야",
+        "칼은 여기 없어"
     };
 
     private string[] stairScenario = 

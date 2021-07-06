@@ -10,10 +10,13 @@ public class Safe : MonoBehaviour, IItem
     public Color Idle; 
     public SafeOpen safeOpen;
     public Inventory inventory;
+    private TextManager textManager;
     public bool canUse = false;
+    private bool isOn = false;
     
     private void Start() {
         isPressed = false;
+        textManager = FindObjectOfType<TextManager>();
         inventory = FindObjectOfType<Inventory>();
         inventory.useKnife += CanUse;
     }
@@ -43,10 +46,23 @@ public class Safe : MonoBehaviour, IItem
             }
             safeOpen.Interact();
         }
+        else{
+            if(isOn == false)
+            {
+                isOn = true;
+                textManager.DoorTextOn(4);
+                StartCoroutine("IsOnFalse");
+            }
+        }
     }
     public void CanUse()
     {
         canUse = true;
     }
 
+    IEnumerator IsOnFalse()
+    {
+        yield return new WaitForSeconds(2);
+        isOn = false;
+    }
 }
