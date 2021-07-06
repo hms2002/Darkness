@@ -31,7 +31,9 @@ public class TextManager : MonoBehaviour
     private string[] otherScenario = 
     {
         "날이 상해 있다",
-        "피비린내가 난다"
+        "피비린내가 난다",
+        "식탁에 놓기",
+        "맛있는 고기다"
     };
     #endregion
     private void Start() {
@@ -52,6 +54,14 @@ public class TextManager : MonoBehaviour
         {
             transform.GetChild(0).gameObject.SetActive(true);
             text.text = mannequinScenario[scriptNum];
+        }
+    }
+    public void MeatSetting()
+    {        
+        if(isTextOn == false)
+        {
+            transform.GetChild(0).gameObject.SetActive(true);
+            text.text = otherScenario[2];
         }
     }
     

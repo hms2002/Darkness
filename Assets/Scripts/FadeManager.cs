@@ -14,6 +14,7 @@ public class FadeManager : MonoBehaviour
         inventory  = FindObjectOfType<Inventory>();
         inventory.useKnife += FadeWepon;
         inventory.useRope += FadeWepon;
+        inventory.useGun += FadeWepon;
     }
 
     public void FadeIn()

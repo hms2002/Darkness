@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Ghost : MonoBehaviour
 {
-    public AudioSource screamSoundPlayer;
+    private AudioSource screamSoundPlayer;
     public AudioClip screamSound;
     public AudioClip CrySound;
     private Knife knife;

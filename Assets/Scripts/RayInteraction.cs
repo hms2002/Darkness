@@ -6,6 +6,7 @@ public class RayInteraction : MonoBehaviour
 {
     private Camera playerCam;
     private float distance = 4.5f;
+    public bool eatDesk = false;
     private RaycastHit hit;
     private Inventory inv;
     private TextManager textManager;
@@ -52,6 +53,29 @@ public class RayInteraction : MonoBehaviour
                 inv.StingSuspendShot();
             }
             inv.isMannquin = true;
+        }
+        else if(eatDesk)
+        {
+            if(Physics.Raycast(rayOrigin, rayDir, out hit, distance, 1 << (LayerMask.NameToLayer("EatDesk"))))
+            {
+                textManager.MeatSetting();
+                GameObject hitObject = hit.collider.gameObject;
+                if(Input.GetKeyDown(KeyCode.E))
+                {
+                    if(hitObject == null)
+                    {
+                        Debug.Log("!");
+                        return;
+                    }
+                    IItem item = hitObject.GetComponent<IItem>();
+                    if(item == null)
+                    {
+                        Debug.Log("!!");
+                        return;
+                    }
+                    item.Interact();
+                }
+            }
         }
         else
         {

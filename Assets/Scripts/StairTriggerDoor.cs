@@ -80,7 +80,7 @@ public class StairTriggerDoor : MonoBehaviour, IItem
             textManager.DoorTextOn(1);      
             nextStageWall.SetActive(false);
             firstTriggerPlus.SetActive(false);
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(4f);
             doorSoundPlayer.PlayOneShot(kWANGSound2);
             handLightOn.LightOn();
             directionLight.SetActive(false);
