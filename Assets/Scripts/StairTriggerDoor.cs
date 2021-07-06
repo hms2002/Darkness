@@ -8,6 +8,7 @@ public class StairTriggerDoor : MonoBehaviour, IItem
     public bool isTriggerAndDoor = false;
     public bool onceOpen = true;
     public bool isOnlyDoor = true;
+    public bool isTriggerAndDoorOn = false;
 
     public float Rotate = 90/60f;
     bool isOpen = false;
@@ -70,20 +71,38 @@ public class StairTriggerDoor : MonoBehaviour, IItem
                         yield return new WaitForSeconds(0.01f); 
                     }
                     isOpen = true;
+                    ismove = false;
                 }
             }
             yield break;
         }
-        if(isTriggerAndDoor)
+        if(isTriggerAndDoor && isTriggerAndDoorOn == false)
         {
-            doorSoundPlayer.PlayOneShot(kWANGSound);
-            textManager.DoorTextOn(1);      
-            nextStageWall.SetActive(false);
-            firstTriggerPlus.SetActive(false);
-            yield return new WaitForSeconds(4f);
-            doorSoundPlayer.PlayOneShot(kWANGSound2);
-            handLightOn.LightOn();
-            directionLight.SetActive(false);
+            if(ismove == false)
+            {
+                ismove = true;
+                doorSoundPlayer.PlayOneShot(kWANGSound);
+                textManager.DoorTextOn(1);      
+                nextStageWall.SetActive(false);
+                firstTriggerPlus.SetActive(false);
+                yield return new WaitForSeconds(4f);
+                doorSoundPlayer.PlayOneShot(kWANGSound2);
+                handLightOn.LightOn();
+                directionLight.SetActive(false);
+                ismove = false;
+                isTriggerAndDoorOn = true;
+            }
+        }
+        else if(isTriggerAndDoorOn && isTriggerAndDoor)
+        {
+            if(ismove == false)
+            {
+                ismove = true;
+                doorSoundPlayer.PlayOneShot(kWANGSound);
+                textManager.DoorTextOn(1);      
+                yield return new WaitForSeconds(2f);
+                ismove = false;
+            }
         }
         if(isOnlyDoor)
         {

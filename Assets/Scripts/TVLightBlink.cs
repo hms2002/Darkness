@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TVLightBlink : MonoBehaviour
+public class TVLightBlink : MonoBehaviour, IItem
 {
     private AudioSource TVSoundPlayer;
     public AudioClip TVNoise;
+    private bool isOn = true;
 
     private void Start() {
      TVSoundPlayer = GetComponent<AudioSource>();   
@@ -16,6 +17,15 @@ public class TVLightBlink : MonoBehaviour
     {
         TVSoundPlayer.Play(22050);
         StartCoroutine("ITVLightBlinking");
+        isOn = true;
+    }
+
+    public void Interact()
+    {
+        if(isOn)
+        {
+            StopLight();
+        }
     }
 
 
