@@ -57,6 +57,7 @@ public class Meat : MonoBehaviour, IItem
         yield return new WaitForSeconds(1.5f);
         pibot2.transform.GetChild(0).gameObject.SetActive(true);
         textManager.OtherTextOn(3);
+        rayInteraction.eatDesk = false;
         gameObject.SetActive(false);
     }
 }
