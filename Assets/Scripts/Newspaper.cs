@@ -65,11 +65,11 @@ public class Newspaper : MonoBehaviour, IItem
 
     public void Interact()
     {
+        Player.GetComponent<FirstPersonController>().enabled = false;
         blawScreen.transform.GetChild(0).gameObject.SetActive(true);
         transform.GetChild(0).gameObject.SetActive(false);
         conversationText.text = "<space>";
         letGoNextScene = true;
-        Player.GetComponent<FirstPersonController>().enabled = false;
     }
     IEnumerator GoSceneLater()
     {
