@@ -11,11 +11,6 @@ public class SceneGameManager : MonoBehaviour
 
     public void GoScene3()
     {
-        SceneManager.LoadScene("BeforeDarkness");
-    }
-
-    public void GoScene4()
-    {
         SceneManager.LoadScene("SampleScene");
     }  
 }

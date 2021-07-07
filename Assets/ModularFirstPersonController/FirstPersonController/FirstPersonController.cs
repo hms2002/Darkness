@@ -165,7 +165,6 @@ public class FirstPersonController : MonoBehaviour
         {
             crosshairObject.gameObject.SetActive(false);
         }
-
         #region Sprint Bar
 
         sprintBarCG = GetComponentInChildren<CanvasGroup>();
@@ -204,7 +203,7 @@ public class FirstPersonController : MonoBehaviour
     {
         #region Camera
 
-        // Control camera movement
+        
         if(cameraCanMove)
         {
             yaw = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * mouseSensitivity;
@@ -362,12 +361,13 @@ public class FirstPersonController : MonoBehaviour
         {
             HeadBob();
         }
+        
     }
 
     void FixedUpdate()
     {
         #region Movement
-
+        
         if (playerCanMove)
         {
             // Calculate how fast we should be moving
@@ -437,7 +437,7 @@ public class FirstPersonController : MonoBehaviour
                 rb.AddForce(velocityChange, ForceMode.VelocityChange);
             }
         }
-
+        
         #endregion
     }
 
