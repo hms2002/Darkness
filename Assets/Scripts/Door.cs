@@ -7,6 +7,8 @@ public class Door : MonoBehaviour, IItem
     public float Rotate = 90/60f;
     bool isOpen = false;
     bool ismove = false;
+    bool isTriggerStart = false;
+    bool isTextOn = false;
     private AudioSource doorSoundPlayer;
     public AudioClip openSound;
     public AudioClip closeSound;
@@ -20,6 +22,16 @@ public class Door : MonoBehaviour, IItem
     {
         StartCoroutine("Thi");
     }
+    public void TriggerStart()
+    {
+        
+        isTriggerStart = true;
+        if(isOpen == true)
+        {
+            StartCoroutine("Thi");
+        }
+    }
+
 
     IEnumerator Thi()
     {

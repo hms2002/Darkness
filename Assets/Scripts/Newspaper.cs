@@ -36,27 +36,12 @@ public class Newspaper : MonoBehaviour, IItem
                 switch(cnt)
                 {
                     case 1:
-                        Panel.transform.GetChild(2).gameObject.SetActive(true);
-                        ScriptText.text = "최근 벌어진 연쇄 살인 사건의 용의자가 살고 있었던 것으로 추정되는 집에 귀신이 나온다는 소문이 확산되고 있다...";
-                    break;
-                    case 2:
                         ScriptText.gameObject.SetActive(false);
                         conversationText.gameObject.SetActive(false);
                         blawScreen.transform.GetChild(0).gameObject.SetActive(false);
                         Player.GetComponent<FirstPersonController>().enabled = true;
-                    break;
-                    case 3:
                         NewsDownText.gameObject.SetActive(true);
-                        NewsDownText.text = "...";
-                    break;
-                    case 4:
-                        NewsDownText.text = "가볼까?";
-                    break;
-                    case 5:
-                        newspapper.gameObject.SetActive(false);
-                        NewsDownText.text = "";
-                        fadeManager.FadeIn();
-                        StartCoroutine("GoSceneLater");
+                        StartCoroutine("IT");
                     break;
                 }
             }
@@ -70,10 +55,24 @@ public class Newspaper : MonoBehaviour, IItem
         transform.GetChild(0).gameObject.SetActive(false);
         conversationText.text = "<space>";
         letGoNextScene = true;
+        Panel.transform.GetChild(2).gameObject.SetActive(true);
+        ScriptText.text = "최근 벌어진 연쇄 살인 사건의 용의자가 살고 있었던 것으로 추정되는 집에 귀신이 나온다는 소문이 확산되고 있다...";
+                   
     }
     IEnumerator GoSceneLater()
     {
         yield return new WaitForSeconds(1.5f);
         sceneGameManager.GoScene3();
+    }
+    IEnumerator IT()
+    {
+        NewsDownText.text = "...";
+        yield return new WaitForSeconds(2);
+        NewsDownText.text = "가볼까?";
+        yield return new WaitForSeconds(2);
+        newspapper.gameObject.SetActive(false);
+        NewsDownText.text = "";
+        fadeManager.FadeIn();
+        StartCoroutine("GoSceneLater");
     }
 }
