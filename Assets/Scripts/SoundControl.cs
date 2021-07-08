@@ -25,13 +25,31 @@ public class SoundControl : MonoBehaviour
         Debug.DrawRay(rayOrigin, rayDir * 2, Color.green);
         if(Physics.Raycast(rayOrigin, rayDir, out hit, 100f, (1 << (LayerMask.NameToLayer("Player")) | 1 << (LayerMask.NameToLayer("Buliding")))))
         {
-            Debug.Log(hit.transform.gameObject.tag);
             if(!(hit.transform.CompareTag("Player")))
             {
-                gameObject.GetComponent<AudioSource>().volume = smallVol;
+                if((0 < Player.transform.position.y - transform.position.y && Player.transform.position.y - transform.position.y < 5) || (-5 < Player.transform.position.y - transform.position.y && Player.transform.position.y - transform.position.y < 0))
+                {
+                    if(smallVol < originVolum)
+                    {
+                        gameObject.GetComponent<AudioSource>().volume -= smallVol * Time.deltaTime * 0.7f;
+                        originVolum = GetComponent<AudioSource>().volume;
+                    }
+                    else
+                    {
+                        gameObject.GetComponent<AudioSource>().volume = smallVol;
+                        originVolum = GetComponent<AudioSource>().volume;
+                    }   //fdsf
+                }
+                else{
+                    gameObject.GetComponent<AudioSource>().volume = 0.1f;
+                }
             }
             else{
-                gameObject.GetComponent<AudioSource>().volume = 1f;
+                if(gameObject.GetComponent<AudioSource>().volume != 1f)
+                {
+                    gameObject.GetComponent<AudioSource>().volume += smallVol * Time.deltaTime * 0.7f;
+                    originVolum = GetComponent<AudioSource>().volume;
+                }
             }
         }
 

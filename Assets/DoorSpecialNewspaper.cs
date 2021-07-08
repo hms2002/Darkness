@@ -14,7 +14,7 @@ public class DoorSpecialNewspaper : MonoBehaviour, IItem
     public AudioClip openSound;
     public AudioClip closeSound;
     public AudioClip kWANGSound;
-    public TextManager textManager;
+    private TextManager textManager;
     private void Start() {
         textManager = FindObjectOfType<TextManager>();
         doorSoundPlayer = GetComponent<AudioSource>();

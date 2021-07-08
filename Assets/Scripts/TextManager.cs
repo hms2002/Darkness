@@ -14,7 +14,7 @@ public class TextManager : MonoBehaviour
         "열쇠가 필요해",
         "열쇠는 아마 마네킹이 있는 방의 금고 안에 있을 거야",
         "칼은 여기 없어",
-        "열리지 않아"
+        "열리지 않아.."
     };
 
     private string[] stairScenario = 
@@ -35,7 +35,8 @@ public class TextManager : MonoBehaviour
         "날이 상해 있다",
         "피비린내가 난다",
         "식탁에 놓기",
-        "맛있는 고기다"
+        "맛있는 고기다",
+        "켜지지 않는다"
     };
     #endregion
     private void Start() {

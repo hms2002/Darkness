@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Meat : MonoBehaviour, IItem
 {
-    private bool canSet = false;
-    private bool canEat = false;
+    public bool canSet = false;
+    public bool canEat = false;
     private TextManager textManager;
     private FadeManager fadeManager;
     private Inventory inventory;
@@ -51,10 +51,10 @@ public class Meat : MonoBehaviour, IItem
         this.transform.SetParent(pibot2.transform);
         transform.localPosition = new Vector3(0, 0, 0); 
         canEat = true;
-    }
+    }//fd
     IEnumerator ISetActice()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2.5f);
         pibot2.transform.GetChild(0).gameObject.SetActive(true);
         textManager.OtherTextOn(3);
         rayInteraction.eatDesk = false;

@@ -76,6 +76,11 @@ public class RayInteraction : MonoBehaviour
                     item.Interact();
                 }
             }
+            else
+            {
+                inv.isMannquin = false;
+                textManager.TextClose();
+            } 
         }
         else
         {

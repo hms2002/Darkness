@@ -10,12 +10,18 @@ public class Door : MonoBehaviour, IItem
     bool isTriggerStart = false;
     bool isTextOn = false;
     private AudioSource doorSoundPlayer;
+    private Inventory inventory;
+    private TextManager textManager;
     public AudioClip openSound;
     public AudioClip closeSound;
+    public AudioClip kWANGSound;
 
 
     private void Start() {
         doorSoundPlayer = GetComponent<AudioSource>();
+        textManager = FindObjectOfType<TextManager>();
+        inventory = FindObjectOfType<Inventory>();
+        inventory.useRope += TriggerStart;
     }
 
     public void Interact()
@@ -35,34 +41,48 @@ public class Door : MonoBehaviour, IItem
 
     IEnumerator Thi()
     {
-        if(ismove == false)
+        if(isTriggerStart && isOpen == false)
         {
-            if(isOpen == false)
+            if(isTextOn == false)
             {
-                doorSoundPlayer.PlayOneShot(openSound);
-                ismove = true;
-                for(int i = 0; i < 60; i++)
-                {
-                    transform.Rotate(new Vector3(0, Rotate, 0));
-
-                    yield return new WaitForSeconds(0.01f); 
-                }
-                ismove = false;
-                isOpen = true;
+                isTextOn = true;
+                doorSoundPlayer.PlayOneShot(kWANGSound);
+                textManager.DoorTextOn(5);
+                yield return new WaitForSeconds(2.5f);
+                isTextOn = false;
             }
-            else
+        }
+        else if(isTriggerStart == false || isOpen == true)
+        {
+            if(ismove == false)
             {
-                doorSoundPlayer.PlayOneShot(closeSound);
-                ismove = true;
-                for(int i = 0; i < 60; i++)
+                if(isOpen == false)
                 {
-                    transform.Rotate(new Vector3(0, -Rotate, 0));
+                    doorSoundPlayer.PlayOneShot(openSound);
+                    ismove = true;
+                    for(int i = 0; i < 60; i++)
+                    {
+                        transform.Rotate(new Vector3(0, Rotate, 0));
 
-                    yield return new WaitForSeconds(0.01f); 
+                        yield return new WaitForSeconds(0.01f); 
+                    }
+                    ismove = false;
+                    isOpen = true;
                 }
-                ismove = false;
-                isOpen = false;
-            }
+                else
+                {
+                    doorSoundPlayer.PlayOneShot(closeSound);
+                    ismove = true;
+                    for(int i = 0; i < 60; i++)
+                    {
+                        transform.Rotate(new Vector3(0, -Rotate, 0));
+
+                        yield return new WaitForSeconds(0.01f); 
+                    }
+                    ismove = false;
+                    isOpen = false;
+                }
+            }   
         }
     }
 }

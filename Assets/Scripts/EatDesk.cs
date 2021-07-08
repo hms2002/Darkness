@@ -15,6 +15,7 @@ public class EatDesk : MonoBehaviour, IItem
         {
             meat.SettingMeat();
             isOnce = false;
+            this.gameObject.layer = 6;
         }
     }
 }

@@ -2603,6 +2603,7 @@ MonoBehaviour:
   Rotate: -1.5
   openSound: {fileID: 8300000, guid: b9a67585eb23caa4e9e10ede313fd9c2, type: 3}
   closeSound: {fileID: 8300000, guid: 60e3f16439b3c1c40b6081370869ff22, type: 3}
+  kWANGSound: {fileID: 0}
 --- !u!65 &483653625
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4627,7 +4628,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2535252792561588116, guid: bca71ac4ce5e2a246baf822f0829ec3b, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2535252792561588116, guid: bca71ac4ce5e2a246baf822f0829ec3b, type: 3}
       propertyPath: m_TagString
@@ -7710,6 +7711,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TVNoise: {fileID: 8300000, guid: 5ef59c73a026eac4ea4c9f79e9e3cb9d, type: 3}
+  CheckOn: {fileID: 8300000, guid: a826f5fdb17e7694f9bbca4711360de8, type: 3}
 --- !u!4 &1252083334
 Transform:
   m_ObjectHideFlags: 0
@@ -7746,9 +7748,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 50
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -7781,7 +7783,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -10586,6 +10588,7 @@ MonoBehaviour:
   Rotate: 1.5
   openSound: {fileID: 8300000, guid: 169b3f41119392c42901d51a79a8a50d, type: 3}
   closeSound: {fileID: 8300000, guid: 7fe54f655a1f42544a1a878dc36f76fc, type: 3}
+  kWANGSound: {fileID: 8300000, guid: 3dad0ec7bb71e7242ab21480a60006de, type: 3}
 --- !u!65 &1852710875
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11227,6 +11230,7 @@ MonoBehaviour:
   Rotate: 1.5
   openSound: {fileID: 8300000, guid: 169b3f41119392c42901d51a79a8a50d, type: 3}
   closeSound: {fileID: 8300000, guid: 7fe54f655a1f42544a1a878dc36f76fc, type: 3}
+  kWANGSound: {fileID: 8300000, guid: 3dad0ec7bb71e7242ab21480a60006de, type: 3}
 --- !u!114 &1920468272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12308,6 +12312,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81ec36863db34fc469977bf9e00681a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canSet: 0
+  canEat: 0
   meatEatSound: {fileID: 8300000, guid: 7ec73d9515e064e4a995959e6e20959c, type: 3}
 --- !u!65 &2024005210
 BoxCollider:
@@ -12506,6 +12512,7 @@ GameObject:
   - component: {fileID: 2065942204}
   - component: {fileID: 2065942203}
   - component: {fileID: 2065942207}
+  - component: {fileID: 2065942208}
   m_Layer: 6
   m_Name: SpecialNewspaperDoor
   m_TagString: Building
@@ -12604,10 +12611,105 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rotate: 1.5
-  openSound: {fileID: 0}
-  closeSound: {fileID: 0}
-  kWANGSound: {fileID: 0}
-  textManager: {fileID: 0}
+  openSound: {fileID: 8300000, guid: 169b3f41119392c42901d51a79a8a50d, type: 3}
+  closeSound: {fileID: 8300000, guid: 7fe54f655a1f42544a1a878dc36f76fc, type: 3}
+  kWANGSound: {fileID: 8300000, guid: 3dad0ec7bb71e7242ab21480a60006de, type: 3}
+--- !u!82 &2065942208
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065942202}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2067887678
 GameObject:
   m_ObjectHideFlags: 0
@@ -12645,6 +12747,7 @@ MonoBehaviour:
   Rotate: -1.5
   openSound: {fileID: 8300000, guid: b9a67585eb23caa4e9e10ede313fd9c2, type: 3}
   closeSound: {fileID: 8300000, guid: 60e3f16439b3c1c40b6081370869ff22, type: 3}
+  kWANGSound: {fileID: 0}
 --- !u!65 &2067887680
 BoxCollider:
   m_ObjectHideFlags: 0

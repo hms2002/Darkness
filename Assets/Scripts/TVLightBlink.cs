@@ -6,9 +6,13 @@ public class TVLightBlink : MonoBehaviour, IItem
 {
     private AudioSource TVSoundPlayer;
     public AudioClip TVNoise;
+    public AudioClip CheckOn;
+    private TextManager textManager;
     private bool isOn = true;
+    private bool isTextOn = false;
 
     private void Start() {
+     textManager = FindObjectOfType<TextManager>();
      TVSoundPlayer = GetComponent<AudioSource>();   
      TVSoundPlayer.clip = TVNoise;
     }
@@ -16,6 +20,7 @@ public class TVLightBlink : MonoBehaviour, IItem
     public void LightBlink()
     {
         TVSoundPlayer.Play(22050);
+        TVSoundPlayer.loop = true;
         StartCoroutine("ITVLightBlinking");
         isOn = true;
     }
@@ -25,6 +30,17 @@ public class TVLightBlink : MonoBehaviour, IItem
         if(isOn)
         {
             StopLight();
+        }
+        else
+        {
+            if(isTextOn == false)
+            {
+                isTextOn = true;
+                TVSoundPlayer.PlayOneShot(CheckOn);
+                TVSoundPlayer.loop = false;
+                textManager.OtherTextOn(4);
+                StartCoroutine("isTextFalse");
+            }
         }
     }
 
@@ -40,10 +56,17 @@ public class TVLightBlink : MonoBehaviour, IItem
         }
     }
 
+    IEnumerator isTextFalse()
+    {
+        yield return new WaitForSeconds(2.5f);
+        isTextOn = false;
+    }
+
     public void StopLight()
     {
         TVSoundPlayer.Stop();
         StopCoroutine("ITVLightBlinking");
         transform.GetChild(0).gameObject.SetActive(false);
+        isOn = false;
     }
 }
