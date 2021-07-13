@@ -36,6 +36,10 @@ public class Knife : MonoBehaviour, IItem
             inv.GetKnife();
             getKnifeEvent();
             knifeSound.PlayOneShot(getKnife);
+            if(transform.parent != null)
+            {
+                transform.parent = null;
+            }
             this.transform.SetParent(pibot.transform);
             transform.localPosition = new Vector3(0, 0, 0);        
         }

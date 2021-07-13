@@ -23,6 +23,8 @@ public class FirstPersonController : MonoBehaviour
 
     public Camera playerCamera;
 
+    public bool ghostOn = false;
+
     public float fov = 60f;
     public bool invertCamera = false;
     public bool cameraCanMove = true;
@@ -196,7 +198,7 @@ public class FirstPersonController : MonoBehaviour
         }
 
         #endregion
-        //camereMovementTest = playerCamera.GetComponent<CamereMovementTest>();
+        camereMovementTest = playerCamera.GetComponent<CamereMovementTest>();
     }
 
     float camRotation;
@@ -223,8 +225,15 @@ public class FirstPersonController : MonoBehaviour
             // Clamp pitch between lookAngle
             pitch = Mathf.Clamp(pitch, -maxLookAngle, maxLookAngle);
 
-            transform.localEulerAngles = new Vector3(0, yaw, 0/*camereMovementTest.clamm*/);
-            playerCamera.transform.localEulerAngles = new Vector3(pitch, 0, 0/*camereMovementTest.clamm*/);
+            if(ghostOn)
+            {
+                transform.localEulerAngles = new Vector3(0, yaw, camereMovementTest.clamm);
+                playerCamera.transform.localEulerAngles = new Vector3(pitch, 0, camereMovementTest.clamm);
+            }
+            else{
+                transform.localEulerAngles = new Vector3(0, yaw, 0);
+                playerCamera.transform.localEulerAngles = new Vector3(pitch, 0, 0);
+            }
         }
 
         #region Camera Zoom
