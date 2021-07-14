@@ -56,6 +56,7 @@
      <Compile Include="Assets\Scripts\Trigger\TriggerFourPlus.cs" />
      <Compile Include="Assets\Scripts\NewspaperTwo.cs" />
      <Compile Include="Assets\Scripts\Knife.cs" />
+     <Compile Include="Assets\Scripts\ChildKitchinDrawer.cs" />
      <Compile Include="Assets\Scripts\Door\PlusSpecialChildDoor.cs" />
      <Compile Include="Assets\Scripts\Trigger\TriggerTwo.cs" />
      <Compile Include="Assets\ModularFirstPersonController\FirstPersonController\FirstPersonController.cs" />
@@ -88,8 +89,11 @@
      <Compile Include="Assets\Scripts\Door\CloseDoor.cs" />
      <Compile Include="Assets\Scripts\Trigger\AwakeTriggerThreePlus.cs" />
      <Compile Include="Assets\ChangeColorTest.cs" />
+     <Compile Include="Assets\SafeUIManager.cs" />
+     <Compile Include="Assets\Scripts\SlidingDoor.cs" />
      <Compile Include="Assets\Scripts\Door\DoorSpecialNewspaper.cs" />
      <Compile Include="Assets\Scripts\Trigger\TriggerFive.cs" />
+     <Compile Include="Assets\Scripts\KitchinDrawer.cs" />
      <Compile Include="Assets\Scripts\WeponOnMannequin.cs" />
      <Compile Include="Assets\Scripts\Safe.cs" />
      <Compile Include="Assets\Scripts\Trigger\AwakeTriggerThree.cs" />
@@ -104,6 +108,7 @@
      <Compile Include="Assets\Scripts\RayInteraction.cs" />
      <Compile Include="Assets\Scripts\PlayerHouseRayInteraction.cs" />
      <Compile Include="Assets\Primer\Script\MainCameraAction.cs" />
+     <Compile Include="Assets\PassManager.cs" />
      <Compile Include="Assets\Primer\Script\BaseMirrorBlock.cs" />
      <Compile Include="Assets\GetGhostTest.cs" />
      <Compile Include="Assets\Scripts\Door\ChildDoorSpecial.cs" />
@@ -111,11 +116,9 @@
      <Compile Include="Assets\Scripts\Trigger\TriggerThree.cs" />
      <Compile Include="Assets\Primer\Script\BaseMirrorMap.cs" />
      <Compile Include="Assets\Scripts\SafeOpen.cs" />
-     <Compile Include="Assets\Scripts\SlidingDoor.cs" />
-     <Compile Include="Assets\Scripts\KitchinDrawer.cs" />
-     <Compile Include="Assets\Scripts\ChildKitchinDrawer.cs" />
-     <Compile Include="Assets\SafeUIManager.cs" />
-     <Compile Include="Assets\PassManager.cs" />
+     <Compile Include="Assets\SafeCylinderRotate.cs" />
+     <Compile Include="Assets\SafeDoorLittleOpen.cs" />
+     <Compile Include="Assets\BGM.cs" />
      <None Include="Assets\Primer\Shader\SHDBaseMirrorBlock.shader" />
      <None Include="Assets\Materials\NewImageEffectShader.shader" />
      <None Include="Assets\Primer\Shader\SHDBaseMirrorMask.shader" />

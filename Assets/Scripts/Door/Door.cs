@@ -21,7 +21,7 @@ public class Door : MonoBehaviour, IItem
         doorSoundPlayer = GetComponent<AudioSource>();
         textManager = FindObjectOfType<TextManager>();
         triggerSpecial = FindObjectOfType<TriggerSpecial>();
-        triggerSpecial.doorOff += TriggerStart;
+        //triggerSpecial.doorOff += TriggerStart;
     }
 
     public void Interact()

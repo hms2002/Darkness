@@ -9,7 +9,7 @@ public class Safe : MonoBehaviour, IItem
     public Color pressed;
     public Color Idle; 
     public SafeOpen safeOpen;
-    public Inventory inventory;
+    private Inventory inventory;
     private TextManager textManager;
     public bool canUse = false;
     private bool isOn = false;

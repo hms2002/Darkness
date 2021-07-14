@@ -11,6 +11,9 @@ public class PassManager : MonoBehaviour
     GameObject button4;
     int[] pass = new int[4];
     int cnt = 0;
+    private void Awake() {
+        safeUIManager = FindObjectOfType<SafeUIManager>();
+    }
     void Start()
     {
         button1 = transform.GetChild(0).gameObject;
@@ -85,7 +88,6 @@ public class PassManager : MonoBehaviour
         {
             Debug.Log("DDD!!!!!");
             safeUIManager.Open();
-            safeUIManager.CloseUI();
         }
         else{
             Debug.Log("AAAAAAA!!!!");
