@@ -25,13 +25,15 @@ public class StairTriggerDoor : MonoBehaviour, IItem
     private GameObject firstTriggerPlus;
     private HandLightOn handLightOn;
     private BGM bGM;
+    private BGM bGM2;
 
     private void Start() {
         doorSoundPlayer = GetComponent<AudioSource>();
         textManager = FindObjectOfType<TextManager>();
         triggerDelegate = FindObjectOfType<triggerOne>();
         handLightOn = FindObjectOfType<HandLightOn>();
-        bGM = FindObjectOfType<BGM>();
+        bGM = GameObject.Find("BGM").GetComponent<BGM>();
+        bGM2 = GameObject.Find("BGM2").GetComponent<BGM>();
         triggerDelegate.TriggerOne += IsDoorTrue;
         directionLight = GameObject.Find("Directional Light");
         nextStageWall = GameObject.Find("NextStageWall");
@@ -94,6 +96,7 @@ public class StairTriggerDoor : MonoBehaviour, IItem
                 ismove = false;
                 isTriggerAndDoorOn = true;
                 bGM.StartRain();
+                bGM2.StartRain();
             }
         }
         else if(isTriggerAndDoorOn && isTriggerAndDoor)
