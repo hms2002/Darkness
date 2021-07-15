@@ -6,11 +6,11 @@ public class SceneGameManager : MonoBehaviour
 {
     public void GoScene2()
     {
-        SceneManager.LoadScene("InPlayerHouse");
+        SceneManager.LoadScene("Scene");
     } 
 
     public void GoScene3()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Darkness");
     }  
 }
