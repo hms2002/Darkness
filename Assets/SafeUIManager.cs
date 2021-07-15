@@ -10,7 +10,7 @@ public class SafeUIManager : MonoBehaviour, IItem
     private AudioSource audioSource;
     public AudioClip openSafeSound;
     public AudioClip closeSafeSound;
-    private PassManager pass;
+    private PassManager Pass;
     private TextManager textManager;
     private Inventory inventory;
     private Door door;
@@ -34,7 +34,7 @@ public class SafeUIManager : MonoBehaviour, IItem
             {
                 UION = true;
                 game.SetActive(true);
-                pass = FindObjectOfType<PassManager>();
+                Pass = FindObjectOfType<PassManager>();
                 Player.GetComponent<FirstPersonController>().enabled = false;
                 Player.GetComponent<RayInteraction>().enabled = false;
                 audioSource = GetComponent<AudioSource>();
@@ -65,7 +65,8 @@ public class SafeUIManager : MonoBehaviour, IItem
     }
     public void CloseUI()
     {
-        pass = null;
+        Pass.Reseting();
+        Pass = null;
         UION = false;
         game.SetActive(false);
         Player.GetComponent<FirstPersonController>().enabled = true;

@@ -36,7 +36,8 @@ public class TextManager : MonoBehaviour
         "피비린내가 난다",
         "식탁에 놓기",
         "맛있는 고기다",
-        "켜지지 않는다"
+        "켜지지 않는다",
+        "Click to Move"
     };
     #endregion
     private void Start() {
@@ -59,6 +60,7 @@ public class TextManager : MonoBehaviour
             text.text = mannequinScenario[scriptNum];
         }
     }
+    #region AlwaysOn
     public void MeatSetting()
     {        
         if(isTextOn == false)
@@ -67,10 +69,13 @@ public class TextManager : MonoBehaviour
             text.text = otherScenario[2];
         }
     }
-    
-    public void OtherTextOn(int scriptNum)
-    {
-        StartCoroutine("IOtherTextOn", scriptNum);
+    public void Click()
+    {        
+        if(isTextOn == false)
+        {
+            transform.GetChild(0).gameObject.SetActive(true);
+            text.text = otherScenario[5];
+        }
     }
     public void EUse()
     {
@@ -79,6 +84,11 @@ public class TextManager : MonoBehaviour
             transform.GetChild(0).gameObject.SetActive(true);
             text.text = "\'E\' to Use";
         }
+    }
+    #endregion
+    public void OtherTextOn(int scriptNum)
+    {
+        StartCoroutine("IOtherTextOn", scriptNum);
     }
     public void TextClose()
     {

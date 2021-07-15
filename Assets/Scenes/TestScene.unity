@@ -2074,7 +2074,8 @@ GameObject:
   - component: {fileID: 974823469}
   - component: {fileID: 974823468}
   - component: {fileID: 974823467}
-  m_Layer: 0
+  - component: {fileID: 974823472}
+  m_Layer: 10
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2170,6 +2171,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &974823472
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974823466}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1025228629
 GameObject:
   m_ObjectHideFlags: 0
@@ -2744,6 +2761,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1429760522204423854, guid: e3cc7e20462677f41b014a782ababd79, type: 3}
+      propertyPath: moveObj
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2314034756734781909, guid: e3cc7e20462677f41b014a782ababd79, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2791,6 +2812,14 @@ PrefabInstance:
     - target: {fileID: 2314034756734781913, guid: e3cc7e20462677f41b014a782ababd79, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2314034756734781919, guid: e3cc7e20462677f41b014a782ababd79, type: 3}
+      propertyPath: crouchKey
+      value: 308
+      objectReference: {fileID: 0}
+    - target: {fileID: 2314034756734781919, guid: e3cc7e20462677f41b014a782ababd79, type: 3}
+      propertyPath: enableCrouch
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2314034756734781919, guid: e3cc7e20462677f41b014a782ababd79, type: 3}
       propertyPath: maxLookAngle

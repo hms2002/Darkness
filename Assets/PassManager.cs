@@ -9,7 +9,7 @@ public class PassManager : MonoBehaviour
     GameObject button2;
     GameObject button3;
     GameObject button4;
-    int[] pass = new int[4];
+    public int[] pass = new int[4];
     int cnt = 0;
     private void Awake() {
         safeUIManager = FindObjectOfType<SafeUIManager>();
@@ -80,6 +80,17 @@ public class PassManager : MonoBehaviour
             cnt--;
             break;
         }
+    }
+
+    public void Reseting()
+    {
+        for(int i = 0; i < 4; i++)
+            pass[i] = -1;
+        button1.GetComponent<Image>().color = Color.white;
+        button2.GetComponent<Image>().color = Color.white;
+        button3.GetComponent<Image>().color = Color.white;
+        button4.GetComponent<Image>().color = Color.white;
+        cnt = 0;
     }
 
     public void CheckPass()
