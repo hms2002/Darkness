@@ -37,7 +37,14 @@ public class SoundControl : MonoBehaviour
                     }   //fdsf
                 }
                 else{
-                    gameObject.GetComponent<AudioSource>().volume = smallVol;
+                    if(0 < GetComponent<AudioSource>().volume)
+                    {
+                        gameObject.GetComponent<AudioSource>().volume -= smallVol * Time.deltaTime * 0.7f;
+                    }
+                    else
+                    {
+                        gameObject.GetComponent<AudioSource>().volume = 0;
+                    }
                 }
             }
             else{

@@ -14,6 +14,7 @@ public class BGM : MonoBehaviour
     private RaycastHit hit;
     private float originVolum; 
     private float smallVol;
+    private BGM bGM2;
     void Start()
     {
         audioSource = GetComponent<AudioSource>();   
@@ -22,6 +23,7 @@ public class BGM : MonoBehaviour
         Player = GameObject.Find("Player");
         originVolum = GetComponent<AudioSource>().volume;
         smallVol = 0.3f;
+        bGM2 = GameObject.Find("BGM2").GetComponent<BGM>();
     }
     
     public void StartRain()
@@ -44,6 +46,14 @@ public class BGM : MonoBehaviour
             audioSource.volume -= 0.1f * Time.deltaTime;
             yield return new WaitForSeconds(DownSpeed);
         }
+        gameObject.GetComponent<SoundControl>().enabled = true;
+        bGM2.On();
+    }
+
+    public void On()
+    {
+        audioSource.PlayDelayed(1f);
+        audioSource.loop = true;
         gameObject.GetComponent<SoundControl>().enabled = true;
     }
     /*
