@@ -19,7 +19,7 @@ public class TVLightBlink : MonoBehaviour, IItem
 
     public void LightBlink()
     {
-        TVSoundPlayer.Play(22050);
+        TVSoundPlayer.PlayDelayed(1);
         TVSoundPlayer.loop = true;
         StartCoroutine("ITVLightBlinking");
         isOn = true;
