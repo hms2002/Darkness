@@ -9,7 +9,10 @@ public class BGM : MonoBehaviour
     public float SoundMaxVol = 0.95f;
     public float SoundSmallVol = 0.4f;
     public float UpSpeed = 0.005f;
+    public float UpDegree = 0.01f;
     public float DownSpeed = 0.01f;
+    public float DownDegree = 0.01f;
+    public float SpecialUpPerTurn = 0.05f;
     private GameObject Player;
     private RaycastHit hit;
     private float originVolum; 
@@ -18,6 +21,7 @@ public class BGM : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();   
+        audioSource.spatialBlend = 0;
         audioSource.clip = rain;
         gameObject.GetComponent<SoundControl>().enabled = false;
         Player = GameObject.Find("Player");
@@ -38,12 +42,20 @@ public class BGM : MonoBehaviour
         audioSource.loop = true;
         while(audioSource.volume <= SoundMaxVol)
         {
-            audioSource.volume += 0.1f * Time.deltaTime;
+            audioSource.volume += UpDegree;
+            if(audioSource.spatialBlend < 1)
+            {
+                audioSource.spatialBlend += SpecialUpPerTurn;
+            }
             yield return new WaitForSeconds(UpSpeed);
         }
         while(audioSource.volume > SoundSmallVol)
         {
-            audioSource.volume -= 0.1f * Time.deltaTime;
+            audioSource.volume -= DownDegree;
+            if(audioSource.spatialBlend < 1)
+            {
+                audioSource.spatialBlend += SpecialUpPerTurn;
+            }
             yield return new WaitForSeconds(DownSpeed);
         }
         gameObject.GetComponent<SoundControl>().enabled = true;

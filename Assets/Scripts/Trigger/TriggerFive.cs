@@ -5,11 +5,12 @@ using UnityEngine;
 public class TriggerFive : MonoBehaviour
 {
     private GameObject lightPivot4;
+    private HandLightOn HandLight;
     void Start()
     {
         StartCoroutine("StartFalse");
         lightPivot4 = GameObject.Find("LightPivot4");
-
+        HandLight = FindObjectOfType<HandLightOn>();
     }
     private void OnTriggerEnter(Collider other) {
         if(other.CompareTag("Player"))
@@ -24,6 +25,8 @@ public class TriggerFive : MonoBehaviour
     }
     IEnumerator IGhostTwoOn()
     {
+        HandLight.LightOff();
+        HandLight.LightOn();
         lightPivot4.transform.GetChild(0).gameObject.SetActive(true);
         lightPivot4.transform.GetChild(1).gameObject.SetActive(true);
         yield return new WaitForSeconds(1);
