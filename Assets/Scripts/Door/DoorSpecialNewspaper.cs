@@ -17,11 +17,18 @@ public class DoorSpecialNewspaper : MonoBehaviour, IItem
     public AudioClip kWANGSound;
     private TextManager textManager;
     private TriggerSpecial triggerSpecial;
+    private plusLastSpecialDoor plusLast;
     private void Start() {
+        plusLast = FindObjectOfType<plusLastSpecialDoor>();
         textManager = FindObjectOfType<TextManager>();
         doorSoundPlayer = GetComponent<AudioSource>();
         triggerSpecial = FindObjectOfType<TriggerSpecial>();
         triggerSpecial.doorOff += TriggerStart;
+        if(plusLast != null)
+        {
+            plusLast.goAnotherWorld2 += TriggerEnd;
+        }
+
     }
     public void Interact()
     {
@@ -36,11 +43,20 @@ public class DoorSpecialNewspaper : MonoBehaviour, IItem
             StartCoroutine("InteractDoor");
         }
     }
+
+    public void TriggerEnd()
+    {
+        isTriggerStart = false;
+    }
     public void OnceOpenOff()
     {
         if(isOpen == true)
         {
             StartCoroutine("InteractDoor");
+        }
+        else
+        {
+            onceOpen = false;
         }
         isOnceOpenLock = true;
     }

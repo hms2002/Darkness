@@ -7,12 +7,22 @@ public class HandLightOn : MonoBehaviour
     private AudioSource handLightSoundPlayer;
     public AudioClip handLightSound;
     public SpecialNewspaper specialNewspaper;
+    private plusLastSpecialDoor plusLast;
 
     private void Start() {
         handLightSoundPlayer = GetComponent<AudioSource>();
         specialNewspaper = FindObjectOfType<SpecialNewspaper>();
-        specialNewspaper.lightOut += LightOff;
-        specialNewspaper.afterMove += LightOn;
+        plusLast = FindObjectOfType<plusLastSpecialDoor>();
+        if(specialNewspaper != null)
+        {
+            specialNewspaper.lightOut += LightOff;
+            specialNewspaper.afterMove += LightOn;
+        }
+        if(plusLast != null)
+        {
+            plusLast.lightOut2 += LightOff;
+            plusLast.afterMove2 += LightOn;
+        }
     }
 
     public void LightOn()

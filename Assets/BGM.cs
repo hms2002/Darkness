@@ -65,6 +65,7 @@ public class BGM : MonoBehaviour
     public void On()
     {
         audioSource.PlayDelayed(1f);
+        audioSource.spatialBlend = 1;
         audioSource.loop = true;
         gameObject.GetComponent<SoundControl>().enabled = true;
     }

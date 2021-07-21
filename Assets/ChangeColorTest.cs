@@ -5,6 +5,7 @@ using UnityEngine;
 public class ChangeColorTest : MonoBehaviour
 {
     public Light it;
+    private IEnumerator cc;
     [Range(0, 100)]private float cnt = 0;
     [Range(0f, 1f)] public float Rplus;  
     [Range(0f, 1f)] public float Gminus;
@@ -12,12 +13,12 @@ public class ChangeColorTest : MonoBehaviour
     [Range(0f, 3f)] public float delay;
     void Start()
     {
-            StartCoroutine("CC");
+        cc = CC();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void LightGoRed()
     {
+        StartCoroutine("CC");
     }
 
     IEnumerator CC()
@@ -33,7 +34,7 @@ public class ChangeColorTest : MonoBehaviour
                 col.b -= Bminus;
             cnt++;
             Debug.Log(cnt);
-            if(cnt >= 100)//fd
+            if(cnt > 30)//fd
             {
                 if(col.r >= 1 || col.g <= 0|| col.b <= 0)
                 {
@@ -52,6 +53,6 @@ public class ChangeColorTest : MonoBehaviour
             }
             yield return new WaitForSeconds(delay);
         }
-        StopAllCoroutines();
+        StopCoroutine(cc);
     }
 }

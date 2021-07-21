@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class PlusSpecialTrigger : MonoBehaviour
 {
-    private PlusSpecialDoor plusSpecialDoor;
+    public PlusSpecialDoor plusSpecialDoor;
     void Start()
     {        
-        plusSpecialDoor = GameObject.Find("SpecialNewspaperDoorPibot (1)").GetComponent<PlusSpecialDoor>();
     }
 
     private void OnTriggerEnter(Collider other) {

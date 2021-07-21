@@ -7,8 +7,9 @@ public class Door : MonoBehaviour, IItem
     public float Rotate = 90/60f;
     bool isOpen = false;
     bool ismove = false;
-    bool isTriggerStart = false;
+    public bool isTriggerStart = false;
     bool isTextOn = false;
+    private plusLastSpecialDoor plusLast;
     private AudioSource doorSoundPlayer;
     private TriggerSpecial triggerSpecial;
     private TextManager textManager;
@@ -18,10 +19,15 @@ public class Door : MonoBehaviour, IItem
 
 
     private void Start() {
+        plusLast = FindObjectOfType<plusLastSpecialDoor>();
         doorSoundPlayer = GetComponent<AudioSource>();
         textManager = FindObjectOfType<TextManager>();
         triggerSpecial = FindObjectOfType<TriggerSpecial>();
         triggerSpecial.doorOff += TriggerStart;
+        if(plusLast != null)
+        {
+            plusLast.goAnotherWorld2 += TriggerEnd;
+        }
     }
 
     public void Interact()
@@ -36,6 +42,11 @@ public class Door : MonoBehaviour, IItem
         {
             StartCoroutine("Thi");
         }
+    }
+
+    public void TriggerEnd()
+    {
+        isTriggerStart = false;
     }
 
 

@@ -31,10 +31,9 @@ public class PlusSpecialDoor : MonoBehaviour
     public void AlreadyMove()
     {
         locked = true;
-        if(isOpen == true)
-        {
-            StartCoroutine("Thi");
-        }
+
+        StartCoroutine("Thi");
+        
     }
 
 
@@ -52,7 +51,7 @@ public class PlusSpecialDoor : MonoBehaviour
 
         if(ismove == false && AfterMoveStage == false)
         {
-            if(isOpen == false)
+            if(isOpen == false && locked == false)
             {
                 doorSoundPlayer.PlayOneShot(openSound);
                 ismove = true;
@@ -65,7 +64,7 @@ public class PlusSpecialDoor : MonoBehaviour
                 ismove = false;
                 isOpen = true;
             }
-            else
+            else if(isOpen == true)
             {
                 doorSoundPlayer.PlayOneShot(closeSound);
                 ismove = true;
@@ -75,12 +74,12 @@ public class PlusSpecialDoor : MonoBehaviour
 
                     yield return new WaitForSeconds(0.01f); 
                 }
-                if(locked)
-                {
-                    AfterMoveStage = true;
-                }
                 ismove = false;
                 isOpen = false;
+            }
+            if(locked)
+            {
+                AfterMoveStage = true;
             }
         }   
         
