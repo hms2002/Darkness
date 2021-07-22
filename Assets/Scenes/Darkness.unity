@@ -2401,21 +2401,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ebef83012e53e694791a9b8da8bbbbc6, type: 3}
   m_PrefabInstance: {fileID: 719482538}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &233593320
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 233593319}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81ec36863db34fc469977bf9e00681a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canSet: 0
-  canEat: 0
-  meatEatSound: {fileID: 8300000, guid: 7ec73d9515e064e4a995959e6e20959c, type: 3}
 --- !u!64 &233593321
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2798,42 +2783,6 @@ Light:
   m_CorrespondingSourceObject: {fileID: 2159903912256243658, guid: e3cc7e20462677f41b014a782ababd79, type: 3}
   m_PrefabInstance: {fileID: 604552449}
   m_PrefabAsset: {fileID: 0}
---- !u!84 &258504608
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: MirrorFrame's RenderTexture.
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 3
-  m_Width: 748
-  m_Height: 748
-  m_AntiAliasing: 8
-  m_MipCount: -1
-  m_DepthFormat: 0
-  m_ColorFormat: 4
-  m_MipMap: 0
-  m_GenerateMips: 0
-  m_SRGB: 1
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 2
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &265213975
 GameObject:
   m_ObjectHideFlags: 0
@@ -7321,7 +7270,7 @@ PrefabInstance:
     - target: {fileID: 994890251335593968, guid: 98b5ff3af91ccd54c8807184a51f0684, type: 3}
       propertyPath: m_TargetTexture
       value: 
-      objectReference: {fileID: 258504608}
+      objectReference: {fileID: 1581017088}
     - target: {fileID: 994890251335593968, guid: 98b5ff3af91ccd54c8807184a51f0684, type: 3}
       propertyPath: m_CullingMask.m_Bits
       value: 4055
@@ -10996,6 +10945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53cb98a4c4b9bd84b8bb9b97e3eade5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastSpecialDoor: {fileID: 0}
   BGMSound: {fileID: 8300000, guid: 240e378eb7695b04394fd5f3b46d5d88, type: 3}
   SoundMax: 0.1
 --- !u!82 &899260726
@@ -20829,6 +20779,42 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 42
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!84 &1581017088
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: MirrorFrame's RenderTexture.
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 3
+  m_Width: 748
+  m_Height: 748
+  m_AntiAliasing: 8
+  m_MipCount: -1
+  m_DepthFormat: 0
+  m_ColorFormat: 4
+  m_MipMap: 0
+  m_GenerateMips: 0
+  m_SRGB: 1
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 2
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &1584778436
 GameObject:
   m_ObjectHideFlags: 0
