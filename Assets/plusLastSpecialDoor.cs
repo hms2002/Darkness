@@ -8,12 +8,9 @@ public class plusLastSpecialDoor : MonoBehaviour
     public Action goAnotherWorld2;
     public Action afterMove2;
 
-    private void OnTriggerEnter(Collider other) 
+    public void On() 
     {    
-        if(other.CompareTag("Player"))
-        {
             StartCoroutine("GoBackHouse");
-        }
     }
 
     IEnumerator GoBackHouse()
@@ -23,5 +20,6 @@ public class plusLastSpecialDoor : MonoBehaviour
         goAnotherWorld2();
         yield return new WaitForSeconds(1);
         afterMove2();
+        gameObject.SetActive(false);
     }
 }

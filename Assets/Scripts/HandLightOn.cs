@@ -32,6 +32,7 @@ public class HandLightOn : MonoBehaviour
 
     public void LightOff()
     {
+        transform.GetChild(0).gameObject.GetComponent<Light>().color = Color.white;
         transform.GetChild(0).gameObject.SetActive(false);
         handLightSoundPlayer.PlayOneShot(handLightSound);
 

@@ -6,6 +6,7 @@ public class LastSpecialTrigger : MonoBehaviour
 {
     public GameObject Ghost;
     private FirstPersonController firstPersonController;
+    private plusLastSpecialDoor lastSpecialDoor;
     public float height;
     private GameObject HandLight;
     private GameObject GhostPobot;
@@ -14,6 +15,7 @@ public class LastSpecialTrigger : MonoBehaviour
     void Start()
     {
         firstPersonController = FindObjectOfType<FirstPersonController>();
+        lastSpecialDoor = FindObjectOfType<plusLastSpecialDoor>();
         HandLight = GameObject.Find("WeponPibot");
         GhostPobot = GameObject.Find("GhostPivot");
     }
@@ -35,12 +37,13 @@ public class LastSpecialTrigger : MonoBehaviour
     {
         isOnce = false;
         HandLight.transform.GetChild(0).gameObject.SetActive(true);
-        GameObject inst = Object.Instantiate(Ghost, new Vector3(GhostPobot.transform.position.x,height,GhostPobot.transform.position.z), transform.rotation);
+        GameObject inst = Object.Instantiate(Ghost, new Vector3(GhostPobot.transform.position.x,height,GhostPobot.transform.position.z), Quaternion.Euler(-Camera.main.transform.forward));
         firstPersonController.ghostOn = true;
         yield return new WaitForSeconds(DestTime);
 
         Destroy(inst);
         firstPersonController.ghostOn = false;
-        gameObject.SetActive(false);
+        yield return new WaitForSeconds(0.5f);
+        lastSpecialDoor.On();
     }
 }
