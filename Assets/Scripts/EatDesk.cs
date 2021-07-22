@@ -5,6 +5,7 @@ using UnityEngine;
 public class EatDesk : MonoBehaviour, IItem
 {
     private Meat meat;
+    public GameObject game;
     private bool isOnce = true;
     private void Start() {
         meat = FindObjectOfType<Meat>();
@@ -13,7 +14,7 @@ public class EatDesk : MonoBehaviour, IItem
     {
         if(isOnce)
         {
-            meat.SettingMeat();
+            game.transform.GetChild(1).gameObject.SetActive(true);
             isOnce = false;
             this.gameObject.layer = 6;
         }

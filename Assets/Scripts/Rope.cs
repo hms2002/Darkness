@@ -10,18 +10,16 @@ public class Rope : MonoBehaviour, IItem
     private GameObject pibot;
     public event Action getRopeEvent;
     private TextManager textManager;
-    private Inventory inventory;
 
     private void Start() {
         RopeSound = GetComponent<AudioSource>();
         inv = FindObjectOfType<Inventory>();
         pibot = GameObject.Find("WeponPibot");
         textManager = FindObjectOfType<TextManager>();
-        inventory = FindObjectOfType<Inventory>();
-        inventory.useRope += Dest;
+        inv.useRope += Dest;//ds
     }
     private void Update() {
-        if(inv.isKnife)
+        if(inv.isRope)
         {
             transform.rotation = pibot.transform.rotation;
         }
@@ -32,13 +30,13 @@ public class Rope : MonoBehaviour, IItem
         inv.GetRope();
         //getRopeEvent();
         RopeSound.PlayOneShot(getRope);
-        this.transform.SetParent(pibot.transform);
-        transform.localPosition = new Vector3(0, 0, 0);        
+        transform.transform.SetParent(pibot.transform);
+        transform.localPosition  = new Vector3(0,0,0);
         
     }
     public void Dest()
     {
-        Destroy(this.gameObject);
+        Destroy(transform.parent.gameObject);
         Debug.Log("!2e33");
     }
 }
