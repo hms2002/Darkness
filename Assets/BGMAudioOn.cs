@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class BGMAudioOn : MonoBehaviour, IItem
 {
+    public plusLastSpecialDoor lastSpecialDoor;
     private AudioSource audioSource;
     public AudioClip BGMSound;
     public float SoundMax = 0.1f;
     private bool isOnce = true;
     void Start()
     {
+        lastSpecialDoor = FindObjectOfType<plusLastSpecialDoor>();
         audioSource = GetComponent<AudioSource>();
+        lastSpecialDoor.lightOut2 += Off;
     }
 
     public void Interact()
@@ -24,6 +27,21 @@ public class BGMAudioOn : MonoBehaviour, IItem
             audioSource.Play();
             isOnce = false;
         }
+    }
+
+    public void Off()
+    {
+        StartCoroutine("IOff");
+    }
+
+    IEnumerator IOff()
+    {
+        while(audioSource.volume == 0)
+        {
+            audioSource.volume -= 0.01f;
+            yield return new WaitForSeconds(0.01f);
+        }
+        audioSource.Stop();
     }
 
     IEnumerator Up()
