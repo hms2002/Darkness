@@ -9,14 +9,15 @@ public class LightSpecialBlink : MonoBehaviour
     private plusLastSpecialDoor lastSpecialDoor;
     private PlusSpecialTrigger plusSpecialTrigger;
     private Door door;
+    IEnumerator corutine;
     private void Start() {
         lastSpecialDoor = FindObjectOfType<plusLastSpecialDoor>();
         lastSpecialDoor.lightOut2 += StopBlink;
         plusSpecialTrigger = FindObjectOfType<PlusSpecialTrigger>();
         plusSpecialTrigger.specialforstTriggerAction += str;
         door = FindObjectOfType<Door>();
-
-        if(door.isTriggerStart == false)
+        corutine = Blink();
+        if(door.isTriggerStart == false || door.isTriggerStart == true)
         {
             str();
         }
@@ -29,7 +30,7 @@ public class LightSpecialBlink : MonoBehaviour
 
     private void StopBlink()
     {
-        gameObject.SetActive(false);
+        StopCoroutine(corutine);
     }
 
     IEnumerator Blink()

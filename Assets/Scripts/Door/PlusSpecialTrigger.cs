@@ -11,7 +11,10 @@ public class PlusSpecialTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         if(other.CompareTag("Player"))
         {
-            specialforstTriggerAction();
+            if(specialforstTriggerAction != null)
+            {
+                specialforstTriggerAction();
+            }
             plusSpecialDoor.AlreadyMove();
             gameObject.SetActive(false);
         }

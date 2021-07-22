@@ -36,7 +36,7 @@ public class Rope : MonoBehaviour, IItem
     }
     public void Dest()
     {
-        Destroy(transform.parent.gameObject);
+        Destroy(gameObject);
         Debug.Log("!2e33");
     }
 }
