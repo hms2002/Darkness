@@ -5,6 +5,8 @@ using UnityEngine;
 public class LastSpecialTrigger : MonoBehaviour
 {
     public GameObject Ghost;
+    private AudioSource audioSource;
+    public AudioClip ZombieOnSound;
     private FirstPersonController firstPersonController;
     private plusLastSpecialDoor lastSpecialDoor;
     public float height;
@@ -14,6 +16,7 @@ public class LastSpecialTrigger : MonoBehaviour
     public float DestTime = 2f;
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         firstPersonController = FindObjectOfType<FirstPersonController>();
         lastSpecialDoor = FindObjectOfType<plusLastSpecialDoor>();
         HandLight = GameObject.Find("WeponPibot");
@@ -37,6 +40,7 @@ public class LastSpecialTrigger : MonoBehaviour
     {
         isOnce = false;
         HandLight.transform.GetChild(0).gameObject.SetActive(true);
+        audioSource.PlayOneShot(ZombieOnSound);
         GameObject inst = Object.Instantiate(Ghost, new Vector3(GhostPobot.transform.position.x,height,GhostPobot.transform.position.z), Quaternion.Euler(-Camera.main.transform.forward));
         firstPersonController.ghostOn = true;
         yield return new WaitForSeconds(DestTime);
