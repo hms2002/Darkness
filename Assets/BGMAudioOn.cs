@@ -1,10 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class BGMAudioOn : MonoBehaviour, IItem
 {
-    public plusLastSpecialDoor lastSpecialDoor;
+    private plusLastSpecialDoor lastSpecialDoor;
     private AudioSource audioSource;
     public AudioClip BGMSound;
     public float SoundMax = 0.1f;

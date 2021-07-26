@@ -11,6 +11,7 @@ public class StorageDoor : MonoBehaviour, IItem
     private Door door;
     private bool isOn = false;
     private bool youUseKnife = false;
+    public bool beforeMannequinRoom = false;
     void Start()
     {
         KwangSoundPlayer = GetComponent<AudioSource>();
@@ -22,28 +23,40 @@ public class StorageDoor : MonoBehaviour, IItem
 
     public void Interact()
     {
-        if(inventory.isKey == false && youUseKnife == false)
-        {
-            if(isOn==false)
-            {
-                isOn = true;
-                KwangSoundPlayer.PlayOneShot(KwangSound);
-                textManager.DoorTextOn(4);
-                StartCoroutine("IsOnFalse");
-            }
-        }
-        else if(inventory.isKey == false && youUseKnife)
+        if(beforeMannequinRoom == false)
         {
             if(isOn == false)
             {
-                isOn = true;
                 KwangSoundPlayer.PlayOneShot(KwangSound);
                 textManager.DoorTextOn(2);
-                StartCoroutine("IDoorHint");
+                StartCoroutine("IsOnFalse");
             }
         }
-        else{
-            door.Interact();
+        else
+        {
+            if(inventory.isKey == false && youUseKnife == false)
+            {
+                if(isOn==false)
+                {
+                    isOn = true;
+                    KwangSoundPlayer.PlayOneShot(KwangSound);
+                    textManager.DoorTextOn(4);
+                    StartCoroutine("IsOnFalse");
+                }
+            }
+            else if(inventory.isKey == false && youUseKnife)
+            {
+                if(isOn == false)
+                {
+                    isOn = true;
+                    KwangSoundPlayer.PlayOneShot(KwangSound);
+                    textManager.DoorTextOn(2);
+                    StartCoroutine("IDoorHint");
+                }
+            }
+            else{
+                door.Interact();
+            }
         }
     }
     public void YouUseKnife()

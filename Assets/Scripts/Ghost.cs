@@ -4,26 +4,21 @@ using UnityEngine;
 
 public class Ghost : MonoBehaviour
 {
+    private FirstFloorBethRoomDoor first;
+    public FirstFloorBethRoomDoorPibot firstFloorBethRoomDooePibot;
     private AudioSource screamSoundPlayer;
-    public AudioClip screamSound;
+    public AudioClip OpenSound;
     public AudioClip CrySound;
     private Knife knife;
     public bool alreadyDest = false;
-    private void Awake() {
-        GhostOn();
-    }
     void Start()
     {
-        transform.GetChild(0).gameObject.SetActive(false);
+        first = FindObjectOfType<FirstFloorBethRoomDoor>();
+        firstFloorBethRoomDooePibot = FindObjectOfType<FirstFloorBethRoomDoorPibot>();
         screamSoundPlayer = GetComponent<AudioSource>();
         StartCoroutine("StartFalse");
         knife = FindObjectOfType<Knife>();
         knife.getKnifeEvent += Scream;
-    }
-    
-    public void GhostOn()
-    {
-        transform.GetChild(0).gameObject.SetActive(true);
     }
 
     public void Scream()
@@ -41,9 +36,10 @@ public class Ghost : MonoBehaviour
 
     IEnumerator ScreamIEnum()
     {
-        screamSoundPlayer.PlayOneShot(screamSound);
+        firstFloorBethRoomDooePibot.StartCoroutine("Thi");
+        screamSoundPlayer.PlayOneShot(OpenSound);
+        first.isTriggerOn = false;
         yield return new WaitForSeconds(2f);
-        transform.GetChild(0).gameObject.SetActive(false);
         gameObject.SetActive(false);
 
     }

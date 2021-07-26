@@ -23,12 +23,6 @@ public class LastSpecialTrigger : MonoBehaviour
         GhostPobot = GameObject.Find("GhostPivot");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter(Collider other) {
         if(other.CompareTag("Player") && isOnce)
         {
@@ -39,8 +33,9 @@ public class LastSpecialTrigger : MonoBehaviour
     IEnumerator z()
     {
         isOnce = false;
-        HandLight.transform.GetChild(0).gameObject.SetActive(true);
         audioSource.PlayOneShot(ZombieOnSound);
+        yield return new WaitForSeconds(0.03f);
+        HandLight.transform.GetChild(0).gameObject.SetActive(true);
         GameObject inst = Object.Instantiate(Ghost, new Vector3(GhostPobot.transform.position.x,height,GhostPobot.transform.position.z), Quaternion.Euler(-Camera.main.transform.forward));
         firstPersonController.ghostOn = true;
         yield return new WaitForSeconds(DestTime);

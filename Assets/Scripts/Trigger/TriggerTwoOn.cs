@@ -6,18 +6,19 @@ public class TriggerTwoOn : MonoBehaviour, IItem
 {
     private GameObject triggerTwo;
     private GameObject triggerFour;
+    private StorageDoor storageDoor;
 
     private Knife knife;
     private bool Once = true;
     private void Start() {
-        triggerTwo = GameObject.Find("TriggerTwo");
+        storageDoor = FindObjectOfType<StorageDoor>();
         triggerFour = GameObject.Find("TriggerFour");
         knife = FindObjectOfType<Knife>();
     }
     public void Interact()
     {
         if(Once){
-            triggerTwo.gameObject.SetActive(true);
+            storageDoor.beforeMannequinRoom = true;
             triggerFour.gameObject.SetActive(true);
             knife.CanGet();
             Once = false;

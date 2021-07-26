@@ -5,15 +5,17 @@ using UnityEngine;
 public class TriggerFour : MonoBehaviour
 {
     private GameObject ghost;
+    private FirstFloorBethRoomDoor first;
     private void Start() {
         ghost = GameObject.Find("Ghost");
         StartCoroutine("StartFalse");
+        first = FindObjectOfType<FirstFloorBethRoomDoor>();
     }
     private void OnTriggerEnter(Collider other) {
         if(other.CompareTag("Player"))
         {
+            first.isTriggerOn = true;
             ghost.SetActive(true);
-            ghost.transform.GetChild(0).gameObject.SetActive(true);
             ghost.GetComponent<Ghost>().Cry();
             gameObject.SetActive(false);
         }

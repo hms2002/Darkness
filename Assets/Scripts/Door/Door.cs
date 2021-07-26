@@ -5,7 +5,7 @@ using UnityEngine;
 public class Door : MonoBehaviour, IItem
 {
     public float Rotate = 90/60f;
-    bool isOpen = false;
+    public bool isOpen = false;
     bool ismove = false;
     public bool isTriggerStart = false;
     bool isTextOn = false;
