@@ -5,6 +5,7 @@ using UnityEngine.Events;
 using System;
 public class Knife : MonoBehaviour, IItem
 {
+    private HintManager hint;
     private AudioSource knifeSound;
     public AudioClip getKnife;
     private Inventory inv;
@@ -13,13 +14,17 @@ public class Knife : MonoBehaviour, IItem
     private TextManager textManager;
     private Inventory inventory;
     public bool canGet = false;
+    public bool isHintComplete = false;
+    public bool justGotKnifeHint = false;
 
     private void Start() {
         knifeSound = GetComponent<AudioSource>();
+        hint  = FindObjectOfType<HintManager>();
         inv = FindObjectOfType<Inventory>();
         pibot = GameObject.Find("WeponPibot");
         textManager = FindObjectOfType<TextManager>();
         inventory = FindObjectOfType<Inventory>();
+        hint.CanGetWepone += () => isHintComplete = true;
         inventory.useKnife += Dest;
     }
     private void Update() {
@@ -28,10 +33,10 @@ public class Knife : MonoBehaviour, IItem
             transform.rotation = pibot.transform.rotation;
         }
         else return;
-    }
+    }//ds
     public void Interact()
     {
-        if(canGet)
+        if(canGet && isHintComplete)
         {
             inv.GetKnife();
             getKnifeEvent();
@@ -43,7 +48,12 @@ public class Knife : MonoBehaviour, IItem
             this.transform.SetParent(pibot.transform);
             transform.localPosition = new Vector3(0, 0, 0);        
         }
-        else{
+        else if(isHintComplete == false && justGotKnifeHint && textManager.isTextOn == false)
+        {
+            textManager.OtherTextOn(8);
+        }
+        else if(textManager.isTextOn == false)
+        {
             textManager.OtherTextOn(0);
         }
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class TextManager : MonoBehaviour
 {
-    private bool isTextOn = false;
+    public bool isTextOn = false;
     private Text text;
 
     #region ScenarioField
@@ -13,7 +13,7 @@ public class TextManager : MonoBehaviour
         "열리지 않아. 문을 열 수 있는 방법을 찾아보자",
         "열쇠가 필요해",
         "열쇠는 아마 마네킹이 있는 방의 금고 안에 있을 거야",
-        "칼은 여기 없어",
+        "단서를 더 찾아보자..",
         "열리지 않아.."
     };
 
@@ -37,7 +37,13 @@ public class TextManager : MonoBehaviour
         "식탁에 놓기",
         "맛있는 고기다",
         "켜지지 않는다",
-        "Click to Move"
+        "Click to Move",
+        "건전지가 필요해",
+        "건전지다",
+        "힌트를 먼저 찾자",
+        "무언가의 힌트다..",
+        "힌트를 얻었다",
+        "힌트를 다 얻은 것 같다"
     };
     #endregion
     private void Start() {

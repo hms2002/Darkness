@@ -7,9 +7,24 @@ public class SpecialNewspaper : MonoBehaviour, IItem
     public Action lightOut;
     public Action goAnotherWorld;
     public Action afterMove;
+    private bool afterUseRope = false;
+    private Inventory inventory;
+    private void Start() {
+        inventory = FindObjectOfType<Inventory>();
+        inventory.useRope += UseRope;
+    }
+
     public void Interact()
     {
-        StartCoroutine("Light_Move");
+        if(afterUseRope)
+        {
+            StartCoroutine("Light_Move");
+        }
+    }
+
+    public void UseRope()
+    {
+        afterUseRope = true;
     }
 
     IEnumerator Light_Move()

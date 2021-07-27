@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class RayInteraction : MonoBehaviour
 {
     private Camera playerCam;
-    private float distance = 4.5f;
+    private float distance = 7f;
     private float targetDistance;
     private Transform objTransform;
     public bool eatDesk = false;
@@ -48,6 +48,20 @@ public class RayInteraction : MonoBehaviour
                 }
                 for(int i = 0; i < item.Length; i++)
                 item[i].Interact();
+            }
+        }
+        #endregion
+        #region canvasInt
+        else if(Physics.Raycast(rayOrigin, rayDir, out hit, distance, 1 << (LayerMask.NameToLayer("IntCanvas"))))
+        {
+                
+            textManager.EUse();
+            if(Input.GetKeyDown(KeyCode.E))
+            {
+                if(hit.transform.GetChild(0).gameObject.GetComponent<IItem>() != null)
+                {
+                    hit.transform.GetChild(0).gameObject.GetComponent<IItem>().Interact();
+                }
             }
         }
         #endregion

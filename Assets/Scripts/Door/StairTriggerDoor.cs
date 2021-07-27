@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 public class StairTriggerDoor : MonoBehaviour, IItem
 {
     public bool isTriggerAndDoor = false;
@@ -24,6 +25,7 @@ public class StairTriggerDoor : MonoBehaviour, IItem
     private GameObject nextStageWall;
     private GameObject firstTriggerPlus;
     private HandLightOn handLightOn;
+    public Action FirstAction;
     private BGM bGM;
 
     private void Start() {
@@ -94,6 +96,10 @@ public class StairTriggerDoor : MonoBehaviour, IItem
                 ismove = false;
                 isTriggerAndDoorOn = true;
                 bGM.StartRain();
+                if(FirstAction != null)
+                {
+                    FirstAction();
+                }
             }
         }
         else if(isTriggerAndDoorOn && isTriggerAndDoor)
