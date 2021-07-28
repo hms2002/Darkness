@@ -12,6 +12,7 @@ public class StairTriggerDoor : MonoBehaviour, IItem
     public bool isTriggerAndDoorOn = false;
 
     public float Rotate = 90/60f;
+    public int index =1;
     bool isOpen = false;
     bool ismove = false;
     private MainGameSound mainGameSound;
@@ -31,11 +32,20 @@ public class StairTriggerDoor : MonoBehaviour, IItem
 
     private void Start() {
         mainGameSound = FindObjectOfType<MainGameSound>();
-        doorSoundPlayer = GetComponent<AudioSource>();
+        
+        if(transform.GetChild(index).gameObject != null)
+        {
+            doorSoundPlayer = transform.GetChild(index).gameObject.GetComponent<AudioSource>();
+        }
+        else
+        {
+            doorSoundPlayer = GetComponent<AudioSource>();
+        }
         textManager = FindObjectOfType<TextManager>();
         triggerDelegate = FindObjectOfType<triggerOne>();
         handLightOn = FindObjectOfType<HandLightOn>();
         bGM = GameObject.Find("BGM").GetComponent<BGM>();
+        
         triggerDelegate.TriggerOne += IsDoorTrue;
         directionLight = GameObject.Find("Directional Light");
         nextStageWall = GameObject.Find("NextStageWall");

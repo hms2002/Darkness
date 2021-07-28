@@ -15,11 +15,18 @@ public class Door : MonoBehaviour, IItem
     public AudioClip openSound;
     public AudioClip closeSound;
     public AudioClip kWANGSound;
-
+    public int index = 1;
 
     private void Start() {
         plusLast = FindObjectOfType<plusLastSpecialDoor>();
-        doorSoundPlayer = GetComponent<AudioSource>();
+        if(transform.GetChild(index).gameObject != null)
+        {
+            transform.GetChild(index).gameObject.GetComponent<AudioSource>();
+        }
+        else
+        {
+            doorSoundPlayer = GetComponent<AudioSource>();
+        }
         textManager = FindObjectOfType<TextManager>();
         triggerSpecial = FindObjectOfType<TriggerSpecial>();
         triggerSpecial.doorOff += TriggerStart;

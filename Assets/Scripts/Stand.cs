@@ -10,10 +10,19 @@ public class Stand : MonoBehaviour, IItem
     public bool isBatteryOn = false;
     private bool isTextOn = false;
     private bool isLightOn = false;
+    public int index;
     
     private void Start() {
         textManager = FindObjectOfType<TextManager>();
-        audioSource = GetComponent<AudioSource>();
+        if(transform.GetChild(index).gameObject != null)
+        {
+            audioSource = transform.GetChild(index).gameObject.GetComponent<AudioSource>(); 
+        }
+        else
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
+
         gameObject.layer = 6;
     }
 

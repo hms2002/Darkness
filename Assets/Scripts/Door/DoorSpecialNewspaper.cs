@@ -5,6 +5,7 @@ using UnityEngine;
 public class DoorSpecialNewspaper : MonoBehaviour, IItem
 {
     public float Rotate = 90/60f;
+    public int index = 1;
     bool isOpen = false;
     bool ismove = false;
     bool isTriggerStart = false;
@@ -20,7 +21,14 @@ public class DoorSpecialNewspaper : MonoBehaviour, IItem
     private void Start() {
         plusLast = FindObjectOfType<plusLastSpecialDoor>();
         textManager = FindObjectOfType<TextManager>();
-        doorSoundPlayer = GetComponent<AudioSource>();
+        if(transform.GetChild(index).gameObject != null)
+        {
+            doorSoundPlayer = transform.GetChild(index).gameObject.GetComponent<AudioSource>();
+        }
+        else
+        {
+            doorSoundPlayer = GetComponent<AudioSource>();
+        }
         triggerSpecial = FindObjectOfType<TriggerSpecial>();
         triggerSpecial.doorOff += TriggerStart;
         if(plusLast != null)
