@@ -11,13 +11,21 @@ public class Curton : MonoBehaviour, IItem
     bool isOpen = false;
     bool isOnce = true;
     bool isOn = false;
-
+    float speed;
     private void Start() {
         waterSoundPlayer = GameObject.Find("WaterSoundPlayer");
         audioSource = GetComponent<AudioSource>();
+        speed = anim.speed;
+        anim.speed = 0.0f;
     }
     public void Interact()
     {
+        if(isOnce)
+        {
+            anim.speed = speed;
+            waterSoundPlayer.GetComponent<WaterSoundPlayer>().StartCoroutine("PlayOff");
+            isOnce = false;
+        }
         if(isOpen == false && isOn == false)
         {
             isOn = true;
@@ -32,11 +40,6 @@ public class Curton : MonoBehaviour, IItem
             anim.SetTrigger("CloseTrigger");
             audioSource.PlayOneShot(curtonSound);
             isOpen = false;
-        }
-        if(isOnce)
-        {
-            waterSoundPlayer.GetComponent<WaterSoundPlayer>().StartCoroutine("PlayOff");
-            isOnce = false;
         }
     }
 

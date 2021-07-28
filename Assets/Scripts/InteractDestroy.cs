@@ -29,6 +29,7 @@ public class InteractDestroy : MonoBehaviour, IItem
     {
         gameObject.layer = 7;
         isAfterDark = true;
+        Debug.Log("aa");
     }
     public void Interact()
     {

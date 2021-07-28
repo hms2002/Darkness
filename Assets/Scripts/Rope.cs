@@ -30,7 +30,8 @@ public class Rope : MonoBehaviour, IItem
         inv.GetRope();
         //getRopeEvent();
         RopeSound.PlayOneShot(getRope);
-        Destroy(gameObject);
+        inv.useRope -= Dest;
+        Destroy(gameObject, 4f);
         
     }
     public void Dest()
