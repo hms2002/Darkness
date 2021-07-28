@@ -10,7 +10,6 @@ public class Meat : MonoBehaviour, IItem
     private TextManager textManager;
     private FadeManager fadeManager;
     private Inventory inventory;
-    private GameObject pibot;
     private GameObject pibot2;
     private RayInteraction rayInteraction;
     private AudioSource audioSource;
@@ -22,7 +21,6 @@ public class Meat : MonoBehaviour, IItem
         fadeManager = FindObjectOfType<FadeManager>();
         audioSource = GetComponent<AudioSource>();
         inventory.useRope += CanSet;
-        pibot = GameObject.Find("WeponPibot");
         pibot2 = GameObject.Find("EatTablePivot");
     }
     public void Interact()
@@ -32,9 +30,8 @@ public class Meat : MonoBehaviour, IItem
             textManager.OtherTextOn(1);
         }
         else if(canSet && canEat == false){
-            this.transform.SetParent(pibot.transform);
-            transform.localPosition = new Vector3(0, 0, 0); 
             rayInteraction.eatDesk = true;
+            gameObject.SetActive(false);
         }
         else if(canSet &&canEat && isOnce)
         {

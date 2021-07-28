@@ -118,7 +118,7 @@ public class TextManager : MonoBehaviour
                 yield return new WaitForSeconds(delay);
             }
             text.text = doorScenario[scriptNum];
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
             isTextOn = false;
             transform.GetChild(0).gameObject.SetActive(false);
         }
@@ -135,7 +135,7 @@ public class TextManager : MonoBehaviour
                 yield return new WaitForSeconds(delay);
             }
             text.text = stairScenario[scriptNum];
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
             isTextOn = false;
             transform.GetChild(0).gameObject.SetActive(false);
         }
@@ -153,7 +153,7 @@ public class TextManager : MonoBehaviour
                 yield return new WaitForSeconds(delay);
             }
             text.text = otherScenario[scriptNum];
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
             isTextOn = false;
             transform.GetChild(0).gameObject.SetActive(false);
         }
