@@ -14,7 +14,7 @@ public class Stand : MonoBehaviour, IItem
     
     private void Start() {
         textManager = FindObjectOfType<TextManager>();
-        if(transform.GetChild(index).gameObject != null)
+        if(transform.GetChild(index).gameObject.GetComponent<AudioSource>() != null)
         {
             audioSource = transform.GetChild(index).gameObject.GetComponent<AudioSource>(); 
         }

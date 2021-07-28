@@ -19,7 +19,7 @@ public class Door : MonoBehaviour, IItem
 
     private void Start() {
         plusLast = FindObjectOfType<plusLastSpecialDoor>();
-        if(transform.GetChild(index).gameObject != null)
+        if(transform.GetChild(index).gameObject.GetComponent<AudioSource>() != null)
         {
             transform.GetChild(index).gameObject.GetComponent<AudioSource>();
         }

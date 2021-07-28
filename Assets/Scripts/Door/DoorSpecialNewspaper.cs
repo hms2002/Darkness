@@ -21,7 +21,7 @@ public class DoorSpecialNewspaper : MonoBehaviour, IItem
     private void Start() {
         plusLast = FindObjectOfType<plusLastSpecialDoor>();
         textManager = FindObjectOfType<TextManager>();
-        if(transform.GetChild(index).gameObject != null)
+        if(transform.GetChild(index).gameObject.GetComponent<AudioSource>() != null)
         {
             doorSoundPlayer = transform.GetChild(index).gameObject.GetComponent<AudioSource>();
         }
