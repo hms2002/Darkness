@@ -19,6 +19,7 @@ public class SafeUIManager : MonoBehaviour, IItem
     public bool canUse = false;
     public bool isOpen = false;
     private bool isOn = false;
+    
     private void Start() {
         Player = GameObject.FindWithTag("Player");
         textManager = FindObjectOfType<TextManager>();

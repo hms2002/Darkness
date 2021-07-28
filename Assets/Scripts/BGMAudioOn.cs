@@ -35,7 +35,7 @@ public class BGMAudioOn : MonoBehaviour, IItem
 
     IEnumerator IOff()
     {
-        while(audioSource.volume == 0)
+        while(audioSource.volume > 0)
         {
             audioSource.volume -= 0.01f;
             yield return new WaitForSeconds(0.01f);

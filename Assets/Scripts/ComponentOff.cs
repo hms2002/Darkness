@@ -22,7 +22,7 @@ public class ComponentOff : MonoBehaviour
     {
         gameObject.GetComponent<SpecialNewspaper>().enabled = true;
         this.gameObject.layer = 7;
-
+        gameObject.GetComponent<SpecialNewspaper>().afterUseRope = true;
     }
 
     public void ComponentOffF()

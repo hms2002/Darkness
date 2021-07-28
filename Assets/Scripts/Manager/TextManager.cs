@@ -43,7 +43,8 @@ public class TextManager : MonoBehaviour
         "힌트를 먼저 찾자",
         "무언가의 힌트다..",
         "힌트를 얻었다",
-        "힌트를 다 얻은 것 같다"
+        "힌트를 다 얻은 것 같다",
+        "마네킹이 있던 방으로 돌아가보자"
     };
     #endregion
     private void Start() {

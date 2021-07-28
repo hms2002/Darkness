@@ -5,7 +5,7 @@ using UnityEngine.Events;
 using System;
 public class Knife : MonoBehaviour, IItem
 {
-    private HintManager hint;
+    private TriggerX hint;
     private AudioSource knifeSound;
     public AudioClip getKnife;
     private Inventory inv;
@@ -19,7 +19,7 @@ public class Knife : MonoBehaviour, IItem
 
     private void Start() {
         knifeSound = GetComponent<AudioSource>();
-        hint  = FindObjectOfType<HintManager>();
+        hint  = FindObjectOfType<TriggerX>();
         inv = FindObjectOfType<Inventory>();
         pibot = GameObject.Find("WeponPibot");
         textManager = FindObjectOfType<TextManager>();

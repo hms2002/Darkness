@@ -7,10 +7,12 @@ public class plusLastSpecialDoor : MonoBehaviour
     public Action lightOut2;
     public Action goAnotherWorld2;
     public Action afterMove2;
+    private MainGameSound mainGameSound;
 
     public void On() 
     {    
-            StartCoroutine("GoBackHouse");
+        StartCoroutine("GoBackHouse");
+        mainGameSound = FindObjectOfType<MainGameSound>();
     }
 
     IEnumerator GoBackHouse()
@@ -20,6 +22,7 @@ public class plusLastSpecialDoor : MonoBehaviour
         goAnotherWorld2();
         yield return new WaitForSeconds(1);
         afterMove2();
+        mainGameSound.StartCoroutine("VolumeUp");
         gameObject.SetActive(false);
     }
 }

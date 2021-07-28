@@ -4,27 +4,27 @@ using UnityEngine;
 using System;
 public class SpecialNewspaper : MonoBehaviour, IItem
 {
+
+    private MainGameSound mainGameSound;
     public Action lightOut;
     public Action goAnotherWorld;
     public Action afterMove;
-    private bool afterUseRope = false;
+    public bool afterUseRope = false;
     private Inventory inventory;
     private void Start() {
         inventory = FindObjectOfType<Inventory>();
-        inventory.useRope += UseRope;
+        mainGameSound = FindObjectOfType<MainGameSound>();
     }
 
     public void Interact()
     {
+        Debug.Log(afterUseRope);
         if(afterUseRope)
         {
+            mainGameSound.StartCoroutine("VolumeMute");
             StartCoroutine("Light_Move");
+            gameObject.layer = 6;
         }
-    }
-
-    public void UseRope()
-    {
-        afterUseRope = true;
     }
 
     IEnumerator Light_Move()

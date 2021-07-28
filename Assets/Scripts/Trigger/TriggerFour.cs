@@ -14,7 +14,7 @@ public class TriggerFour : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         if(other.CompareTag("Player"))
         {
-            first.isTriggerOn = true;
+            first.IsTriggerOn();
             ghost.SetActive(true);
             ghost.GetComponent<Ghost>().Cry();
             gameObject.SetActive(false);

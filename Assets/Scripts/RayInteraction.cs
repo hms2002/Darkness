@@ -29,7 +29,12 @@ public class RayInteraction : MonoBehaviour
         Vector3 rayOrigin = playerCam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0f));
         Vector3 rayDir = playerCam.transform.forward;
         #region IntObj
-        if(Physics.Raycast(rayOrigin, rayDir, out hit, distance, 1 << (LayerMask.NameToLayer("IntObj"))))
+        if(Physics.Raycast(rayOrigin, rayDir, out hit, 3, 1 << (LayerMask.NameToLayer("Buliding"))))
+        {
+            textManager.TextClose();
+            return;
+        }
+        else if(Physics.Raycast(rayOrigin, rayDir, out hit, distance, 1 << (LayerMask.NameToLayer("IntObj"))))
         {
             textManager.EUse();
             GameObject hitObject = hit.collider.gameObject;

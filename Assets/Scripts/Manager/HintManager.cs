@@ -14,13 +14,12 @@ public class HintManager : MonoBehaviour
     public bool RopeHintOn = false;
     public bool GunHintOn = false;
 
-    public Action CanGetWepone;
-    private GameObject triggerFour;
+    private GameObject triggerX;
 
     private void Start() {
         knife = FindObjectOfType<Knife>();
         textManager = FindObjectOfType<TextManager>();
-        triggerFour = GameObject.Find("TriggerFour");
+        triggerX = GameObject.Find("TriggerX");
     }
 
     public void GetHint(int num)
@@ -43,10 +42,19 @@ public class HintManager : MonoBehaviour
         }
         if(KnifeHintOn && RopeHintOn && GunHintOn)
         {
-            CanGetWepone();
+            knife.justGotKnifeHint = false;
             ExitSprite.SetActive(true);
-            textManager.OtherTextOn(11);
-            triggerFour.gameObject.SetActive(true);
+            StartCoroutine("fasd");
+            triggerX.gameObject.SetActive(true);
         }
+    }
+
+    IEnumerator fasd()
+    {
+        yield return new WaitForSeconds(3f);
+        textManager.OtherTextOn(11);
+        yield return new WaitForSeconds(3f);
+        textManager.OtherTextOn(12);
+
     }
 }

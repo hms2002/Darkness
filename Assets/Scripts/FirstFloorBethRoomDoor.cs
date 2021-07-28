@@ -49,6 +49,15 @@ public class FirstFloorBethRoomDoor : MonoBehaviour, IItem
         }
     }
 
+    public void IsTriggerOn()
+    {
+        isTriggerOn = true;
+        if(door.isOpen == true)
+        {
+            door.Interact();
+        }
+    }
+
     IEnumerator IsOnFalse()
     {
         yield return new WaitForSeconds(2);
