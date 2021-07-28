@@ -9,7 +9,6 @@ public class DoorSpecialNewspaper : MonoBehaviour, IItem
     bool ismove = false;
     bool isTriggerStart = false;
     bool onceOpen = true;
-    bool isTextOn = false;
     bool isOnceOpenLock = false;
     private AudioSource doorSoundPlayer;
     public AudioClip openSound;
@@ -100,13 +99,10 @@ public class DoorSpecialNewspaper : MonoBehaviour, IItem
             }
         }
         else{
-            if(isTextOn == false)
+            if(textManager.isTextOn == false)
             {
-                isTextOn = true;
                 doorSoundPlayer.PlayOneShot(kWANGSound);
                 textManager.DoorTextOn(5);
-                yield return new WaitForSeconds(2.5f);
-                isTextOn = false;
             }
         }
     }

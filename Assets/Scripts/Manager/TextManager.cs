@@ -6,6 +6,7 @@ public class TextManager : MonoBehaviour
 {
     public bool isTextOn = false;
     private Text text;
+    public float delay;
 
     #region ScenarioField
     private string[] doorScenario = {
@@ -14,7 +15,8 @@ public class TextManager : MonoBehaviour
         "열쇠가 필요해",
         "열쇠는 아마 마네킹이 있는 방의 금고 안에 있을 거야",
         "단서를 더 찾아보자..",
-        "열리지 않아.."
+        "열리지 않아..",
+        "잠겨있다."
     };
 
     private string[] stairScenario = 
@@ -109,9 +111,14 @@ public class TextManager : MonoBehaviour
         if(isTextOn == false)
         {
             isTextOn = true;
-            transform.GetChild(0).gameObject.SetActive(true);
+            transform.GetChild(0).gameObject.SetActive(true);  
+            for(int i = 0; i < doorScenario[scriptNum].Length; i++)
+            {
+                text.text = doorScenario[scriptNum].Substring(0, i+1);
+                yield return new WaitForSeconds(delay);
+            }
             text.text = doorScenario[scriptNum];
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(0.5f);
             isTextOn = false;
             transform.GetChild(0).gameObject.SetActive(false);
         }
@@ -122,8 +129,13 @@ public class TextManager : MonoBehaviour
         {
             isTextOn = true;
             transform.GetChild(0).gameObject.SetActive(true);
+            for(int i = 0; i < stairScenario[scriptNum].Length; i++)
+            {
+                text.text = stairScenario[scriptNum].Substring(0, i+1);
+                yield return new WaitForSeconds(delay);
+            }
             text.text = stairScenario[scriptNum];
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(0.5f);
             isTextOn = false;
             transform.GetChild(0).gameObject.SetActive(false);
         }
@@ -135,8 +147,13 @@ public class TextManager : MonoBehaviour
         {
             isTextOn = true;
             transform.GetChild(0).gameObject.SetActive(true);
+            for(int i = 0; i < otherScenario[scriptNum].Length; i++)
+            {
+                text.text = otherScenario[scriptNum].Substring(0, i+1);
+                yield return new WaitForSeconds(delay);
+            }
             text.text = otherScenario[scriptNum];
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(0.5f);
             isTextOn = false;
             transform.GetChild(0).gameObject.SetActive(false);
         }

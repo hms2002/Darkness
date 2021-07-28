@@ -18,8 +18,13 @@ public class WaterSoundPlayer : MonoBehaviour
         audioSource.loop = true;
     }
 
-    public void PlayOff()
+    IEnumerator PlayOff()
     {
+        while(audioSource.volume > 0)
+        {
+            audioSource.volume -= 0.05f;
+            yield return new WaitForSeconds(0.05f);
+        }
         audioSource.Stop();
     }
 }

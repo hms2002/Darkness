@@ -12,7 +12,6 @@ public class FirstFloorBethRoomDoor : MonoBehaviour, IItem
     public AudioClip KwangSound;
     public AudioClip DoorOpenSound;
     public bool isTriggerOn = false;
-    private bool isOn = false;
     public bool isLittelOpen = false;
     private void Start() {
         door = transform.parent.gameObject.GetComponent<Door>();
@@ -25,12 +24,10 @@ public class FirstFloorBethRoomDoor : MonoBehaviour, IItem
 
         if(isTriggerOn)
         {
-            if(isOn == false)
+            if(textManager.isTextOn == false)
             {
-                isOn = true;
                 KwangSoundPlayer.PlayOneShot(KwangSound);
                 textManager.DoorTextOn(5);
-                StartCoroutine("IsOnFalse");
             }
         }
         else
@@ -57,10 +54,5 @@ public class FirstFloorBethRoomDoor : MonoBehaviour, IItem
             door.Interact();
         }
     }
-
-    IEnumerator IsOnFalse()
-    {
-        yield return new WaitForSeconds(2);
-        isOn = false;
-    }
+    
 }

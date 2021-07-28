@@ -9,7 +9,6 @@ public class StorageDoor : MonoBehaviour, IItem
     private Inventory inventory;
     private TextManager textManager;
     private Door door;
-    private bool isOn = false;
     private bool youUseKnife = false;
     public bool beforeMannequinRoom = false;
     void Start()
@@ -25,7 +24,7 @@ public class StorageDoor : MonoBehaviour, IItem
     {
         if(beforeMannequinRoom == false)
         {
-            if(isOn == false)
+            if(textManager.isTextOn == false)
             {
                 KwangSoundPlayer.PlayOneShot(KwangSound);
                 textManager.DoorTextOn(2);
@@ -36,19 +35,16 @@ public class StorageDoor : MonoBehaviour, IItem
         {
             if(inventory.isKey == false && youUseKnife == false)
             {
-                if(isOn==false)
+                if(textManager.isTextOn == false)
                 {
-                    isOn = true;
                     KwangSoundPlayer.PlayOneShot(KwangSound);
                     textManager.DoorTextOn(4);
-                    StartCoroutine("IsOnFalse");
                 }
             }
             else if(inventory.isKey == false && youUseKnife)
             {
-                if(isOn == false)
+                if(textManager.isTextOn == false)
                 {
-                    isOn = true;
                     KwangSoundPlayer.PlayOneShot(KwangSound);
                     textManager.DoorTextOn(2);
                     StartCoroutine("IDoorHint");
@@ -63,17 +59,9 @@ public class StorageDoor : MonoBehaviour, IItem
     {
         youUseKnife = true;
     }
-
-    IEnumerator IsOnFalse()
-    {
-        yield return new WaitForSeconds(2);
-        isOn = false;
-    }
-
     IEnumerator IDoorHint()
     {
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(4f);
         textManager.DoorTextOn(3);
-        isOn = false;
     }
 }

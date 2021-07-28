@@ -98,7 +98,7 @@ public class StairTriggerDoor : MonoBehaviour, IItem
                 ismove = false;
                 isTriggerAndDoorOn = true;
                 bGM.StartRain();
-                mainGameSound.SoundStart();
+                mainGameSound.SoundStart(); 
                 if(FirstAction != null)
                 {
                     FirstAction();
@@ -107,7 +107,7 @@ public class StairTriggerDoor : MonoBehaviour, IItem
         }
         else if(isTriggerAndDoorOn && isTriggerAndDoor)
         {
-            if(ismove == false)
+            if(textManager.isTextOn == false)
             {
                 ismove = true;
                 doorSoundPlayer.PlayOneShot(kWANGSound);

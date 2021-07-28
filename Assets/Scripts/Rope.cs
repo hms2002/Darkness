@@ -30,8 +30,7 @@ public class Rope : MonoBehaviour, IItem
         inv.GetRope();
         //getRopeEvent();
         RopeSound.PlayOneShot(getRope);
-        transform.transform.SetParent(pibot.transform);
-        transform.localPosition  = new Vector3(0,0,0);
+        Destroy(gameObject);
         
     }
     public void Dest()

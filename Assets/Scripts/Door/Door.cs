@@ -8,7 +8,6 @@ public class Door : MonoBehaviour, IItem
     public bool isOpen = false;
     bool ismove = false;
     public bool isTriggerStart = false;
-    bool isTextOn = false;
     private plusLastSpecialDoor plusLast;
     private AudioSource doorSoundPlayer;
     private TriggerSpecial triggerSpecial;
@@ -54,13 +53,10 @@ public class Door : MonoBehaviour, IItem
     {
         if(isTriggerStart && isOpen == false)
         {
-            if(isTextOn == false)
+            if(textManager.isTextOn == false)
             {
-                isTextOn = true;
                 doorSoundPlayer.PlayOneShot(kWANGSound);
                 textManager.DoorTextOn(5);
-                yield return new WaitForSeconds(2.5f);
-                isTextOn = false;
             }
         }
         else if(isTriggerStart == false || isOpen == true)

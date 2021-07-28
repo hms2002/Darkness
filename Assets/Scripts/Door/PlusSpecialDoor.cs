@@ -7,7 +7,6 @@ public class PlusSpecialDoor : MonoBehaviour
     public float Rotate = 90/60f;
     bool isOpen = false;
     bool ismove = false;
-    bool isTextOn = false;
     bool locked = false;
     public bool AfterMoveStage = false;
     private AudioSource doorSoundPlayer;
@@ -40,13 +39,10 @@ public class PlusSpecialDoor : MonoBehaviour
 
     IEnumerator Thi()
     {
-        if(isTextOn == false && AfterMoveStage)
+        if(textManager.isTextOn == false && AfterMoveStage)
         {
-            isTextOn = true;
             doorSoundPlayer.PlayOneShot(kWANGSound);
             textManager.DoorTextOn(5);
-            yield return new WaitForSeconds(2.5f);
-            isTextOn = false;
         }
 
         if(ismove == false && AfterMoveStage == false)
