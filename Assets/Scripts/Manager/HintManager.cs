@@ -13,12 +13,18 @@ public class HintManager : MonoBehaviour
     public bool KnifeHintOn = false;
     public bool RopeHintOn = false;
     public bool GunHintOn = false;
+    private int cnt = 0;
 
     private GameObject triggerX;
+    public GameObject whisperObj;
+    private AudioSource audioSource;
+    public AudioClip whisper;
 
     private void Start() {
         knife = FindObjectOfType<Knife>();
         textManager = FindObjectOfType<TextManager>();
+        audioSource = whisperObj.GetComponent<AudioSource>();
+
         triggerX = GameObject.Find("TriggerX");
     }
 
@@ -30,14 +36,17 @@ public class HintManager : MonoBehaviour
             KnifeHintOn = true;
             knife.justGotKnifeHint = true;
             KnifeSprite.SetActive(true);
+            cnt++;
             break;
             case 2:
             RopeHintOn = true;
             RopeSprite.SetActive(true);
+            cnt++;
             break;
             case 3:
             GunHintOn = true;
             GunSprite.SetActive(true);
+            cnt++;
             break;
         }
         if(KnifeHintOn && RopeHintOn && GunHintOn)
@@ -46,6 +55,10 @@ public class HintManager : MonoBehaviour
             ExitSprite.SetActive(true);
             StartCoroutine("fasd");
             triggerX.gameObject.SetActive(true);
+        }
+        if(cnt == 2)
+        {
+            audioSource.PlayOneShot(whisper);
         }
     }
 

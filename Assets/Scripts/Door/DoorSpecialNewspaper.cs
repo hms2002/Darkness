@@ -82,7 +82,7 @@ public class DoorSpecialNewspaper : MonoBehaviour, IItem
                     {
                         transform.Rotate(new Vector3(0, Rotate, 0));
 
-                        yield return new WaitForSeconds(0.01f); 
+                        yield return new WaitForSeconds(0.007f); 
                     }
                     ismove = false;
                     isOpen = true;
@@ -95,7 +95,7 @@ public class DoorSpecialNewspaper : MonoBehaviour, IItem
                     {
                         transform.Rotate(new Vector3(0, -Rotate, 0));
 
-                        yield return new WaitForSeconds(0.01f); 
+                        yield return new WaitForSeconds(0.007f); 
                     }
                     if(isOnceOpenLock)
                     {

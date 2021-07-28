@@ -84,7 +84,7 @@ public class StairTriggerDoor : MonoBehaviour, IItem
                     {
                         transform.Rotate(new Vector3(0, Rotate, 0));
 
-                        yield return new WaitForSeconds(0.01f); 
+                        yield return new WaitForSeconds(0.007f); 
                     }
                     isOpen = true;
                     ismove = false;
@@ -141,7 +141,7 @@ public class StairTriggerDoor : MonoBehaviour, IItem
         {
             transform.Rotate(new Vector3(0, -Rotate, 0));
 
-            yield return new WaitForSeconds(0.01f); 
+            yield return new WaitForSeconds(0.007f); 
         }
         ismove = false;
         isOpen = false;

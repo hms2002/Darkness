@@ -21,7 +21,7 @@ public class Door : MonoBehaviour, IItem
         plusLast = FindObjectOfType<plusLastSpecialDoor>();
         if(transform.GetChild(index).gameObject.GetComponent<AudioSource>() != null)
         {
-            transform.GetChild(index).gameObject.GetComponent<AudioSource>();
+            doorSoundPlayer = transform.GetChild(index).gameObject.GetComponent<AudioSource>();
         }
         else
         {
@@ -78,7 +78,7 @@ public class Door : MonoBehaviour, IItem
                     {
                         transform.Rotate(new Vector3(0, Rotate, 0));
 
-                        yield return new WaitForSeconds(0.01f); 
+                        yield return new WaitForSeconds(0.007f); 
                     }
                     ismove = false;
                     isOpen = true;
@@ -91,7 +91,7 @@ public class Door : MonoBehaviour, IItem
                     {
                         transform.Rotate(new Vector3(0, -Rotate, 0));
 
-                        yield return new WaitForSeconds(0.01f); 
+                        yield return new WaitForSeconds(0.007f); 
                     }
                     ismove = false;
                     isOpen = false;
