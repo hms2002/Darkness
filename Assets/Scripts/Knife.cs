@@ -25,14 +25,9 @@ public class Knife : MonoBehaviour, IItem
         textManager = FindObjectOfType<TextManager>();
         inventory = FindObjectOfType<Inventory>();
         hint.CanGetWepone += () => isHintComplete = true;
-        inventory.useKnife += Dest;
+        // inventory.useKnife += Dest;
     }
     private void Update() {
-        if(inv.isKnife)
-        {
-            transform.rotation = pibot.transform.rotation;
-        }
-        else return;
     }//ds
     public void Interact()
     {
@@ -40,13 +35,15 @@ public class Knife : MonoBehaviour, IItem
         {
             inv.GetKnife();
             getKnifeEvent();
-            knifeSound.PlayOneShot(getKnife);
-            if(transform.parent != null)
-            {
-                transform.parent = null;
-            }
-            this.transform.SetParent(pibot.transform);
-            transform.localPosition = new Vector3(0, 0, 0);        
+             knifeSound.PlayOneShot(getKnife);
+            // if(transform.parent.parent != null)
+            // {
+            //     transform.parent.parent = null;
+            // }
+            // transform.parent.SetParent(pibot.transform);
+            // transform.parent.localPosition = new Vector3(0, 0, 0);  
+            gameObject.GetComponent<MeshRenderer>().enabled = false;   
+            Destroy(transform.parent.gameObject, 3f);   
         }
         else if(isHintComplete == false && justGotKnifeHint && textManager.isTextOn == false)
         {
@@ -59,7 +56,7 @@ public class Knife : MonoBehaviour, IItem
     }
     public void Dest()
     {
-        Destroy(this.gameObject);
+        Destroy(transform.parent.gameObject);
         Debug.Log("!2e33");
     }
     public void CanGet()
