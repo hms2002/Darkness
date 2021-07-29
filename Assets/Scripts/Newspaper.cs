@@ -36,6 +36,9 @@ public class Newspaper : MonoBehaviour, IItem
                 switch(cnt)
                 {
                     case 1:
+                        ScriptText.text = "그는 총 세 명을 살해했으며, 첫 살해는 칼로 피해자의 복부를 여러 차례 찔렀으며 두 번째 살해는 피해자의 목을 밧줄로 감싸 질식하게 했다. 세 번째 살인은 불법 수입한 총기로 피해자의 머리를 쏜 것으로 알려졌다.";
+                    break;
+                    case 2:
                         ScriptText.gameObject.SetActive(false);
                         conversationText.gameObject.SetActive(false);
                         blawScreen.transform.GetChild(0).gameObject.SetActive(false);
