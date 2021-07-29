@@ -16,6 +16,7 @@ public class TriggerF : MonoBehaviour
         else
         {
             textManager.OtherTextOn(16);
+            gameObject.SetActive(false);
         }
     }
 
@@ -24,7 +25,8 @@ public class TriggerF : MonoBehaviour
         textManager.OtherTextOn(13);
         yield return new WaitForSeconds(3f);
         textManager.OtherTextOn(14);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(4f);
         textManager.OtherTextOn(15);
+        gameObject.SetActive(false);
     }
 }
