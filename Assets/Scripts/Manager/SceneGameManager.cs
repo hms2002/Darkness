@@ -5,10 +5,17 @@ using UnityEngine.SceneManagement;
 public class SceneGameManager : MonoBehaviour
 {
     private FadeManager fadeManager;
+    private Inventory inventory;
 
     private void Start() {
+        inventory = FindObjectOfType<Inventory>();
         fadeManager = FindObjectOfType<FadeManager>();
         fadeManager.SceneMoveAction += GoScene2;
+    }
+    
+    public void GoScene1()
+    {
+        SceneManager.LoadSceneAsync(0);
     }
 
     public void GoScene2()
@@ -21,6 +28,8 @@ public class SceneGameManager : MonoBehaviour
         SceneManager.LoadScene("Darkness");
     }  
 
+    
+
     public void Exit()
     {
         #if UNITY_EDITOR
@@ -30,5 +39,11 @@ public class SceneGameManager : MonoBehaviour
         #endif        
 
         
+    }
+
+    IEnumerator fd()
+    {
+        yield return new WaitForSeconds(10);
+        SceneManager.LoadSceneAsync(0);
     }
 }

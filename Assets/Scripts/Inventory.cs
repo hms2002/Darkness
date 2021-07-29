@@ -10,6 +10,8 @@ public class Inventory : MonoBehaviour
     public bool isRope = false;
     public bool isMannquin = false;
     public bool isKey = false;
+    private FirstPersonController firstPersonController;
+    private RayInteraction rayInteraction;
     public event Action useKnife;
     public event Action useRope;
     public event Action useGun;
@@ -20,6 +22,8 @@ public class Inventory : MonoBehaviour
     public AudioClip shotSound;
 
     private void Start() {
+        firstPersonController = FindObjectOfType<FirstPersonController>();
+        rayInteraction = FindObjectOfType<RayInteraction>();
         textManager = FindObjectOfType<TextManager>();
         WeponePlayer = GetComponent<AudioSource>();
     }
@@ -50,6 +54,8 @@ public class Inventory : MonoBehaviour
                 useKnife();
                 isHand = true;
                 isKnife = false;
+                firstPersonController.enabled = false;
+                rayInteraction.enabled = false;
                 StartCoroutine("IKnifeSoundPlay");
                 return;
             }
@@ -57,12 +63,16 @@ public class Inventory : MonoBehaviour
                 useRope();
                 isHand = true;
                 isRope = false;
+                firstPersonController.enabled = false;
+                rayInteraction.enabled = false;
                 StartCoroutine("IRopeSoundPlay");
             }
             else if(isGun){
                 useGun();
                 isHand = true;
                 isGun = false;
+                firstPersonController.enabled = false;
+                rayInteraction.enabled = false;
                 StartCoroutine("IGunSoundPlay");
             }
             
@@ -86,11 +96,15 @@ public class Inventory : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         WeponePlayer.PlayOneShot(stingSound);
+        firstPersonController.enabled = true;
+        rayInteraction.enabled = true;
     }
     IEnumerator IRopeSoundPlay()
     {
         yield return new WaitForSeconds(1);
         WeponePlayer.PlayOneShot(suspendSound);
+        firstPersonController.enabled = true;
+        rayInteraction.enabled = true;
     }
     IEnumerator IGunSoundPlay()
     {

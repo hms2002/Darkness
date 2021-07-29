@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using System;
 public class FadeManager : MonoBehaviour
 {
+    private SceneGameManager sceneGameManager;
     private GameObject fadeImageParent;
     private ClickSound clickSound;
     public Action SceneMoveAction;
@@ -13,6 +14,7 @@ public class FadeManager : MonoBehaviour
     public float fadeInSpeed = 0.001f;//
     public float fadeOutSpeed = 0.01f;
     private void Start() {
+        sceneGameManager = FindObjectOfType<SceneGameManager>();
         fadeImageParent = GameObject.Find("FadeImageParent");
         fadeImage = fadeImageParent.transform.GetChild(0).gameObject.GetComponent<Image>();
         inventory  = FindObjectOfType<Inventory>();
@@ -59,6 +61,8 @@ public class FadeManager : MonoBehaviour
             done.color =  startColor;
             yield return new WaitForSeconds(fadeInSpeed);
         }
+        yield return new WaitForSeconds(4f);
+        sceneGameManager.StartCoroutine("fd");
 
     }
     IEnumerator IFadeAndMoveScene()
