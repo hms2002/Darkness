@@ -15,6 +15,7 @@ public class StairTriggerDoor : MonoBehaviour, IItem
     public int index =1;
     bool isOpen = false;
     bool ismove = false;
+    public AudioClip closeSound2;
     private MainGameSound mainGameSound;
     private TextManager textManager;
     private AudioSource doorSoundPlayer;
@@ -136,13 +137,19 @@ public class StairTriggerDoor : MonoBehaviour, IItem
     }
     IEnumerator ICloseDoor()
     {
-        doorSoundPlayer.PlayOneShot(closeSound);
+        doorSoundPlayer.PlayOneShot(closeSound2);
         for(int i = 0; i < 60; i++)
         {
             transform.Rotate(new Vector3(0, -Rotate, 0));
 
             yield return new WaitForSeconds(0.007f); 
         }
+
+        while(!(doorSoundPlayer.isPlaying == true))
+        {
+            yield return new WaitForSeconds(0.01f);
+        }
+        doorSoundPlayer.PlayOneShot(closeSound);
         ismove = false;
         isOpen = false;
         if(onceOpen) onceOpen = false;

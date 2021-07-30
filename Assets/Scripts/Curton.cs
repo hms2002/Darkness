@@ -14,7 +14,7 @@ public class Curton : MonoBehaviour, IItem
     float speed;
     private void Start() {
         waterSoundPlayer = GameObject.Find("WaterSoundPlayer");
-        audioSource = GetComponent<AudioSource>();
+        audioSource = transform.GetChild(0).gameObject.GetComponent<AudioSource>();
         speed = anim.speed;
         anim.speed = 0.0f;
     }

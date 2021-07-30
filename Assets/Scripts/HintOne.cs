@@ -8,7 +8,7 @@ public class HintOne : MonoBehaviour, IItem
     private TextManager textManager;
     public int HintNum;
     
-    
+    private bool Once = true;
 
     void Start()
     {
@@ -18,15 +18,19 @@ public class HintOne : MonoBehaviour, IItem
 
     public void Interact()
     {
-        if(hint.KnifeHintOn || hint.RopeHintOn || hint.GunHintOn)
+        if(Once)
         {
-            textManager.OtherTextOn(10);
+            Once = false;
+            if(hint.KnifeHintOn || hint.RopeHintOn || hint.GunHintOn)
+            {
+                textManager.OtherTextOn(10);
+            }
+            else
+            {
+                textManager.OtherTextOn(9);
+            }
+            hint.GetHint(HintNum);
+            gameObject.SetActive(false);
         }
-        else
-        {
-            textManager.OtherTextOn(9);
-        }
-        hint.GetHint(HintNum);
-        gameObject.SetActive(false);
     }
 }

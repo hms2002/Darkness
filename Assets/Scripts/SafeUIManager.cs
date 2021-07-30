@@ -5,6 +5,7 @@ using System;
 
 public class SafeUIManager : MonoBehaviour, IItem
 {
+    private GameManager gameManager;
     public GameObject game;
     private GameObject Player;
     private AudioSource audioSource;
@@ -21,6 +22,7 @@ public class SafeUIManager : MonoBehaviour, IItem
     private bool isOn = false;
     
     private void Start() {
+        gameManager = FindObjectOfType<GameManager>();
         Player = GameObject.FindWithTag("Player");
         textManager = FindObjectOfType<TextManager>();
         door = transform.parent.gameObject.GetComponent<Door>();
@@ -33,6 +35,7 @@ public class SafeUIManager : MonoBehaviour, IItem
         {
             if(isOpen == false)
             {
+                gameManager.isCanESC = false;
                 game.SetActive(true);
                 Pass = FindObjectOfType<PassManager>();
                 Player.GetComponent<FirstPersonController>().enabled = false;
@@ -59,9 +62,10 @@ public class SafeUIManager : MonoBehaviour, IItem
     private void Update() {
         if(UION)
         {
-            if(Input.GetKeyDown(KeyCode.E))
+            if(Input.GetKeyDown(KeyCode.Escape))
             {
                 CloseUI();
+                gameManager.isCanESC = true;
             }
         }
     }
