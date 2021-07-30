@@ -50,7 +50,8 @@ public class TextManager : MonoBehaviour
         "아까 찾은 그림이 보인다.",//13
         "이 집에서 탈출하기 위한 방법인 것 같다.",
         "나머지 힌트도 찾아보자.",
-        "탈출하기 위한 힌트를 찾아야 할 것 같다."
+        "탈출하기 위한 힌트를 찾아야 할 것 같다.",
+        "힌트대로 행동하면 탈출할 수 있을 것 같다"//17
     };
     #endregion
     private void Start() {

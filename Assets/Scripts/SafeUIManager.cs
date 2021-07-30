@@ -33,13 +33,14 @@ public class SafeUIManager : MonoBehaviour, IItem
         {
             if(isOpen == false)
             {
-                UION = true;
                 game.SetActive(true);
                 Pass = FindObjectOfType<PassManager>();
                 Player.GetComponent<FirstPersonController>().enabled = false;
                 Player.GetComponent<RayInteraction>().enabled = false;
                 audioSource = GetComponent<AudioSource>();
                 Cursor.lockState = CursorLockMode.Confined;
+                UION = true;
+            
             }
             else{
                 door.Interact();
@@ -58,7 +59,7 @@ public class SafeUIManager : MonoBehaviour, IItem
     private void Update() {
         if(UION)
         {
-            if(Input.GetKeyDown(KeyCode.Escape))
+            if(Input.GetKeyDown(KeyCode.E))
             {
                 CloseUI();
             }

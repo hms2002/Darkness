@@ -16,6 +16,7 @@ public class Knife : MonoBehaviour, IItem
     public bool canGet = false;
     public bool isHintComplete = false;
     public bool justGotKnifeHint = false;
+    public bool isKnifeGet = false;
 
     private void Start() {
         knifeSound = GetComponent<AudioSource>();
@@ -31,8 +32,14 @@ public class Knife : MonoBehaviour, IItem
     }//ds
     public void Interact()
     {
+        if(isKnifeGet == true)
+        {
+            return;
+        }
+
         if(canGet && isHintComplete)
         {
+            isKnifeGet = true;
             inv.GetKnife();
             getKnifeEvent();
              knifeSound.PlayOneShot(getKnife);

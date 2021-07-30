@@ -27,7 +27,7 @@ public class StorageDoor : MonoBehaviour, IItem
             if(textManager.isTextOn == false)
             {
                 KwangSoundPlayer.PlayOneShot(KwangSound);
-                textManager.DoorTextOn(2);
+                textManager.DoorTextOn(5);
                 StartCoroutine("IsOnFalse");
             }
         }
@@ -38,7 +38,7 @@ public class StorageDoor : MonoBehaviour, IItem
                 if(textManager.isTextOn == false)
                 {
                     KwangSoundPlayer.PlayOneShot(KwangSound);
-                    textManager.DoorTextOn(4);
+                    textManager.DoorTextOn(5);
                 }
             }
             else if(inventory.isKey == false && youUseKnife)

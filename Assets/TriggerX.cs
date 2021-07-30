@@ -15,7 +15,7 @@ public class TriggerX : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             CanGetWepone();
-            //textManager.OtherTextOn(0);
+            textManager.OtherTextOn(17);
             TriggerFour.SetActive(true);
             gameObject.SetActive(false);
         }

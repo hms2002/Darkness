@@ -15,11 +15,11 @@ public class FirstFloorBethRoomDoorPibot : MonoBehaviour, IItem
     public void Interact()
     {
         if(isAfterOpen)
-        {    
+        {
+            isAfterOpen = false;    
             rot = 90 - Rotate;
             StartCoroutine("Third");
                 
-            isAfterOpen = false;
         }
     }
 
