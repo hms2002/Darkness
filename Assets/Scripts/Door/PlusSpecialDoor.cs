@@ -14,6 +14,7 @@ public class PlusSpecialDoor : MonoBehaviour
     private TextManager textManager;
     public AudioClip openSound;
     public AudioClip closeSound;
+    public AudioClip closeSound2;
     public AudioClip kWANGSound;
 
 
@@ -62,7 +63,7 @@ public class PlusSpecialDoor : MonoBehaviour
             }
             else if(isOpen == true)
             {
-                doorSoundPlayer.PlayOneShot(closeSound);
+                doorSoundPlayer.PlayOneShot(closeSound2);
                 ismove = true;
                 for(int i = 0; i < 60; i++)
                 {
@@ -70,6 +71,12 @@ public class PlusSpecialDoor : MonoBehaviour
 
                     yield return new WaitForSeconds(0.01f); 
                 }
+
+                while(!(doorSoundPlayer.isPlaying == true))
+                {
+                    yield return new WaitForSeconds(0.01f);
+                }
+                doorSoundPlayer.PlayOneShot(closeSound);
                 ismove = false;
                 isOpen = false;
             }

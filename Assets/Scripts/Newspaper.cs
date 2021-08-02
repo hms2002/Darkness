@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using System;
 public class Newspaper : MonoBehaviour, IItem
 {
+    private AudioSource audioSource;
+    public AudioClip goSound;
     public Image newspapper;
     public Text conversationText;
     public Text ScriptText;
@@ -15,6 +17,13 @@ public class Newspaper : MonoBehaviour, IItem
     private GameObject blawScreen;
     private GameObject Panel;
     public bool letGoNextScene = false;
+    private string[] senario = {
+        "귀신이 나온다고?",
+        "...",
+        "한번 가보자."
+    };
+
+
     private int cnt = 0;
 
 
@@ -64,15 +73,22 @@ public class Newspaper : MonoBehaviour, IItem
     }
     IEnumerator GoSceneLater()
     {
+        audioSource.PlayOneShot(goSound);
         yield return new WaitForSeconds(1.5f);
         sceneGameManager.GoScene3();
     }
     IEnumerator IT()
     {
-        NewsDownText.text = "...";
-        yield return new WaitForSeconds(2);
-        NewsDownText.text = "가볼까?";
-        yield return new WaitForSeconds(2);
+        for(int j = 0; j < 3; j++)
+        {
+            for(int i = 0; i < senario[j].Length; i++)
+            {
+                NewsDownText.text = senario[j].Substring(0, i+1);
+                yield return new WaitForSeconds(0.04f);
+            }
+            NewsDownText.text = senario[j];
+            yield return new WaitForSeconds(2f);
+        }
         newspapper.gameObject.SetActive(false);
         NewsDownText.text = "";
         fadeManager.FadeIn();

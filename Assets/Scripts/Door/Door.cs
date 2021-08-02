@@ -14,6 +14,7 @@ public class Door : MonoBehaviour, IItem
     private TextManager textManager;
     public AudioClip openSound;
     public AudioClip closeSound;
+    public AudioClip closeSound2;
     public AudioClip kWANGSound;
     public int index = 1;
 
@@ -85,7 +86,7 @@ public class Door : MonoBehaviour, IItem
                 }
                 else
                 {
-                    doorSoundPlayer.PlayOneShot(closeSound);
+                    doorSoundPlayer.PlayOneShot(closeSound2);
                     ismove = true;
                     for(int i = 0; i < 60; i++)
                     {
@@ -93,6 +94,12 @@ public class Door : MonoBehaviour, IItem
 
                         yield return new WaitForSeconds(0.007f); 
                     }
+
+                    while(!(doorSoundPlayer.isPlaying == true))
+                    {
+                        yield return new WaitForSeconds(0.01f);
+                    }
+                    doorSoundPlayer.PlayOneShot(closeSound);
                     ismove = false;
                     isOpen = false;
                 }

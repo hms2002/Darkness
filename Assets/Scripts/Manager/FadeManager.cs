@@ -21,6 +21,7 @@ public class FadeManager : MonoBehaviour
         inventory.useKnife += FadeWepon;
         inventory.useRope += FadeWepon;
         inventory.useGun += EndFade;
+        //Cursor.lockState = CursorLockMode.Locked
     }
 
     public void FadeIn()

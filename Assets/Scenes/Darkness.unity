@@ -3301,13 +3301,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 232260543}
-  m_LocalRotation: {x: -0, y: -0.56999904, z: -0, w: 0.82164544}
-  m_LocalPosition: {x: -16.65, y: 15.69, z: 7.06}
-  m_LocalScale: {x: 8.523191, y: 4.144594, z: 1}
+  m_LocalRotation: {x: -0, y: -0.3669913, z: -0, w: 0.93022436}
+  m_LocalPosition: {x: -19.04, y: 15.69, z: 6.94}
+  m_LocalScale: {x: 9.594557, y: 4.144594, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 115
-  m_LocalEulerAnglesHint: {x: 0, y: -69.5, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -43.06, z: 0}
 --- !u!1 &233593319 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ebef83012e53e694791a9b8da8bbbbc6, type: 3}
@@ -3419,7 +3419,7 @@ Transform:
   m_GameObject: {fileID: 236588370}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -14.2, y: 0.51, z: 39.8}
-  m_LocalScale: {x: 5, y: 1, z: 5}
+  m_LocalScale: {x: 8, y: 1, z: 8}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 12
@@ -4047,6 +4047,7 @@ MonoBehaviour:
   isTriggerStart: 0
   openSound: {fileID: 8300000, guid: 169b3f41119392c42901d51a79a8a50d, type: 3}
   closeSound: {fileID: 8300000, guid: 7fe54f655a1f42544a1a878dc36f76fc, type: 3}
+  closeSound2: {fileID: 8300000, guid: 456688565a350cd4185d2ccee248e670, type: 3}
   kWANGSound: {fileID: 8300000, guid: 3dad0ec7bb71e7242ab21480a60006de, type: 3}
   index: 1
 --- !u!65 &265213979
@@ -4262,6 +4263,7 @@ MonoBehaviour:
   isTriggerStart: 0
   openSound: {fileID: 8300000, guid: 169b3f41119392c42901d51a79a8a50d, type: 3}
   closeSound: {fileID: 8300000, guid: 7fe54f655a1f42544a1a878dc36f76fc, type: 3}
+  closeSound2: {fileID: 8300000, guid: 456688565a350cd4185d2ccee248e670, type: 3}
   kWANGSound: {fileID: 8300000, guid: 3dad0ec7bb71e7242ab21480a60006de, type: 3}
   index: 1
 --- !u!65 &267257482
@@ -6783,6 +6785,7 @@ MonoBehaviour:
   isTriggerStart: 0
   openSound: {fileID: 8300000, guid: 169b3f41119392c42901d51a79a8a50d, type: 3}
   closeSound: {fileID: 8300000, guid: 7fe54f655a1f42544a1a878dc36f76fc, type: 3}
+  closeSound2: {fileID: 8300000, guid: 456688565a350cd4185d2ccee248e670, type: 3}
   kWANGSound: {fileID: 8300000, guid: 3dad0ec7bb71e7242ab21480a60006de, type: 3}
   index: 1
 --- !u!82 &392483317
@@ -8576,6 +8579,7 @@ MonoBehaviour:
   isTriggerStart: 0
   openSound: {fileID: 8300000, guid: b9a67585eb23caa4e9e10ede313fd9c2, type: 3}
   closeSound: {fileID: 8300000, guid: 60e3f16439b3c1c40b6081370869ff22, type: 3}
+  closeSound2: {fileID: 0}
   kWANGSound: {fileID: 8300000, guid: 3dad0ec7bb71e7242ab21480a60006de, type: 3}
   index: 1
 --- !u!65 &487875844
@@ -10140,6 +10144,7 @@ MonoBehaviour:
   isTriggerStart: 0
   openSound: {fileID: 8300000, guid: f7fc3ede2d6866e42817095a6a87e008, type: 3}
   closeSound: {fileID: 8300000, guid: dc5b9038dfec202408ee14318f7a4822, type: 3}
+  closeSound2: {fileID: 0}
   kWANGSound: {fileID: 8300000, guid: a826f5fdb17e7694f9bbca4711360de8, type: 3}
   index: 1
 --- !u!82 &581120709
@@ -12284,6 +12289,7 @@ MonoBehaviour:
   isTriggerStart: 0
   openSound: {fileID: 8300000, guid: 169b3f41119392c42901d51a79a8a50d, type: 3}
   closeSound: {fileID: 8300000, guid: 7fe54f655a1f42544a1a878dc36f76fc, type: 3}
+  closeSound2: {fileID: 8300000, guid: 456688565a350cd4185d2ccee248e670, type: 3}
   kWANGSound: {fileID: 8300000, guid: 3dad0ec7bb71e7242ab21480a60006de, type: 3}
   index: 1
 --- !u!82 &766754819
@@ -12552,7 +12558,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &790880106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13563,6 +13569,7 @@ MonoBehaviour:
   isTriggerStart: 0
   openSound: {fileID: 8300000, guid: 169b3f41119392c42901d51a79a8a50d, type: 3}
   closeSound: {fileID: 8300000, guid: 7fe54f655a1f42544a1a878dc36f76fc, type: 3}
+  closeSound2: {fileID: 8300000, guid: 456688565a350cd4185d2ccee248e670, type: 3}
   kWANGSound: {fileID: 8300000, guid: 3dad0ec7bb71e7242ab21480a60006de, type: 3}
   index: 1
 --- !u!65 &881344588
@@ -22741,6 +22748,7 @@ MonoBehaviour:
   index: 1
   openSound: {fileID: 8300000, guid: 169b3f41119392c42901d51a79a8a50d, type: 3}
   closeSound: {fileID: 8300000, guid: 7fe54f655a1f42544a1a878dc36f76fc, type: 3}
+  closeSound2: {fileID: 8300000, guid: 456688565a350cd4185d2ccee248e670, type: 3}
   kWANGSound: {fileID: 8300000, guid: 3dad0ec7bb71e7242ab21480a60006de, type: 3}
 --- !u!65 &1219785043
 BoxCollider:
@@ -25721,6 +25729,7 @@ MonoBehaviour:
   AfterMoveStage: 0
   openSound: {fileID: 8300000, guid: 169b3f41119392c42901d51a79a8a50d, type: 3}
   closeSound: {fileID: 8300000, guid: 7fe54f655a1f42544a1a878dc36f76fc, type: 3}
+  closeSound2: {fileID: 8300000, guid: 456688565a350cd4185d2ccee248e670, type: 3}
   kWANGSound: {fileID: 8300000, guid: 3dad0ec7bb71e7242ab21480a60006de, type: 3}
 --- !u!4 &1466662407
 Transform:
@@ -26782,6 +26791,7 @@ MonoBehaviour:
   isTriggerStart: 0
   openSound: {fileID: 8300000, guid: 169b3f41119392c42901d51a79a8a50d, type: 3}
   closeSound: {fileID: 8300000, guid: 7fe54f655a1f42544a1a878dc36f76fc, type: 3}
+  closeSound2: {fileID: 8300000, guid: 456688565a350cd4185d2ccee248e670, type: 3}
   kWANGSound: {fileID: 8300000, guid: 3dad0ec7bb71e7242ab21480a60006de, type: 3}
   index: 1
 --- !u!65 &1565164248
@@ -26993,6 +27003,7 @@ MonoBehaviour:
   AfterMoveStage: 0
   openSound: {fileID: 8300000, guid: 169b3f41119392c42901d51a79a8a50d, type: 3}
   closeSound: {fileID: 8300000, guid: 7fe54f655a1f42544a1a878dc36f76fc, type: 3}
+  closeSound2: {fileID: 8300000, guid: 456688565a350cd4185d2ccee248e670, type: 3}
   kWANGSound: {fileID: 8300000, guid: 3dad0ec7bb71e7242ab21480a60006de, type: 3}
 --- !u!4 &1570505886
 Transform:
@@ -29715,13 +29726,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1756330492}
-  m_LocalRotation: {x: -0, y: -0.49660814, z: -0, w: 0.8679749}
-  m_LocalPosition: {x: -16.87, y: 15.69, z: 6.97}
+  m_LocalRotation: {x: -0, y: -0.37938324, z: -0, w: 0.9252397}
+  m_LocalPosition: {x: -18.84, y: 15.69, z: 6.57}
   m_LocalScale: {x: 10.636508, y: 4.144594, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 116
-  m_LocalEulerAnglesHint: {x: 0, y: -59.552, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -44.591, z: 0}
 --- !u!1 &1765836552 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8144394004440419581, guid: 12fc0fc2e74c1df4ba8ec63eec886323, type: 3}
@@ -31038,6 +31049,7 @@ MonoBehaviour:
   AfterMoveStage: 0
   openSound: {fileID: 8300000, guid: 169b3f41119392c42901d51a79a8a50d, type: 3}
   closeSound: {fileID: 8300000, guid: 7fe54f655a1f42544a1a878dc36f76fc, type: 3}
+  closeSound2: {fileID: 8300000, guid: 456688565a350cd4185d2ccee248e670, type: 3}
   kWANGSound: {fileID: 8300000, guid: 3dad0ec7bb71e7242ab21480a60006de, type: 3}
 --- !u!4 &1901189563
 Transform:
@@ -31673,6 +31685,7 @@ MonoBehaviour:
   AfterMoveStage: 0
   openSound: {fileID: 8300000, guid: 169b3f41119392c42901d51a79a8a50d, type: 3}
   closeSound: {fileID: 8300000, guid: 7fe54f655a1f42544a1a878dc36f76fc, type: 3}
+  closeSound2: {fileID: 8300000, guid: 456688565a350cd4185d2ccee248e670, type: 3}
   kWANGSound: {fileID: 8300000, guid: 3dad0ec7bb71e7242ab21480a60006de, type: 3}
 --- !u!4 &1925553778
 Transform:
@@ -32191,6 +32204,7 @@ MonoBehaviour:
   isTriggerStart: 0
   openSound: {fileID: 8300000, guid: b9a67585eb23caa4e9e10ede313fd9c2, type: 3}
   closeSound: {fileID: 8300000, guid: 60e3f16439b3c1c40b6081370869ff22, type: 3}
+  closeSound2: {fileID: 0}
   kWANGSound: {fileID: 8300000, guid: 3dad0ec7bb71e7242ab21480a60006de, type: 3}
   index: 1
 --- !u!65 &1998903741
@@ -33678,6 +33692,7 @@ MonoBehaviour:
   AfterMoveStage: 0
   openSound: {fileID: 8300000, guid: 169b3f41119392c42901d51a79a8a50d, type: 3}
   closeSound: {fileID: 8300000, guid: 7fe54f655a1f42544a1a878dc36f76fc, type: 3}
+  closeSound2: {fileID: 8300000, guid: 456688565a350cd4185d2ccee248e670, type: 3}
   kWANGSound: {fileID: 8300000, guid: 3dad0ec7bb71e7242ab21480a60006de, type: 3}
 --- !u!4 &2102931279
 Transform:

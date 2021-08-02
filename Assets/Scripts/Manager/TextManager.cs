@@ -10,13 +10,16 @@ public class TextManager : MonoBehaviour
 
     #region ScenarioField
     private string[] doorScenario = {
-        "아직은 나갈 때가 아니야",
+        "조금 더 둘러보자",
         "열리지 않아. 문을 열 수 있는 방법을 찾아보자",
         "열쇠가 필요해",
         "열쇠는 아마 마네킹이 있는 방의 금고 안에 있을 거야",
         "단서를 더 찾아보자..",
         "열리지 않아..",
-        "잠겨있다."
+        "잠겨있다.",
+        "아무래도 이 집에 갇힌 것 같다",//7
+        "탈출할 수 있는 방법을 찾아보자",
+        "문이 열리지 않아! 이게 무슨 일이지?"
     };
 
     private string[] stairScenario = 
@@ -25,7 +28,7 @@ public class TextManager : MonoBehaviour
         "일단 밖으로 나가자"
     };
 
-    private string[] mannequinScenario = 
+    private string[] mannequinScenario = //fdd
     {
         "쑤셔 넣기",
         "목 조르기",

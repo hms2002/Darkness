@@ -99,14 +99,13 @@ public class StairTriggerDoor : MonoBehaviour, IItem
             {
                 ismove = true;
                 doorSoundPlayer.PlayOneShot(kWANGSound);
-                textManager.DoorTextOn(1);      
+                textManager.DoorTextOn(9);      
                 nextStageWall.SetActive(false);
                 firstTriggerPlus.SetActive(false);
                 yield return new WaitForSeconds(4f);
                 doorSoundPlayer.PlayOneShot(kWANGSound2);
                 handLightOn.LightOn();
                 directionLight.SetActive(false);
-                ismove = false;
                 isTriggerAndDoorOn = true;
                 bGM.StartRain();
                 mainGameSound.SoundStart(); 
@@ -114,6 +113,12 @@ public class StairTriggerDoor : MonoBehaviour, IItem
                 {
                     FirstAction();
                 }
+                yield return new WaitForSeconds(6f);
+                textManager.DoorTextOn(7);
+                yield return new WaitForSeconds(3.5f);
+                textManager.DoorTextOn(8);
+                yield return new WaitForSeconds(3f);
+                ismove = false;
             }
         }
         else if(isTriggerAndDoorOn && isTriggerAndDoor)

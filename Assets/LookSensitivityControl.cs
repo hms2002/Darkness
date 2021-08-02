@@ -3,13 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 public class LookSensitivityControl : MonoBehaviour
 {
-    private FirstPersonController firstPersonController;
+    private SettingMember settingMember;
     private void Start() {
-        firstPersonController = FindObjectOfType<FirstPersonController>();
+        settingMember = FindObjectOfType<SettingMember>();
+        if(settingMember != null)
+        {
+            settingMember.Reset();
+            settingMember.HandleSetting();
+        }
     }
 
     public void ChangeVol(float percentage)
     {
-        firstPersonController.mouseSensitivity = percentage * 10;
+        if(settingMember != null)
+        {
+            settingMember.HandleSetting(percentage);
+        }
     }
 }

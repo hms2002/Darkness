@@ -14,6 +14,7 @@ public class DoorSpecialNewspaper : MonoBehaviour, IItem
     private AudioSource doorSoundPlayer;
     public AudioClip openSound;
     public AudioClip closeSound;
+    public AudioClip closeSound2;
     public AudioClip kWANGSound;
     private TextManager textManager;
     private TriggerSpecial triggerSpecial;
@@ -82,21 +83,27 @@ public class DoorSpecialNewspaper : MonoBehaviour, IItem
                     {
                         transform.Rotate(new Vector3(0, Rotate, 0));
 
-                        yield return new WaitForSeconds(0.007f); 
+                        yield return new WaitForSeconds(0.01f); 
                     }
                     ismove = false;
                     isOpen = true;
                 }
                 else
                 {
-                    doorSoundPlayer.PlayOneShot(closeSound);
+                    doorSoundPlayer.PlayOneShot(closeSound2);
                     ismove = true;
                     for(int i = 0; i < 60; i++)
                     {
                         transform.Rotate(new Vector3(0, -Rotate, 0));
 
-                        yield return new WaitForSeconds(0.007f); 
+                        yield return new WaitForSeconds(0.01f); 
                     }
+
+                    while(!(doorSoundPlayer.isPlaying == true))
+                    {
+                        yield return new WaitForSeconds(0.01f);
+                    }
+                    doorSoundPlayer.PlayOneShot(closeSound);
                     if(isOnceOpenLock)
                     {
                         onceOpen = false;
