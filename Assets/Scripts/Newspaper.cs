@@ -52,7 +52,7 @@ public class Newspaper : MonoBehaviour, IItem
                         conversationText.gameObject.SetActive(false);
                         blawScreen.transform.GetChild(0).gameObject.SetActive(false);
                         Player.GetComponent<FirstPersonController>().enabled = true;
-                        NewsDownText.gameObject.SetActive(true);
+                        NewsDownText.transform.parent.gameObject.SetActive(true);
                         StartCoroutine("IT");
                     break;
                 }
@@ -62,6 +62,7 @@ public class Newspaper : MonoBehaviour, IItem
 
     public void Interact()
     {
+        audioSource = GetComponent<AudioSource>();
         Player.GetComponent<FirstPersonController>().enabled = false;
         blawScreen.transform.GetChild(0).gameObject.SetActive(true);
         transform.GetChild(0).gameObject.SetActive(false);
@@ -74,7 +75,7 @@ public class Newspaper : MonoBehaviour, IItem
     IEnumerator GoSceneLater()
     {
         audioSource.PlayOneShot(goSound);
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(3f);
         sceneGameManager.GoScene3();
     }
     IEnumerator IT()

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class TextManager : MonoBehaviour
 {
+    //private SizeCtrl sizeCtrl;
     public bool isTextOn = false;
     private Text text;
     public float delay;
@@ -58,7 +59,8 @@ public class TextManager : MonoBehaviour
     };
     #endregion
     private void Start() {
-        text = transform.GetChild(0).gameObject.GetComponent<Text>();
+        //sizeCtrl = transform.GetChild(0).gameObject.GetComponent<SizeCtrl>();
+        text = transform.GetChild(0).GetChild(0).gameObject.GetComponent<Text>();
     }
     #region StartTextOnField
     public void DoorTextOn(int scriptNum)
@@ -99,6 +101,7 @@ public class TextManager : MonoBehaviour
         if(isTextOn == false)
         {
             transform.GetChild(0).gameObject.SetActive(true);
+            //sizeCtrl.Fix(10);
             text.text = "\'E\' to Use";
         }
     }
@@ -122,6 +125,7 @@ public class TextManager : MonoBehaviour
             transform.GetChild(0).gameObject.SetActive(true);  
             for(int i = 0; i < doorScenario[scriptNum].Length; i++)
             {
+                //sizeCtrl.Fix(i + 1);
                 text.text = doorScenario[scriptNum].Substring(0, i+1);
                 yield return new WaitForSeconds(delay);
             }
@@ -139,6 +143,7 @@ public class TextManager : MonoBehaviour
             transform.GetChild(0).gameObject.SetActive(true);
             for(int i = 0; i < stairScenario[scriptNum].Length; i++)
             {
+                //sizeCtrl.Fix(i + 1);
                 text.text = stairScenario[scriptNum].Substring(0, i+1);
                 yield return new WaitForSeconds(delay);
             }
@@ -157,6 +162,7 @@ public class TextManager : MonoBehaviour
             transform.GetChild(0).gameObject.SetActive(true);
             for(int i = 0; i < otherScenario[scriptNum].Length; i++)
             {
+                //sizeCtrl.Fix(i + 1);
                 text.text = otherScenario[scriptNum].Substring(0, i+1);
                 yield return new WaitForSeconds(delay);
             }
