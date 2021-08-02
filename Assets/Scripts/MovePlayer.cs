@@ -28,7 +28,7 @@ public class MovePlayer : MonoBehaviour
         ax = transform.position.x;
         ay = transform.position.y;
         az = transform.position.z;
-        transform.position += new Vector3(-46, 0, 0);
+        transform.position += new Vector3(0, 0, -46);
     }
 
     public void ComeBack()

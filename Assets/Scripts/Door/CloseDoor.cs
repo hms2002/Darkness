@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CloseDoor : MonoBehaviour
 {
-    private StairTriggerDoor stairTriggerDoor;
+    private StairTriggerDoor stairTriggerDoor;    public GameObject game;
     private void Start() {
         stairTriggerDoor = FindObjectOfType<StairTriggerDoor>();
     }
