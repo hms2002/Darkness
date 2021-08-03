@@ -9,6 +9,7 @@ public class HintManager : MonoBehaviour
     public GameObject RopeSprite;
     public GameObject GunSprite;
     public GameObject ExitSprite;
+    public GameObject TriggerPaint;
     private Knife knife;
     public bool KnifeHintOn = false;
     public bool RopeHintOn = false;
@@ -55,6 +56,7 @@ public class HintManager : MonoBehaviour
             //ExitSprite.SetActive(true);
             StartCoroutine("fasd");
             triggerX.gameObject.SetActive(true);
+            TriggerPaint.SetActive(true);
         }
         if(cnt == 2)
         {

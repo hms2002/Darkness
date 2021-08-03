@@ -29,6 +29,7 @@ public class KitchinDrawer : MonoBehaviour, IItem
 
     IEnumerator OpenInteract()
     {
+        audioSource.PlayOneShot(openSound);
         isMove = true;
         for(int i = 0; i < 60; i++)
         {
@@ -41,11 +42,12 @@ public class KitchinDrawer : MonoBehaviour, IItem
 
     IEnumerator CloseInteract()
     {
+        audioSource.PlayOneShot(closeSound);
         isMove = true;
         for(int i = 0; i < 60; i++)
         {
             transform.Rotate(-moveDegree/60,0,0);
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSeconds(0.005f);
         }
         isOpen = false;
         isMove = false;

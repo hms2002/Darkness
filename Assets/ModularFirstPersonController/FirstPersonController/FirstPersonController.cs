@@ -16,6 +16,9 @@ using UnityEngine.UI;
 
 public class FirstPersonController : MonoBehaviour
 {
+    #region walkSound
+        private WalkSound walkSound;
+    #endregion
     private CamereMovementTest camereMovementTest;
     private Rigidbody rb;
 
@@ -63,7 +66,7 @@ public class FirstPersonController : MonoBehaviour
     public float maxVelocityChange = 10f;
 
     // Internal Variables
-    private bool isWalking = false;
+    public bool isWalking = false;
 
     #region Sprint
 
@@ -86,7 +89,7 @@ public class FirstPersonController : MonoBehaviour
 
     // Internal Variables
     private CanvasGroup sprintBarCG;
-    private bool isSprinting = false;
+    public bool isSprinting = false;
     private float sprintRemaining;
     private float sprintBarWidth;
     private float sprintBarHeight;
@@ -154,6 +157,7 @@ public class FirstPersonController : MonoBehaviour
 
     void Start()
     {
+        walkSound = FindObjectOfType<WalkSound>();
         if(lockCursor)
         {
             Cursor.lockState = CursorLockMode.Locked;
