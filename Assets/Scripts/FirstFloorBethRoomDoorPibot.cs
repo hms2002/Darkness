@@ -17,7 +17,7 @@ public class FirstFloorBethRoomDoorPibot : MonoBehaviour, IItem
         if(isAfterOpen)
         {
             isAfterOpen = false;    
-            rot = 90 - Rotate;
+            rot = 72 - Rotate;
             StartCoroutine("Third");
                 
         }

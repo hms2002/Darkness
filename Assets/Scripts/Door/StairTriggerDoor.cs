@@ -24,6 +24,8 @@ public class StairTriggerDoor : MonoBehaviour, IItem
     public AudioClip kWANGSound;
     public AudioClip kWANGSound2;
     private GameObject directionLight;
+    public GameObject dirextionLight2;
+    public GameObject dirextionLight3;
     private triggerOne triggerDelegate;
     private GameObject nextStageWall;
     private GameObject firstTriggerPlus;
@@ -106,6 +108,8 @@ public class StairTriggerDoor : MonoBehaviour, IItem
                 doorSoundPlayer.PlayOneShot(kWANGSound2);
                 handLightOn.LightOn();
                 directionLight.SetActive(false);
+                dirextionLight2.SetActive(false);
+                dirextionLight3.SetActive(false);
                 isTriggerAndDoorOn = true;
                 bGM.StartRain();
                 mainGameSound.SoundStart(); 

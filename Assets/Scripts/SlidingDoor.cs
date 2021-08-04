@@ -10,9 +10,17 @@ public class SlidingDoor : MonoBehaviour, IItem
     private AudioSource audioSource;
     public AudioClip doorOpenSound;
     public AudioClip doorCloseSound;
+    public int index = 1;
 
     private void Start() {
-        audioSource = GetComponent<AudioSource>();
+        if(transform.GetChild(index).gameObject.GetComponent<AudioSource>() != null)
+        {
+            audioSource = transform.GetChild(index).gameObject.GetComponent<AudioSource>();
+        }
+        else
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
     }
     public void Interact()
     {

@@ -8,6 +8,7 @@ public class Door : MonoBehaviour, IItem
     public bool isOpen = false;
     bool ismove = false;
     public bool isTriggerStart = false;
+    public int ZeroIsBigDoor = 0;
     private plusLastSpecialDoor plusLast;
     private AudioSource doorSoundPlayer;
     private TriggerSpecial triggerSpecial;
@@ -99,7 +100,14 @@ public class Door : MonoBehaviour, IItem
                     {
                         yield return new WaitForSeconds(0.01f);
                     }
-                    doorSoundPlayer.PlayOneShot(closeSound);
+                    switch(ZeroIsBigDoor)
+                    {
+                        case 0:
+                            doorSoundPlayer.PlayOneShot(closeSound);
+                        break;
+                        default:
+                        break;
+                    }
                     ismove = false;
                     isOpen = false;
                 }

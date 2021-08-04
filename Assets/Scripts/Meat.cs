@@ -19,7 +19,7 @@ public class Meat : MonoBehaviour, IItem
         inventory = FindObjectOfType<Inventory>();
         rayInteraction = FindObjectOfType<RayInteraction>();
         fadeManager = FindObjectOfType<FadeManager>();
-        audioSource = GetComponent<AudioSource>();
+        audioSource = transform.GetChild(0).gameObject.GetComponent<AudioSource>();
         inventory.useRope += CanSet;
         pibot2 = GameObject.Find("EatTablePivot");
     }
@@ -31,7 +31,7 @@ public class Meat : MonoBehaviour, IItem
         }
         else if(canSet && canEat == false){
             rayInteraction.eatDesk = true;
-            gameObject.SetActive(false);
+            transform.parent.gameObject.SetActive(false);
         }
         else if(canSet &&canEat && isOnce)
         {
@@ -49,7 +49,7 @@ public class Meat : MonoBehaviour, IItem
     {
         yield return new WaitForSeconds(2.5f);
         pibot2.transform.GetChild(0).gameObject.SetActive(true);
-        gameObject.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+        transform.parent.GetChild(1).gameObject.SetActive(false);
         textManager.OtherTextOn(3);
         rayInteraction.eatDesk = false;
         audioSource.Stop();

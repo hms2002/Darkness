@@ -6,9 +6,11 @@ public class StorageDoor : MonoBehaviour, IItem
 {
     private AudioSource KwangSoundPlayer;
     public AudioClip KwangSound;
+    public AudioClip klurk;
     private Inventory inventory;
     private TextManager textManager;
     private Door door;
+    private bool Once = true;
     private bool youUseKnife = false;
     public bool beforeMannequinRoom = false;
     void Start()
@@ -51,6 +53,12 @@ public class StorageDoor : MonoBehaviour, IItem
                 }
             }
             else{
+                if(Once)
+                {
+                    Once = false;
+                    KwangSoundPlayer.PlayOneShot(klurk);
+                    return;
+                }
                 door.Interact();
             }
         }

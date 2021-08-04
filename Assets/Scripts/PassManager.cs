@@ -9,6 +9,7 @@ public class PassManager : MonoBehaviour
     GameObject button2;
     GameObject button3;
     GameObject button4;
+    public Sprite[] passImage = new Sprite[10];
     public int[] pass = new int[4];
     int cnt = 0;
     private void Awake() {
@@ -22,33 +23,31 @@ public class PassManager : MonoBehaviour
         button4 = transform.GetChild(3).gameObject;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void GetPass(int num)
     {
         switch(cnt)
         {
             case 0:
-            button1.GetComponent<Image>().color = Color.green;
+            button1.GetComponent<Image>().sprite = passImage[num];
+            button1.GetComponent<Image>().color = new Color(210/255f,210/255f,210/255f);
             pass[cnt] = num;
             cnt++;
             break;
             case 1:
-            button2.GetComponent<Image>().color = Color.green;
+            button2.GetComponent<Image>().sprite = passImage[num];
+            button2.GetComponent<Image>().color = new Color(210/255f,210/255f,210/255f);
             pass[cnt] = num;
             cnt++;
             break;
             case 2:
-            button3.GetComponent<Image>().color = Color.green;
+            button3.GetComponent<Image>().sprite = passImage[num];
+            button3.GetComponent<Image>().color = new Color(210/255f,210/255f,210/255f);
             pass[cnt] = num;
             cnt++;
             break;
             case 3:
-            button4.GetComponent<Image>().color = Color.green;
+            button4.GetComponent<Image>().sprite = passImage[num];
+            button4.GetComponent<Image>().color = new Color(210/255f,210/255f,210/255f);
             pass[cnt] = num;
             cnt++;
             break;
@@ -60,22 +59,26 @@ public class PassManager : MonoBehaviour
         switch(cnt)
         {
             case 1:
-            button1.GetComponent<Image>().color = Color.white;
+            button1.GetComponent<Image>().sprite = passImage[0];
+            button1.GetComponent<Image>().color = new Color(255/255f,255/255f,255/255f);
             pass[cnt-1] = -1;
             cnt--;
             break;
             case 2:
-            button2.GetComponent<Image>().color = Color.white;
+            button2.GetComponent<Image>().sprite = passImage[0];
+            button2.GetComponent<Image>().color = new Color(255/255f,255/255f,255/255f);
             pass[cnt-1] = -1;
             cnt--;
             break;
             case 3:
-            button3.GetComponent<Image>().color = Color.white;
+            button3.GetComponent<Image>().sprite = passImage[0];
+            button3.GetComponent<Image>().color = new Color(255/255f,255/255f,255/255f);
             pass[cnt-1] = -1;
             cnt--;
             break;
             case 4:
-            button4.GetComponent<Image>().color = Color.white;
+            button4.GetComponent<Image>().sprite = passImage[0];
+            button4.GetComponent<Image>().color = new Color(255/255f,255/255f,255/255f);
             pass[cnt-1] = -1;
             cnt--;
             break;
@@ -86,10 +89,15 @@ public class PassManager : MonoBehaviour
     {
         for(int i = 0; i < 4; i++)
             pass[i] = -1;
-        button1.GetComponent<Image>().color = Color.white;
-        button2.GetComponent<Image>().color = Color.white;
-        button3.GetComponent<Image>().color = Color.white;
-        button4.GetComponent<Image>().color = Color.white;
+        button1.GetComponent<Image>().sprite = passImage[0];
+        button2.GetComponent<Image>().sprite = passImage[0];
+        button3.GetComponent<Image>().sprite = passImage[0];
+        button4.GetComponent<Image>().sprite = passImage[0];
+        
+        button1.GetComponent<Image>().color = new Color(255/255f,255/255f,255/255f);
+        button2.GetComponent<Image>().color = new Color(255/255f,255/255f,255/255f);
+        button3.GetComponent<Image>().color = new Color(255/255f,255/255f,255/255f);
+        button4.GetComponent<Image>().color = new Color(255/255f,255/255f,255/255f);
         cnt = 0;
     }
 

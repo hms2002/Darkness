@@ -23,8 +23,8 @@ public class WalkSound : MonoBehaviour
     private void FixedUpdate() {
         if(inBuilding)
         {
-            audioSource.volume = 1f;
-            if(first.isSprinting)
+            audioSource.volume = 0.8f;
+            if(first.isSprinting && first.isWalking)
             {
                 if(audioSource.clip != sprintSound)
                 {
@@ -49,13 +49,13 @@ public class WalkSound : MonoBehaviour
                 }
             }
             else{
-                audioSource.Stop();
+                StartCoroutine("Vol");
             }
         }
         else if(inGround)
         {
             audioSource.volume = 0.2f;
-            if(first.isSprinting)
+            if(first.isSprinting && first.isWalking)
             {
                 if(audioSource.clip != sprintSoundGround)
                 {
@@ -80,13 +80,13 @@ public class WalkSound : MonoBehaviour
                 }
             }
             else{
-                audioSource.Stop();
+                StartCoroutine("Vol");
             }
         }
         else if(inStair)
         {
-            audioSource.volume = 0.8f;
-            if(first.isSprinting)
+            audioSource.volume = 0.7f;
+            if(first.isSprinting && first.isWalking)
             {
                 if(audioSource.clip != sprintSoundStair)
                 {
@@ -111,9 +111,20 @@ public class WalkSound : MonoBehaviour
                 }
             }
             else{
-                audioSource.Stop();
+                StartCoroutine("Vol");
             }
         }
+    }
+    
+    IEnumerator Vol()
+    {
+        while(audioSource.volume != 0)
+        {
+            audioSource.volume -= 0.001f;
+            yield return new WaitForSeconds(0.001f);
+        }
+        if(audioSource.isPlaying == false)
+        audioSource.Stop();
     }
     
 

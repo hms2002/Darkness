@@ -30,7 +30,7 @@ public class Carpet : MonoBehaviour, IItem
         Debug.Log("ds");
         if(afterLightOut == false)
         {
-        Debug.Log("dsasdasd");
+            Debug.Log("dsasdasd");
             stairTriggerDoor.FirstAction -= LayerSetInteract;
             afterLightOut = true;
             OpenCarpet();
