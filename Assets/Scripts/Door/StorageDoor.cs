@@ -30,7 +30,6 @@ public class StorageDoor : MonoBehaviour, IItem
             {
                 KwangSoundPlayer.PlayOneShot(KwangSound);
                 textManager.DoorTextOn(5);
-                StartCoroutine("IsOnFalse");
             }
         }
         else

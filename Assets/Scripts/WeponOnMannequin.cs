@@ -9,6 +9,7 @@ public class WeponOnMannequin : MonoBehaviour
     {
         inventory = FindObjectOfType<Inventory>();
         inventory.useKnife += EmbedKnife;
+        inventory.useRope += EmbedRope;
     }
 
     public void EmbedKnife()
@@ -16,9 +17,20 @@ public class WeponOnMannequin : MonoBehaviour
         StartCoroutine("IEmbedKnife");
     }
 
+    public void EmbedRope()
+    {
+        StartCoroutine("IEmbedRope");
+    }
+
     IEnumerator IEmbedKnife()
     {
         yield return new WaitForSeconds(1);
-        transform.GetChild(0).gameObject.SetActive(true);
+        transform.GetChild(2).gameObject.SetActive(true);
+    }
+
+    IEnumerator IEmbedRope()
+    {
+        yield return new WaitForSeconds(1);
+        transform.GetChild(3).gameObject.SetActive(true);
     }
 }

@@ -14,7 +14,7 @@ public class InteractDestroy : MonoBehaviour, IItem
     private bool isAfterDark = false;
     private void Start() {
         carpet = FindObjectOfType<Carpet>();
-        audioSource = GetComponent<AudioSource>();
+        audioSource = transform.parent.gameObject.GetComponent<AudioSource>();
         stairTriggerDoor = FindObjectOfType<TriggerTwoOn>();
         book = FindObjectOfType<Book>();
         gameObject.layer = 7;

@@ -30,14 +30,14 @@ public class Curton : MonoBehaviour, IItem
         {
             isOn = true;
             StartCoroutine("On");
-            anim.SetTrigger("OpenTrigger");
+            anim.SetTrigger("openTrigger");
             audioSource.PlayOneShot(curtonSound);
             isOpen = true;
         }
         else if(isOpen == true && isOn == false){
             isOn = true;
             StartCoroutine("On");
-            anim.SetTrigger("CloseTrigger");
+            anim.SetTrigger("closeTrigger");
             audioSource.PlayOneShot(curtonSound);
             isOpen = false;
         }
