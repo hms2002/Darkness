@@ -40,6 +40,7 @@ public class RayInteraction : MonoBehaviour
             GameObject hitObject = hit.collider.gameObject;
             if(Input.GetKeyDown(KeyCode.E))
             {
+                Debug.Log("D");
                 if(hitObject == null)
                 {
                     Debug.Log("!");
@@ -71,7 +72,7 @@ public class RayInteraction : MonoBehaviour
         }
         #endregion
         #region mannequin
-        else if(Physics.Raycast(rayOrigin, rayDir, out hit, distance, 1 << (LayerMask.NameToLayer("mannequin"))))
+        else if(inv.isGun == false && Physics.Raycast(rayOrigin, rayDir, out hit, distance, 1 << (LayerMask.NameToLayer("mannequin"))))
         {
             inv.isMannequin();
             if(Input.GetKeyDown(KeyCode.E))
@@ -79,6 +80,22 @@ public class RayInteraction : MonoBehaviour
                 inv.StingSuspendShot();
             }
             inv.isMannquin = true;
+        }
+        else if(inv.isGun && Physics.Raycast(rayOrigin, rayDir, out hit, 14, 1 << (LayerMask.NameToLayer("mannequin")) |  1 << (LayerMask.NameToLayer("IntObj"))))
+        {
+            if(hit.transform.CompareTag("mannequin"))
+            {
+                inv.isMannequin2(hit.distance);
+                if(Input.GetKeyDown(KeyCode.E))
+                {
+                    inv.StingSuspendShot2(hit.distance);
+                }
+                inv.isMannquin = true;
+            }
+            else
+            {
+                return;
+            }
         }
         #endregion
         #region EatDesk

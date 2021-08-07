@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class homePaintTrigger : MonoBehaviour
 {
-    public GameObject Game;
+    public GameObject Eraze;
     private AudioSource audioSource;
     public AudioClip paintSound;
     private void Start() {
@@ -15,7 +15,7 @@ public class homePaintTrigger : MonoBehaviour
         if(other.CompareTag("Player"))
         {
 
-            Game.SetActive(true);
+            Eraze.SetActive(true);
             audioSource.PlayOneShot(paintSound);
             gameObject.GetComponent<BoxCollider>().enabled = false;
         }

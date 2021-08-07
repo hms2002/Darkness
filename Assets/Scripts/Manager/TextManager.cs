@@ -6,7 +6,7 @@ public class TextManager : MonoBehaviour
 {
     //private SizeCtrl sizeCtrl;
     public bool isTextOn = false;
-    private Text text;
+    public Text text;
     public float delay;
 
     #region ScenarioField
@@ -55,7 +55,9 @@ public class TextManager : MonoBehaviour
         "이 집에서 탈출하기 위한 방법인 것 같다.",
         "나머지 힌트도 찾아보자.",
         "탈출하기 위한 힌트를 찾아야 할 것 같다.",
-        "힌트대로 행동하면 탈출할 수 있을 것 같다"//17
+        "힌트대로 행동하면 탈출할 수 있을 것 같다",//17
+        "더 멀리서 쏘자",
+        "방 밖에서 쏘자"
     };
     #endregion
     private void Start() {
@@ -145,10 +147,10 @@ public class TextManager : MonoBehaviour
             {
                 //sizeCtrl.Fix(i + 1);
                 text.text = stairScenario[scriptNum].Substring(0, i+1);
-                yield return new WaitForSeconds(delay);
+                yield return new WaitForSeconds(0.03f);
             }
             text.text = stairScenario[scriptNum];
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
             isTextOn = false;
             transform.GetChild(0).gameObject.SetActive(false);
         }

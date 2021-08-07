@@ -25,12 +25,12 @@ public class WeponOnMannequin : MonoBehaviour
     IEnumerator IEmbedKnife()
     {
         yield return new WaitForSeconds(1);
-        transform.GetChild(2).gameObject.SetActive(true);
+        transform.parent.GetChild(2).gameObject.SetActive(true);
     }
 
     IEnumerator IEmbedRope()
     {
         yield return new WaitForSeconds(1);
-        transform.GetChild(3).gameObject.SetActive(true);
+        transform.parent.GetChild(3).gameObject.SetActive(true);
     }
 }

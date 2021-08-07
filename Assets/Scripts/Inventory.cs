@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 public class Inventory : MonoBehaviour
 {
+    public static bool isInRoom = false;
     public bool isHand = true;
     public bool isKnife = false;
     public bool isGun = false;
@@ -20,8 +21,10 @@ public class Inventory : MonoBehaviour
     public AudioClip stingSound;
     public AudioClip suspendSound;
     public AudioClip shotSound;
+    private Camera playerCam;
 
     private void Start() {
+        playerCam = Camera.main;
         firstPersonController = FindObjectOfType<FirstPersonController>();
         rayInteraction = FindObjectOfType<RayInteraction>();
         textManager = FindObjectOfType<TextManager>();
@@ -67,17 +70,57 @@ public class Inventory : MonoBehaviour
                 rayInteraction.enabled = false;
                 StartCoroutine("IRopeSoundPlay");
             }
-            else if(isGun){
-                useGun();
-                isHand = true;
-                isGun = false;
-                firstPersonController.enabled = false;
-                rayInteraction.enabled = false;
-                StartCoroutine("IGunSoundPlay");
+            
+        }
+    }
+
+    public void StingSuspendShot2(float distance)
+    {
+        if(isMannquin)
+        {
+            if(isGun)
+            {
+                if(isInRoom == false)
+                {
+
+                    if(distance > 12.5)
+                    {
+                        useGun();
+                        isHand = true;
+                        isGun = false;
+                        firstPersonController.enabled = false;
+                        rayInteraction.enabled = false;
+                        StartCoroutine("IGunSoundPlay");
+                    }
+                    else
+                    {
+                        if(textManager.isTextOn == false)
+                        textManager.OtherTextOn(18);
+                    }
+                }
+                else
+                {
+                    if(textManager.isTextOn == false)
+                    textManager.OtherTextOn(19);
+                }
             }
             
         }
     }
+
+    public void DistanceCheck()
+    {
+    //     Vector3 rayOrigin = playerCam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0f));
+    //     Vector3 rayDir = playerCam.transform.forward;
+        useGun();
+        isHand = true;
+        isGun = false;
+        firstPersonController.enabled = false;
+        rayInteraction.enabled = false;
+        StartCoroutine("IGunSoundPlay");
+
+    }
+
     public void isMannequin() {
         if(isKnife)
         {
@@ -87,11 +130,35 @@ public class Inventory : MonoBehaviour
         {
             textManager.MannequinTextOn(1);
         }
-        else if(isGun)
+    }
+
+    public void isMannequin2(float distance) {
+        if(isGun)
         {
-            textManager.MannequinTextOn(2);
+            if(isInRoom == false)
+            {
+                if(distance > 12.5)
+                {
+                    if(textManager.isTextOn == false)
+                    {
+                        textManager.text.color = Color.red;
+                        textManager.MannequinTextOn(2);
+                    }
+                }
+                else
+                {
+                    textManager.text.color = Color.white;
+                    textManager.MannequinTextOn(2);
+                }
+            }
+            else
+            {
+                textManager.text.color = Color.white;
+                textManager.MannequinTextOn(2);
+            }
         }
     }
+
     IEnumerator IKnifeSoundPlay()
     {
         yield return new WaitForSeconds(1);

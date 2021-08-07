@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
     private void Update() {
         if(Input.GetKeyDown(KeyCode.Escape) && isMenuOpen == false)
         {
+            if(walkSoundPlayer != null)
             walkSoundPlayer.enabled = false;
             Crosshair.SetActive(false);
             ESCcamera.enabled = true;
@@ -58,6 +59,7 @@ public class GameManager : MonoBehaviour
         }
         else if(Input.GetKeyDown(KeyCode.Escape) && isMenuOpen == true && isCanESC)
         {
+            if(walkSoundPlayer != null)
             walkSoundPlayer.enabled = true;
             Crosshair.SetActive(true);
             ESCcamera.enabled = false;
@@ -72,6 +74,7 @@ public class GameManager : MonoBehaviour
 
     public void Continue()
     {
+        if(walkSoundPlayer != null)
         walkSoundPlayer.enabled = true;
         Debug.Log("dsd");
         Crosshair.SetActive(true);
