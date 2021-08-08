@@ -141,7 +141,7 @@ public class FirstPersonController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
 
-        crosshairObject = GetComponentInChildren<Image>();
+        crosshairObject = GameObject.Find("Reticle").GetComponent<Image>();
 
         // Set internal variables
         playerCamera.fieldOfView = fov;
@@ -174,7 +174,7 @@ public class FirstPersonController : MonoBehaviour
         }
         #region Sprint Bar
 
-        sprintBarCG = GetComponentInChildren<CanvasGroup>();
+        sprintBarCG = FindObjectOfType<CanvasGroup>();
 
         if(useSprintBar)
         {

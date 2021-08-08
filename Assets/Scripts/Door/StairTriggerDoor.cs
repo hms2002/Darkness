@@ -15,6 +15,7 @@ public class StairTriggerDoor : MonoBehaviour, IItem
     public int index =1;
     bool isOpen = false;
     bool ismove = false;
+    public GameObject handLight;
     public AudioClip closeSound2;
     private MainGameSound mainGameSound;
     private TextManager textManager;
@@ -107,6 +108,7 @@ public class StairTriggerDoor : MonoBehaviour, IItem
                 yield return new WaitForSeconds(4f);
                 doorSoundPlayer.PlayOneShot(kWANGSound2);
                 handLightOn.LightOn();
+                handLight.SetActive(true);
                 directionLight.SetActive(false);
                 dirextionLight2.SetActive(false);
                 dirextionLight3.SetActive(false);

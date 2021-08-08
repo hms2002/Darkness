@@ -54,6 +54,7 @@ public class Inventory : MonoBehaviour
         {
             if(isKnife)
             {
+                textManager.TextClose();
                 useKnife();
                 isHand = true;
                 isKnife = false;
@@ -63,6 +64,7 @@ public class Inventory : MonoBehaviour
                 return;
             }
             else if(isRope){
+                textManager.TextClose();
                 useRope();
                 isHand = true;
                 isRope = false;
@@ -85,6 +87,7 @@ public class Inventory : MonoBehaviour
 
                     if(distance > 12.5)
                     {
+                        textManager.TextClose();
                         useGun();
                         isHand = true;
                         isGun = false;
@@ -106,19 +109,6 @@ public class Inventory : MonoBehaviour
             }
             
         }
-    }
-
-    public void DistanceCheck()
-    {
-    //     Vector3 rayOrigin = playerCam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0f));
-    //     Vector3 rayDir = playerCam.transform.forward;
-        useGun();
-        isHand = true;
-        isGun = false;
-        firstPersonController.enabled = false;
-        rayInteraction.enabled = false;
-        StartCoroutine("IGunSoundPlay");
-
     }
 
     public void isMannequin() {

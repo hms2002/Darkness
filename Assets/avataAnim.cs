@@ -8,10 +8,12 @@ public class avataAnim : MonoBehaviour
     public Transform target;
     private Transform mainCam;
 
-    private void Start() {
+    private void OnEnable() {
+        
         mainCam = Camera.main.transform;
         anim = GetComponent<Animator>();
     }
+
 
     private void OnAnimatorIK(int layerIndex) {
         anim.SetIKPositionWeight(AvatarIKGoal.LeftHand, 1.0f);

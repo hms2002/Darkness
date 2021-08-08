@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class shiftMove : MonoBehaviour
 {
-    Vector3 targetPos = new Vector3(0, 0.24f, 0);
-    Vector3 nomalPos = new Vector3(0, 0.24f, 0f);
+    Vector3 targetPos = new Vector3(0, 0.9900009f, 0);
+    Vector3 nomalPos = new Vector3(0, 0.9900009f, 0f);
     void Update()
     {
         float verticalInput = Input.GetAxis("Vertical");

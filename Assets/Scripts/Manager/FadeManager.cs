@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using System;
 public class FadeManager : MonoBehaviour
 {
+    GameManager game;
     private SceneGameManager sceneGameManager;
     private GameObject fadeImageParent;
     private ClickSound clickSound;
@@ -14,13 +15,14 @@ public class FadeManager : MonoBehaviour
     public float fadeInSpeed = 0.001f;//
     public float fadeOutSpeed = 0.01f;
     private void Start() {
+        game = FindObjectOfType<GameManager>();
         sceneGameManager = FindObjectOfType<SceneGameManager>();
         fadeImageParent = GameObject.Find("FadeImageParent");
         fadeImage = fadeImageParent.transform.GetChild(0).gameObject.GetComponent<Image>();
         inventory  = FindObjectOfType<Inventory>();
         inventory.useKnife += FadeWepon;
         inventory.useRope += FadeWepon;
-        inventory.useGun += EndFade;
+        inventory.useGun += FadeWepon;
         //Cursor.lockState = CursorLockMode.Locked
     }
 
@@ -50,7 +52,7 @@ public class FadeManager : MonoBehaviour
 
     IEnumerator IEndFade()
     {
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(0.5f);
         FadeIn();
         yield return new WaitForSeconds(1);
         Text done = fadeImage.transform.GetChild(0).GetComponent<Text>();
@@ -82,9 +84,11 @@ public class FadeManager : MonoBehaviour
 
     IEnumerator IFadeWepon()
     {
+        game.enabled = false;
         StartCoroutine("IFadeIn");
         yield return new WaitForSeconds(3);
         StartCoroutine("IFadeOut");
+        game.enabled = true;
     }
 
     IEnumerator IFadeIn()

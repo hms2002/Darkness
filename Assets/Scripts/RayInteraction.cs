@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class RayInteraction : MonoBehaviour
 {
+    public Animator anim;
     private Camera playerCam;
     private float distance = 7f;
     private float targetDistance;
@@ -26,6 +27,10 @@ public class RayInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(anim.GetCurrentAnimatorStateInfo(4).IsName("New State"))
+        {
+            anim.SetLayerWeight(4, 0f);
+        }
         Vector3 rayOrigin = playerCam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0f));
         Vector3 rayDir = playerCam.transform.forward;
         #region IntObj
@@ -54,6 +59,8 @@ public class RayInteraction : MonoBehaviour
                 }
                 for(int i = 0; i < item.Length; i++)
                 item[i].Interact();
+                anim.SetLayerWeight(4, 1f);
+                anim.SetTrigger("E");
             }
         }
         #endregion
@@ -68,6 +75,8 @@ public class RayInteraction : MonoBehaviour
                 {
                     hit.transform.GetChild(0).gameObject.GetComponent<IItem>().Interact();
                 }
+                anim.SetLayerWeight(4, 1f);
+                anim.SetTrigger("E");
             }
         }
         #endregion
@@ -119,6 +128,8 @@ public class RayInteraction : MonoBehaviour
                         return;
                     }
                     item.Interact();
+                anim.SetLayerWeight(4, 1f);
+                anim.SetTrigger("E");
                 }
             }
             else
