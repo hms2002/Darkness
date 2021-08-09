@@ -51,11 +51,9 @@ public class SafeUIManager : MonoBehaviour, IItem
         }
         else
         {
-            if(isOn == false)
+            if(textManager.isTextOn == false)
             {
-                isOn = true;
                 textManager.DoorTextOn(4);
-                StartCoroutine("IsOnFalse");
             }
         }
     }

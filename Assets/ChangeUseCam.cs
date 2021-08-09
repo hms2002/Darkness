@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ChangeUseCam : MonoBehaviour
 {
+    public GameObject objectLight;
+    public GameObject lightBefore;
+    public GameObject lightAfter;
     public GameObject One;
     public Camera camPlayer;
     public Camera camEvent;
@@ -33,7 +36,10 @@ public class ChangeUseCam : MonoBehaviour
         yield return new WaitForSeconds(2);
         One.SetActive(true);
         camPlayer.enabled = false;
-        camPlayer.gameObject.GetComponent<AudioListener>().enabled = false;
+        camPlayer.transform.parent.gameObject.GetComponent<AudioListener>().enabled = false;
+        lightBefore.SetActive(false);
+        objectLight.SetActive(false);
+        lightAfter.SetActive(true);
         camEvent.enabled = true;
         camEvent.gameObject.GetComponent<AudioListener>().enabled = true;
         inv.gameObject.transform.GetChild(4).gameObject.SetActive(false);

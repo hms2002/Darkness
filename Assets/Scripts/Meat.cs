@@ -35,6 +35,7 @@ public class Meat : MonoBehaviour, IItem
         }
         else if(canSet &&canEat && isOnce)
         {
+            gameObject.layer = 0;
             fadeManager.FadeWepon();
             audioSource.PlayOneShot(meatEatSound); 
             StartCoroutine("ISetActice");
