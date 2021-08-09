@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class PassManager : MonoBehaviour
 {
     public SafeUIManager safeUIManager;
+    private AudioSource Walk;
     GameObject button1;
     GameObject button2;
     GameObject button3;
@@ -12,11 +13,9 @@ public class PassManager : MonoBehaviour
     public Sprite[] passImage = new Sprite[10];
     public int[] pass = new int[4];
     int cnt = 0;
-    private void Awake() {
+    private void OnEnable() {
         safeUIManager = FindObjectOfType<SafeUIManager>();
-    }
-    void Start()
-    {
+        
         button1 = transform.GetChild(0).gameObject;
         button2 = transform.GetChild(1).gameObject;
         button3 = transform.GetChild(2).gameObject;

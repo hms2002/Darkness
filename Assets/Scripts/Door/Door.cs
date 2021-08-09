@@ -40,6 +40,7 @@ public class Door : MonoBehaviour, IItem
 
     public void Interact()
     {
+        Debug.Log("단계 1 : 연결 됨");
         StartCoroutine("Thi");
     }
     public void TriggerStart()
@@ -60,6 +61,7 @@ public class Door : MonoBehaviour, IItem
 
     IEnumerator Thi()
     {
+        Debug.Log("단계 2 : 코루틴 실행 됨");
         if(isTriggerStart && isOpen == false)
         {
             if(textManager.isTextOn == false)
@@ -72,6 +74,7 @@ public class Door : MonoBehaviour, IItem
         {
             if(ismove == false)
             {
+                Debug.Log("단계 4 : 안 움직임");
                 if(isOpen == false)
                 {
                     doorSoundPlayer.PlayOneShot(openSound);
@@ -82,11 +85,13 @@ public class Door : MonoBehaviour, IItem
 
                         yield return new WaitForSeconds(0.007f); 
                     }
+                    Debug.Log("단계 5 : 잘 열림");
                     ismove = false;
                     isOpen = true;
                 }
                 else
                 {
+                    Debug.Log("단계 4 : 안 움직임");
                     doorSoundPlayer.PlayOneShot(closeSound2);
                     ismove = true;
                     for(int i = 0; i < 60; i++)
@@ -96,7 +101,7 @@ public class Door : MonoBehaviour, IItem
                         yield return new WaitForSeconds(0.007f); 
                     }
 
-                    while(!(doorSoundPlayer.isPlaying == true))
+                    while((doorSoundPlayer.isPlaying == true))
                     {
                         yield return new WaitForSeconds(0.01f);
                     }
@@ -108,6 +113,7 @@ public class Door : MonoBehaviour, IItem
                         default:
                         break;
                     }
+                    Debug.Log("단계 5 : 잘 닫힘");
                     ismove = false;
                     isOpen = false;
                 }

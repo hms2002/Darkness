@@ -156,7 +156,7 @@ public class StairTriggerDoor : MonoBehaviour, IItem
             yield return new WaitForSeconds(0.007f); 
         }
 
-        while(!(doorSoundPlayer.isPlaying == true))
+        while((doorSoundPlayer.isPlaying == true))
         {
             yield return new WaitForSeconds(0.01f);
         }

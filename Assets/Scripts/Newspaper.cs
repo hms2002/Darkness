@@ -7,6 +7,7 @@ public class Newspaper : MonoBehaviour, IItem
 {
     private AudioSource audioSource;
     public AudioClip goSound;
+    public AudioClip newsSound;
     public Image newspapper;
     public Text conversationText;
     public Text ScriptText;
@@ -63,6 +64,7 @@ public class Newspaper : MonoBehaviour, IItem
     public void Interact()
     {
         audioSource = GetComponent<AudioSource>();
+        audioSource.PlayOneShot(newsSound);
         Player.GetComponent<FirstPersonController>().enabled = false;
         blawScreen.transform.GetChild(0).gameObject.SetActive(true);
         transform.GetChild(0).gameObject.SetActive(false);

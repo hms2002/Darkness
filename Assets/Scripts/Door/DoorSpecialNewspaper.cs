@@ -99,7 +99,7 @@ public class DoorSpecialNewspaper : MonoBehaviour, IItem
                         yield return new WaitForSeconds(0.01f); 
                     }
 
-                    while(!(doorSoundPlayer.isPlaying == true))
+                    while((doorSoundPlayer.isPlaying == true))
                     {
                         yield return new WaitForSeconds(0.01f);
                     }

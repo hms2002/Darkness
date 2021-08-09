@@ -15,11 +15,11 @@ C:/Users/hms03/OneDrive/바탕 화면/Darkness/Darkness
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-50907
+61082
 Successfully changed project path to: C:/Users/hms03/OneDrive/바탕 화면/Darkness/Darkness
 C:/Users/hms03/OneDrive/바탕 화면/Darkness/Darkness
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 73.13 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 78.17 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.1.1f1 (6fdc41dfa55a)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity 2021.1.1f1/Editor/Data/Resources/UnitySubsystems
@@ -35,89 +35,64 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity 2021.1.1f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity 2021.1.1f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity 2021.1.1f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56952
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56508
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity 2021.1.1f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001600 seconds.
+Registered in 0.001652 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 75.84 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 77.82 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.974 seconds
+- Completed reload, in  1.057 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.002724 seconds.
+Registered in 0.002752 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.59 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 0.62 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.830 seconds
+- Completed reload, in  0.855 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Refreshing native plugins compatible for Editor in 0.59 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 0.60 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2815 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 131.2 MB.
 System memory in use after: 131.4 MB.
 
 Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 3307.
-Total: 2.178500 ms (FindLiveObjects: 0.334700 ms CreateObjectMapping: 0.090300 ms MarkObjects: 1.600200 ms  DeleteObjects: 0.151500 ms)
+Total: 2.778100 ms (FindLiveObjects: 0.348800 ms CreateObjectMapping: 0.168000 ms MarkObjects: 2.097200 ms  DeleteObjects: 0.162700 ms)
+
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 1.86 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 8 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 75.0 MB.
+System memory in use after: 75.2 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 3307.
+Total: 2.526600 ms (FindLiveObjects: 0.321200 ms CreateObjectMapping: 0.137100 ms MarkObjects: 1.925300 ms  DeleteObjects: 0.140700 ms)
 
 ========================================================================
 Received Import Request.
-  path: Assets/책
-  artifactKey: Guid(b28c10f9246d97a42ba487e5b09ab681) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/책 using Guid(b28c10f9246d97a42ba487e5b09ab681) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0c29ee5d5c212aa5aff8bb63cc311e00') in 0.010936 seconds 
+  path: Assets/Scenes/scene.unity
+  artifactKey: Guid(634c41117f48a1940933d58845b6f252) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/scene.unity using Guid(634c41117f48a1940933d58845b6f252) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e35d6185397065bcc064188a451e781c') in 0.013525 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.780454 seconds.
-  path: Assets/박스
-  artifactKey: Guid(c5f09138c49d2054e8a6ed8c72028c4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/박스 using Guid(c5f09138c49d2054e8a6ed8c72028c4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '92c1cf64ffd69a09a7dab97b0585b796') in 0.007241 seconds 
+  Time since last request: 0.000329 seconds.
+  path: Assets/Scenes/Darkness.unity
+  artifactKey: Guid(a55b25866cf031a4c9c2a7a2fd950cb4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Darkness.unity using Guid(a55b25866cf031a4c9c2a7a2fd950cb4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '476dd24275d1573528ba19ebe60345b3') in 0.008461 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 82.306949 seconds.
-  path: Assets/책/책.prefab
-  artifactKey: Guid(ef5fa4c0d28c0af438e24a0e5c4ba080) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/책/책.prefab using Guid(ef5fa4c0d28c0af438e24a0e5c4ba080) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '61ac3b1b8905565c60617a62e5c18369') in 0.036404 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 339.611686 seconds.
-  path: Assets/책/책.prefab
-  artifactKey: Guid(8162b1de4f6700d4faa69fe0af4be98b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/책/책.prefab using Guid(8162b1de4f6700d4faa69fe0af4be98b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'da2ff0ae2b6fc4b27f5b5e6962d6d69e') in 0.090842 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 100.262858 seconds.
-  path: Assets/쓰레기 봉투
-  artifactKey: Guid(7315ddc0e53951540900041c92807fc0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/쓰레기 봉투 using Guid(7315ddc0e53951540900041c92807fc0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '635f7c780d6c9d82d13997632d661e36') in 0.007286 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 5.285016 seconds.
-  path: Assets/쓰레기 봉투/쓰레기 봉투.prefab
-  artifactKey: Guid(e984eb1187e72ed4f9476edb0367d3a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/쓰레기 봉투/쓰레기 봉투.prefab using Guid(e984eb1187e72ed4f9476edb0367d3a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9ac53b88ac2769f553227fc795cd6f44') in 0.005789 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 79.120885 seconds.
-  path: Assets/쓰레기 봉투/쓰레기 봉투.obj
-  artifactKey: Guid(b50f4f80f82b99343ae405450a055a2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/쓰레기 봉투/쓰레기 봉투.obj using Guid(b50f4f80f82b99343ae405450a055a2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4a91bf044ea8c4edf8ee284d7fe5418e') in 0.055246 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 4.002840 seconds.
-  path: Assets/쓰레기 봉투/쓰레기 봉투.obj
-  artifactKey: Guid(b50f4f80f82b99343ae405450a055a2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/쓰레기 봉투/쓰레기 봉투.obj using Guid(b50f4f80f82b99343ae405450a055a2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '456199d1c2e8feb8d063ad05e26bc326') in 0.026944 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 75.136996 seconds.
-  path: Assets/Prefabs/EndMap/소품/소품TM.jpg
-  artifactKey: Guid(fe0512456e769a1419a868ab8fb534a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EndMap/소품/소품TM.jpg using Guid(fe0512456e769a1419a868ab8fb534a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0d915fb5e6d136cbcab816e0f32ae8c5') in 0.067296 seconds 
+  Time since last request: 299.795299 seconds.
+  path: Assets/Prefabs/EndMap/침실 및 복도
+  artifactKey: Guid(4e0cc4a0f675a5b429ccb570078e3b53) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/EndMap/침실 및 복도 using Guid(4e0cc4a0f675a5b429ccb570078e3b53) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b9e301335d5fec676b4e276e98491fe2') in 0.008593 seconds 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file

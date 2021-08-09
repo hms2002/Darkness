@@ -12,6 +12,7 @@ public class TriggerF : MonoBehaviour
         if(hintManager.cnt == 1)
         {
             StartCoroutine("TextStart");
+            gameObject.GetComponent<BoxCollider>().enabled = false;
         }
         else
         {

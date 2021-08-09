@@ -39,11 +39,6 @@ public class SafeUIManager : MonoBehaviour, IItem
         {
             if(isOpen == false)
             {
-                if(atFirst)
-                {
-                    atFirst = false;
-                    BackAction();
-                }
                 walkSound.enabled = false;
                 gameManager.isCanESC = false;
                 game.SetActive(true);
@@ -56,6 +51,11 @@ public class SafeUIManager : MonoBehaviour, IItem
             
             }
             else{
+                if(atFirst)
+                {
+                    atFirst = false;
+                    BackAction();
+                }
                 door.Interact();
             }
         }
@@ -72,7 +72,6 @@ public class SafeUIManager : MonoBehaviour, IItem
         {
             if(Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.E))
             {
-                walkSound.enabled = true;
                 CloseUI();
                 gameManager.isCanESC = true;
             }
@@ -80,6 +79,7 @@ public class SafeUIManager : MonoBehaviour, IItem
     }
     public void CloseUI()
     {
+        walkSound.enabled = true;
         Pass.Reseting();
         Pass = null;
         UION = false;

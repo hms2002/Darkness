@@ -13,10 +13,12 @@ public class Book : MonoBehaviour, IItem
     public Action readBookFirst;
     private bool isOpen = false;
     private bool Once = true;
+    private AudioSource walk;
     private bool afterLightOut = false;
     Carpet carpet;
 
     private void Start() {
+        walk = FindObjectOfType<WalkSound>().gameObject.GetComponent<AudioSource>();
         gameObject.layer = 7;
         carpet = FindObjectOfType<Carpet>();
         stairTriggerDoor = FindObjectOfType<TriggerTwoOn>();
@@ -31,6 +33,7 @@ public class Book : MonoBehaviour, IItem
         {
             if(Input.GetKeyDown(KeyCode.E))
             {
+                walk.enabled = true;
                 Player.GetComponent<FirstPersonController>().enabled = true;
                 Player.GetComponent<RayInteraction>().enabled = true;
                 bookCanvas.SetActive(false);
@@ -51,13 +54,15 @@ public class Book : MonoBehaviour, IItem
         {
             
             if(Once)
-            {
+            {                
+
                 Once = false;
                 battery = FindObjectOfType<BatteryScript>();
                 stand = FindObjectOfType<Stand>();
                 stand.LayerOn();
                 battery.afterReadBook = true;
             }
+                walk.enabled = false;
             Player.GetComponent<FirstPersonController>().enabled = false;
             Player.GetComponent<RayInteraction>().enabled = false;
             isOpen = true;
@@ -76,6 +81,7 @@ public class Book : MonoBehaviour, IItem
                 afterLightOut = true;
                 battery.afterReadBook = true;
             }
+            walk.enabled = false;
             Player.GetComponent<FirstPersonController>().enabled = false;
             Player.GetComponent<RayInteraction>().enabled = false;
             isOpen = true;
