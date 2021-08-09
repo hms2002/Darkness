@@ -27,7 +27,7 @@ public class ChangeUseCam : MonoBehaviour
 
     IEnumerator C()
     {
-        yield return new WaitForSeconds(7);
+        yield return new WaitForSeconds(3);
         camEvent.gameObject.GetComponent<Animator>().SetTrigger("animStart");
     }
 

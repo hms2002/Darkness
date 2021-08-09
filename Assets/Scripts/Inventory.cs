@@ -11,6 +11,7 @@ public class Inventory : MonoBehaviour
     public bool isRope = false;
     public bool isMannquin = false;
     public bool isKey = false;
+    public GameObject Gun;
     private FirstPersonController firstPersonController;
     private RayInteraction rayInteraction;
     public event Action useKnife;
@@ -22,6 +23,7 @@ public class Inventory : MonoBehaviour
     public AudioClip suspendSound;
     public AudioClip shotSound;
     private Camera playerCam;
+    public Animator anim;
 
     private void Start() {
         playerCam = Camera.main;
@@ -44,6 +46,7 @@ public class Inventory : MonoBehaviour
     }
     public void GetGun()
     {
+        Gun.SetActive(true);
         isGun = true;
         isHand = false;
         
@@ -125,6 +128,8 @@ public class Inventory : MonoBehaviour
     public void isMannequin2(float distance) {
         if(isGun)
         {
+            anim.SetLayerWeight(5, 1f);
+            anim.SetTrigger("Aiming");
             if(isInRoom == false)
             {
                 if(distance > 12.5)

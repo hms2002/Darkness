@@ -184,6 +184,7 @@ public class RayInteraction : MonoBehaviour
         #endregion
         else
         {
+            anim.SetLayerWeight(5, 0f);
             inv.isMannquin = false;
             textManager.TextClose();
         } 
