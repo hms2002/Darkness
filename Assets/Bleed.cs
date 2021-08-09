@@ -12,6 +12,7 @@ public class Bleed : MonoBehaviour
     private AudioSource audio2;
     private AudioSource audio3;
 
+    public AudioClip fallDown;
     public AudioClip clipHeart;
     public AudioClip clipDeath;
     public AudioClip clipEnd;
@@ -27,6 +28,12 @@ public class Bleed : MonoBehaviour
     {
         anim2.SetTrigger("Up");
         anim3.SetTrigger("Down");
+    }
+
+    public void FallDown()
+    {
+        audio1 = gameObject.GetComponent<AudioSource>();
+        audio1.PlayOneShot(fallDown);
     }
 
     public void SoundOn()
