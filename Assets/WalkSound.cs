@@ -21,6 +21,10 @@ public class WalkSound : MonoBehaviour
     }
 
     private void FixedUpdate() {
+        if(audioSource.enabled == false)
+        {
+            return;
+        }
         if(inBuilding)
         {
             audioSource.volume = 0.8f;

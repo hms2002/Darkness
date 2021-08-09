@@ -24,8 +24,10 @@ public class Inventory : MonoBehaviour
     public AudioClip shotSound;
     private Camera playerCam;
     public Animator anim;
+    private MannequinManager manager;
 
     private void Start() {
+        manager = FindObjectOfType<MannequinManager>();
         playerCam = Camera.main;
         firstPersonController = FindObjectOfType<FirstPersonController>();
         rayInteraction = FindObjectOfType<RayInteraction>();
@@ -40,6 +42,7 @@ public class Inventory : MonoBehaviour
     }
     public void GetRope()
     {
+        manager.SetBack();
         isRope = true;
         isHand = false;
         

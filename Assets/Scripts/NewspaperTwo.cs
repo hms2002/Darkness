@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 public class NewspaperTwo : MonoBehaviour, IItem
 {
+    public AudioSource walkSound;
+
     public GameObject CCTVQuad;
     private AudioSource audioSource;
     public AudioClip newspaperSound;
@@ -17,6 +19,7 @@ public class NewspaperTwo : MonoBehaviour, IItem
     private bool isOnce = true;
     private bool firstTVON = false;
     private void Start() {
+        walkSound = FindObjectOfType<WalkSound>().gameObject.GetComponent<AudioSource>();
         audioSource = GetComponent<AudioSource>();
         inventory = FindObjectOfType<Inventory>();
         Player = GameObject.Find("Player");
@@ -27,8 +30,9 @@ public class NewspaperTwo : MonoBehaviour, IItem
     private void Update() {
         if(newsOn)
         {
-            if(Input.GetKeyDown(KeyCode.E))
+            if(Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Escape))
             {
+                walkSound.enabled = true;
                 Player.GetComponent<FirstPersonController>().enabled = true;
                 Player.GetComponent<RayInteraction>().enabled = true;
                 Newspaper.transform.GetChild(0).gameObject.SetActive(false);
@@ -47,6 +51,7 @@ public class NewspaperTwo : MonoBehaviour, IItem
 
     public void Interact()
     {
+        walkSound.enabled = false;
         audioSource.PlayOneShot(newspaperSound);
         StartCoroutine("Control");
         if(isUseKnife && isOnce)

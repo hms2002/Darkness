@@ -8,6 +8,7 @@ public class SafeUIManager : MonoBehaviour, IItem
     private GameManager gameManager;
     public GameObject game;
     private GameObject Player;
+    private AudioSource walkSound;
     private AudioSource audioSource;
     public AudioClip openSafeSound;
     public AudioClip closeSafeSound;
@@ -15,13 +16,16 @@ public class SafeUIManager : MonoBehaviour, IItem
     private TextManager textManager;
     private Inventory inventory;
     private Door door;
+    public Action BackAction;
     public Action SafeOpenAction;
     bool UION = false;
+    public bool atFirst = true;
     public bool canUse = false;
     public bool isOpen = false;
     private bool isOn = false;
     
     private void Start() {
+        walkSound = FindObjectOfType<WalkSound>().gameObject.GetComponent<AudioSource>();
         gameManager = FindObjectOfType<GameManager>();
         Player = GameObject.FindWithTag("Player");
         textManager = FindObjectOfType<TextManager>();
@@ -35,6 +39,12 @@ public class SafeUIManager : MonoBehaviour, IItem
         {
             if(isOpen == false)
             {
+                if(atFirst)
+                {
+                    atFirst = false;
+                    BackAction();
+                }
+                walkSound.enabled = false;
                 gameManager.isCanESC = false;
                 game.SetActive(true);
                 Pass = FindObjectOfType<PassManager>();
@@ -60,8 +70,9 @@ public class SafeUIManager : MonoBehaviour, IItem
     private void Update() {
         if(UION)
         {
-            if(Input.GetKeyDown(KeyCode.Escape))
+            if(Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.E))
             {
+                walkSound.enabled = true;
                 CloseUI();
                 gameManager.isCanESC = true;
             }

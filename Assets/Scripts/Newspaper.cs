@@ -75,7 +75,7 @@ public class Newspaper : MonoBehaviour, IItem
     IEnumerator GoSceneLater()
     {
         audioSource.PlayOneShot(goSound);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(22f);
         sceneGameManager.GoScene3();
     }
     IEnumerator IT()
