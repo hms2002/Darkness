@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Exit : MonoBehaviour
 {
+    private AudioSource audioSource;
+    public AudioClip audioclip;
     private FadeManager fadeManager;
     private SceneGameManager scene;
     void Start()
@@ -13,14 +15,10 @@ public class Exit : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void ExitGame()
     {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.PlayOneShot(audioclip);
         fadeManager.FadeIn();
         StartCoroutine("Out");
     }

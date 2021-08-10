@@ -4,6 +4,9 @@ using UnityEngine;
 using System;
 public class Book : MonoBehaviour, IItem
 {
+    private TextManager textManager;
+    private AudioSource audioSource;
+    public AudioClip bookOpenSound;
     private TriggerTwoOn stairTriggerDoor;
     public GameObject bookCanvas;
     public GameObject Player;
@@ -18,6 +21,8 @@ public class Book : MonoBehaviour, IItem
     Carpet carpet;
 
     private void Start() {
+        textManager = FindObjectOfType<TextManager>();
+        audioSource = GetComponent<AudioSource>();
         walk = FindObjectOfType<WalkSound>().gameObject.GetComponent<AudioSource>();
         gameObject.layer = 7;
         carpet = FindObjectOfType<Carpet>();
@@ -50,12 +55,12 @@ public class Book : MonoBehaviour, IItem
 
     public void Interact()
     {
+                audioSource.PlayOneShot(bookOpenSound);
         if(isOpen == false && afterLightOut)
         {
             
             if(Once)
             {                
-
                 Once = false;
                 battery = FindObjectOfType<BatteryScript>();
                 stand = FindObjectOfType<Stand>();
@@ -65,6 +70,7 @@ public class Book : MonoBehaviour, IItem
                 walk.enabled = false;
             Player.GetComponent<FirstPersonController>().enabled = false;
             Player.GetComponent<RayInteraction>().enabled = false;
+                textManager.TextClose();
             isOpen = true;
             bookCanvas.SetActive(true);
             
@@ -84,6 +90,7 @@ public class Book : MonoBehaviour, IItem
             walk.enabled = false;
             Player.GetComponent<FirstPersonController>().enabled = false;
             Player.GetComponent<RayInteraction>().enabled = false;
+                textManager.TextClose();
             isOpen = true;
             bookCanvas.SetActive(true);
             readBookFirst();

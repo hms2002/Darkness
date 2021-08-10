@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ChangeUseCam : MonoBehaviour
 {
+    public GameObject gameObjectCrosshair;
     public GameObject objectLight;
     public GameObject lightBefore;
     public GameObject lightAfter;
@@ -34,6 +35,7 @@ public class ChangeUseCam : MonoBehaviour
     IEnumerator change()
     {
         yield return new WaitForSeconds(2);
+        gameObjectCrosshair.SetActive(false);
         One.SetActive(true);
         camPlayer.enabled = false;
         camPlayer.transform.parent.gameObject.GetComponent<AudioListener>().enabled = false;

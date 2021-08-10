@@ -93,6 +93,7 @@ public class Inventory : MonoBehaviour
 
                     if(distance > 12.5)
                     {
+                        FindObjectOfType<WalkSound>().gameObject.GetComponent<AudioSource>().enabled = false;
                         textManager.TextClose();
                         useGun();
                         isHand = true;

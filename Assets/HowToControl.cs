@@ -5,8 +5,12 @@ using UnityEngine.UI;
 public class HowToControl : MonoBehaviour
 {
     private FadeManager fadeManager;
+    private AudioSource audioSource;
+    public AudioClip startSound;
     private Text text;
     private void OnEnable() {
+        audioSource = FindObjectOfType<AudioSource>();
+        audioSource.PlayOneShot(startSound);
         fadeManager = FindObjectOfType<FadeManager>();
         text = transform.GetChild(1).gameObject.GetComponent<Text>();
         StartCoroutine("FiveCount");

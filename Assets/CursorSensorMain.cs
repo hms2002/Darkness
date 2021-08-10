@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class CursorSensorMain : MonoBehaviour
 {
+    private ButtonSoundplay button;
     private GameManager gameManager;
     private SceneGameManager scene;
     public GameObject optionCanvas;
@@ -17,6 +18,7 @@ public class CursorSensorMain : MonoBehaviour
         Once = false;
     }
     private void OnEnable() {
+        button = FindObjectOfType<ButtonSoundplay>();
         Debug.Log("Go");
         text.color = Color.white;
     }
@@ -30,6 +32,9 @@ public class CursorSensorMain : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.Escape))
             {
+                transform.parent.GetChild(2).gameObject.GetComponent<BoxCollider2D>().enabled = true;
+                transform.parent.GetChild(3).gameObject.GetComponent<BoxCollider2D>().enabled = true;
+                transform.parent.GetChild(4).gameObject.GetComponent<BoxCollider2D>().enabled = true;
                 optionCanvas.SetActive(false);
                 gameManager.isCanESC = true;
                 isSettingOn = false;
@@ -56,6 +61,7 @@ public class CursorSensorMain : MonoBehaviour
     private void OnMouseUp() {
         if(isSettingOn == false)
         {
+            button.Click();
             text.color = new Color(253/255f, 92/255f, 92/255f);
             
             switch(index)
@@ -64,6 +70,9 @@ public class CursorSensorMain : MonoBehaviour
                     gameManager.Continue();
                 break;
                 case 2:
+                transform.parent.GetChild(2).gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                transform.parent.GetChild(3).gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                transform.parent.GetChild(4).gameObject.GetComponent<BoxCollider2D>().enabled = false;
                     optionCanvas.SetActive(true);
                     gameManager.isCanESC = false;
                     isSettingOn = true;

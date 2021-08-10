@@ -39,12 +39,14 @@ public class SafeUIManager : MonoBehaviour, IItem
         {
             if(isOpen == false)
             {
+                
                 walkSound.enabled = false;
                 gameManager.isCanESC = false;
                 game.SetActive(true);
                 Pass = FindObjectOfType<PassManager>();
                 Player.GetComponent<FirstPersonController>().enabled = false;
                 Player.GetComponent<RayInteraction>().enabled = false;
+                textManager.TextClose();
                 audioSource = GetComponent<AudioSource>();
                 Cursor.lockState = CursorLockMode.Confined;
                 UION = true;

@@ -43,7 +43,7 @@ public class SceneGameManager : MonoBehaviour
 
     IEnumerator fd()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(7);
         Cursor.lockState = CursorLockMode.Confined;
         SceneManager.LoadSceneAsync(0);
     }

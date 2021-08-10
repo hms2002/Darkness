@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Bleed : MonoBehaviour
 {
+    private Murder murder;
+
     public Animator anim;
     public Animator anim2;
     public Animator anim3;
@@ -19,6 +21,13 @@ public class Bleed : MonoBehaviour
 
     private FadeManager fadeManager;
 
+
+    public void MurderStart()
+    {
+        murder = FindObjectOfType<Murder>();
+        murder.MurderOn();
+    }
+
     public void BleedStart()
     {
         anim.SetTrigger("Bleed");
@@ -33,8 +42,20 @@ public class Bleed : MonoBehaviour
     public void FallDown()
     {
         audio1 = gameObject.GetComponent<AudioSource>();
+        audio1.volume = 0.5f;
         audio1.PlayOneShot(fallDown);
+        StartCoroutine("IfallDown");
     }
+
+    IEnumerator IfallDown()
+    {
+        while (audio1.isPlaying == true)
+        {
+            yield return new WaitForSeconds(0.1f);
+        }
+        audio1.volume=0;
+    }
+
 
     public void SoundOn()
     {
@@ -66,29 +87,47 @@ public class Bleed : MonoBehaviour
     IEnumerator Snd1()
     {
         audio2.Play();
-        while (audio2.volume < 1)
+        while (audio2.volume < 0.5f)
         {
             yield return new WaitForSeconds(0.02f);
             audio2.volume += 0.002f;
         }
         StartCoroutine("Snd3");
+        yield return new WaitForSeconds(11f);
+        while (audio2.volume > 0f)
+        {
+            yield return new WaitForSeconds(0.02f);
+            audio2.volume -= 0.002f;
+        }
     }
     IEnumerator Snd2()
     {
         audio3.Play();
-        while (audio3.volume < 1)
+        while (audio3.volume < 0.5f)
         {
             yield return new WaitForSeconds(0.02f);
             audio3.volume += 0.002f;
+        }
+        yield return new WaitForSeconds(11f);
+        while (audio3.volume > 0f)
+        {
+            yield return new WaitForSeconds(0.02f);
+            audio3.volume -= 0.002f;
         }
     }
     IEnumerator Snd3()
     {
         audio1.Play();
-        while (audio1.volume < 1)
+        while (audio1.volume < 0.5f)
         {
             yield return new WaitForSeconds(0.01f);
-            audio1.volume += 0.04f;
+            audio1.volume += 0.01f;
+        }
+        yield return new WaitForSeconds(10f);
+        while (audio1.volume > 0f)
+        {
+            yield return new WaitForSeconds(0.02f);
+            audio1.volume -= 0.002f;
         }
     }
 }

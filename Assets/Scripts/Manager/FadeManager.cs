@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using System;
 public class FadeManager : MonoBehaviour
 {
+    private Animator CreditAnim;
     GameManager game;
     private SceneGameManager sceneGameManager;
     private GameObject fadeImageParent;
@@ -56,6 +57,7 @@ public class FadeManager : MonoBehaviour
         FadeIn();
         yield return new WaitForSeconds(1);
         Text done = fadeImage.transform.GetChild(0).GetComponent<Text>();
+        CreditAnim = done.gameObject.GetComponent<Animator>();
         Color startColor = done.color;
         for(int i = 0; i < 100; i++)
         {
@@ -64,7 +66,9 @@ public class FadeManager : MonoBehaviour
             done.color =  startColor;
             yield return new WaitForSeconds(fadeInSpeed);
         }
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(3f);
+        CreditAnim.SetTrigger("CreditOn");
+        yield return new WaitForSeconds(1f);
         sceneGameManager.StartCoroutine("fd");
 
     }

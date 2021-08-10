@@ -4,11 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 public class NewspaperTwo : MonoBehaviour, IItem
 {
-    public AudioSource walkSound;
-
+    private AudioSource walkSound;
+    public GameObject TriggerCCTV;
     public GameObject CCTVQuad;
     private AudioSource audioSource;
     public AudioClip newspaperSound;
+    public GameObject pointLight;
     private GameObject triggerFive;
     private GameObject Player;
     private GameObject Newspaper;
@@ -41,6 +42,8 @@ public class NewspaperTwo : MonoBehaviour, IItem
                 {
                     if(firstTVON == false)
                     {
+                        TriggerCCTV.SetActive(true);
+                        pointLight.SetActive(true);
                         CCTVQuad.SetActive(true);
                         firstTVON = true;
                     }

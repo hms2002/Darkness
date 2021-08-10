@@ -30,6 +30,7 @@ public class HintOne : MonoBehaviour, IItem
                 textManager.OtherTextOn(9);
             }
             hint.GetHint(HintNum);
+            transform.parent.gameObject.GetComponent<BoxCollider>().enabled = false;
             gameObject.SetActive(false);
         }
     }
